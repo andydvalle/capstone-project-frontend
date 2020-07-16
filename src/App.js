@@ -13,7 +13,7 @@ class App extends Component {
 
   // on submit from Login.js
   onLogin = (token) => {
-    console.log(`loggin in ... ${token.username}`)
+    console.log(`loggin in ... ${token.username}`);
     // const updatedState = {
     //   ...this.state.auth,
     //   user: { id: token.id, name: token.name },
@@ -35,8 +35,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Login onLogin={this.onLogin} />
-        <Dashboard />
+        <Route
+          exact
+          path="/login"
+          render={(props) => <Login {...props} onLogin={this.onLogin} />}
+        />
+
+        <Route
+          exact
+          path="/dashboard"
+          render={(props) => <Dashboard {...props} />}
+        />
       </div>
     );
   }
