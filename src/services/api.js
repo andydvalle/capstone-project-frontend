@@ -12,6 +12,7 @@ const headers = () => {
 
 //sends login information to backend, auth#create
 const login = data => {
+    console.log(data)
     return fetch('http://localhost:3000/api/v1/auth', {
         method: "POST",
         headers: headers(),
@@ -19,12 +20,13 @@ const login = data => {
     }).then(resp => resp.json());
 }
 
+
 //get fetch the current user after login
 const getCurrentUser = () => {
-    const URL = "http://localhost:3000/api/v1/current_user"
-    return fetch(URL,{
+    const URL = 'http://localhost:3000/api/v1/current_user'
+    return fetch(URL, {
         headers: headers()
-    }).then(resp=>{
+    }).then(resp => {
         console.log(resp)
         return resp.json()
     })
@@ -32,9 +34,9 @@ const getCurrentUser = () => {
 
 //GET fetch all users
 const getAllUsers = () => {
-    const URL = "http://localhost:3000/api/v1/users"
+    const URL = 'http://localhost:3000/api/v1/users'
     return fetch(URL)
-    .then(resp=>resp.json())
+    .then(resp => resp.json())
 }
 
 //exports all functions 

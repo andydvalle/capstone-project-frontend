@@ -14,12 +14,12 @@ class App extends Component {
   // on submit from Login.js
   onLogin = (token) => {
     console.log(`loggin in ... ${token.username}`);
-    // const updatedState = {
-    //   ...this.state.auth,
-    //   user: { id: token.id, name: token.name },
-    // };
-    // localStorage.setItem("token", token.jwt);
-    // this.setState({ auth: updatedState });
+    const updatedState = {
+      ...this.state.auth,
+      user: { id: token.id, name: token.name },
+    };
+    localStorage.setItem("token", token.jwt);
+    this.setState({ auth: updatedState });
   };
 
   // // on submit from pending Logout button

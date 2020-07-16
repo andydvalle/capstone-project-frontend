@@ -20,18 +20,15 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.onLogin(this.state.fields);
-    this.props.history.push("/dashboard")
-
-    // // fetch request to login from /services/api.js
-    // api.auth.login(this.state.fields).then((resp) => {
-    //   if (!resp.error) {
-    //     this.props.onLogin(resp);
-    //     this.props.history.push("/dashboard");
-    //   } else {
-    //     this.setState({ eror: true });
-    //   }
-    // });
+    // fetch request to login from api.js
+    api.auth.login(this.state.fields).then((resp) => {
+      if (!resp.error) {
+        this.props.onLogin(resp);
+        this.props.history.push("/dashboard");
+      } else {
+        this.setState({ error: true });
+      }
+    });
   };
 
   render() {
