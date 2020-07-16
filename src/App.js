@@ -16,21 +16,22 @@ class App extends Component {
     console.log(`loggin in ... ${token.username}`);
     const updatedState = {
       ...this.state.auth,
-      user: { id: token.id, name: token.name },
+      user: { id: token.id, username: token.username },
     };
     localStorage.setItem("token", token.jwt);
     this.setState({ auth: updatedState });
   };
 
-  // // on submit from pending Logout button
-  // onLogout = () => {
-  //   localStorage.removeItem("token");
-  //   this.setState({
-  //     auth: {
-  //       user: {},
-  //     },
-  //   });
-  // };
+  // on submit from pending Logout button
+  onSignout = () => {
+    console.log(`... signing out`)
+    localStorage.removeItem("token");
+    this.setState({
+      auth: {
+        user: {},
+      },
+    });
+  };
 
   render() {
     return (
@@ -44,7 +45,7 @@ class App extends Component {
         <Route
           exact
           path="/dashboard"
-          render={(props) => <Dashboard {...props} />}
+          render={(props) => <Dashboard {...props} onSignout={this.onSignout}/>}
         />
       </div>
     );
