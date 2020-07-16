@@ -21,6 +21,7 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.onLogin(this.state.fields);
+    this.props.history.push("/dashboard")
 
     // // fetch request to login from /services/api.js
     // api.auth.login(this.state.fields).then((resp) => {
