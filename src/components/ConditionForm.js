@@ -6,8 +6,8 @@ const ConditionForm = () => {
     const condition = useFormInput("")
   
     return (
-        <div>
-            Hi from ConditionForm
+        <div className="temp-border">
+        Hi from ConditionForm
             <form>
                 <label>Condition:</label>
                 <input {...condition}/>

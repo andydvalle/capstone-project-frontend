@@ -34,8 +34,8 @@ class Login extends Component {
   render() {
     const { fields } = this.state;
     return (
-      <div>
-        Hi from Login
+      <div className="temp-border">
+      Hi from Login
         <div>
           <form onSubmit={this.handleSubmit}>
             <div>

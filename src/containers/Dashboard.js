@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import ConditionForm from '../components/ConditionForm'
+// import ConditionForm from '../components/ConditionForm'
+import FormModal from './FormModal'
 
 class Dashboard extends Component {
 
@@ -11,9 +12,9 @@ class Dashboard extends Component {
     render(){
 
         return(
-            <div>
+            <div className="temp-border">
                 {this.props.user.username} Hi from dashboard
-                <ConditionForm />
+                <FormModal />
             </div>
         )
     }

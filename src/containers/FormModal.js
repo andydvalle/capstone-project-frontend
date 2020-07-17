@@ -4,9 +4,9 @@ import ConditionForm from "../components/ConditionForm"
 class FormModal extends Component {
   render() {
     return (
-      <div>
-        Hi from FormModal
-        <ConditionForm/>
+      <div className="temp-border">
+      Hi from FormModal
+        <ConditionForm />
       </div>
     );
   }

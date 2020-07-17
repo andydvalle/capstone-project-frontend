@@ -1,3 +1,8 @@
+.temp-border {
+  border-style: solid;
+  margin: 3px;
+}
+
 .App {
   text-align: center;
 }

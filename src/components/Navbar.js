@@ -11,7 +11,7 @@ class Navbar extends Component {
         // const currentUser = this.props.currentUser
         // const loggedIn = !!this.props.currentUser.id
         return(
-            <div>
+            <div className="temp-border">
                 Navbar
                 <div>
                     <Link to="/dashboard">Dashboard</Link>
