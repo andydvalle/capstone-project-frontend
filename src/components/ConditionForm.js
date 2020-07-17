@@ -1,15 +1,19 @@
-import React, {Component} from 'react';
+import React from "react";
+import useFormInput from "../FormInput";
 
-class ConditionForm extends Component {
-
-
-    render(){
-        return(
-            <div>
-                Hi from ConditionForm
-            </div>
-        )
-    }
-}
+const ConditionForm = () => {
+  
+    const condition = useFormInput("")
+  
+    return (
+        <div>
+            Hi from ConditionForm
+            <form>
+                <label>Condition:</label>
+                <input {...condition}/>
+            </form>
+        </div>
+    )
+};
 
 export default ConditionForm;
