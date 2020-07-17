@@ -5,6 +5,12 @@ class ConditionForm extends Component {
         return(
             <div>
                 Hi from ConditionForm
+                <form>
+                    <label>Condition Name:</label>
+                    <input type="text" name="name" />
+                    <input type="hidden" name="user"/>
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         )
     }
