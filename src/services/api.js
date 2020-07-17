@@ -31,11 +31,17 @@ const getCurrentUser = () => {
     })
 }
 
-//GET fetch all users
-const getAllUsers = () => {
-    const URL = 'http://localhost:3000/api/v1/users'
-    return fetch(URL)
-    .then(resp => resp.json())
+// //GET fetch all users
+// const getAllUsers = () => {
+//     const URL = 'http://localhost:3000/api/v1/users'
+//     return fetch(URL)
+//     .then(resp => resp.json())
+// }
+
+// GET fetch all patients
+const fetchPatients = () => {
+    const URL = 'http://localhost:3000/api/v1/patients'
+    return fetch(URL).then(resp=>resp.json())
 }
 
 //exports all functions 
@@ -44,7 +50,7 @@ export const api = {
         login,
         getCurrentUser
     },
-    users: {
-        getAllUsers
+    patients: {
+        fetchPatients
     }
 }
