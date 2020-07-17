@@ -8,10 +8,8 @@ class Navbar extends Component {
     }
 
     render(){
-        const currentUser = this.props.currentUser
-        const loggedIn = !!this.props.currentUser.id
-
-
+        // const currentUser = this.props.currentUser
+        // const loggedIn = !!this.props.currentUser.id
         return(
             <div>
                 Navbar

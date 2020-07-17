@@ -27,7 +27,6 @@ const getCurrentUser = () => {
     return fetch(URL, {
         headers: headers()
     }).then(resp => {
-        console.log(resp)
         return resp.json()
     })
 }
