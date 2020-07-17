@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Dashboard from "./containers/Dashboard";
 import Login from "./components/Login";
 
@@ -24,7 +25,7 @@ class App extends Component {
 
   // on submit from pending Logout button
   onSignout = () => {
-    console.log(`... signing out`)
+    console.log(`${this.state.auth.user.username} signing out`);
     localStorage.removeItem("token");
     this.setState({
       auth: {
@@ -36,6 +37,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navbar
+          currentUser={this.state.auth.user}
+          onHandleSignout={this.onSignout}
+        />
         <Route
           exact
           path="/login"
@@ -45,7 +50,9 @@ class App extends Component {
         <Route
           exact
           path="/dashboard"
-          render={(props) => <Dashboard {...props} onSignout={this.onSignout}/>}
+          render={(props) => (
+            <Dashboard {...props} user={this.state.auth.user} onSignout={this.onSignout} />
+          )}
         />
       </div>
     );

@@ -7,10 +7,10 @@ class Dashboard extends Component {
     }
     
     render(){
+
         return(
             <div>
-                Hi from dashboard
-                <button onClick={this.handleClick}>Sign Out</button>
+                {this.props.user.username} Hi from dashboard
             </div>
         )
     }
