@@ -1,16 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { api } from "../services/api";
 import avatar from "../images/img_avatar3.png";
 
-class Navbar extends Component {
-  handleSignout = () => {
-    this.props.onHandleSignout();
+const Navbar = (props) => {
+  const handleSignout = () => {
+    props.onHandleSignout();
   };
 
-  render() {
-    // const currentUser = this.props.currentUser
-    // const loggedIn = !!this.props.currentUser.id
     return (
       <div className="wrapper">
         <div className="sidebar">
@@ -54,7 +51,7 @@ class Navbar extends Component {
           </div>
           <ul>
             <Link to="/login">
-              <li onClick={this.handleSignout}>Signout</li>
+              <li onClick={handleSignout}>Signout</li>
             </Link>
           </ul>
           {/* <ul>
@@ -78,6 +75,6 @@ class Navbar extends Component {
       </div>
     );
   }
-}
+
 
 export default Navbar;
