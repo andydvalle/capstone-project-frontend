@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import AppointmentForm from "../components/AppointmentForm";
 import MedicationForm from "../components/MedicationForm";
 import ConditionForm from "../components/ConditionForm";
@@ -6,10 +6,10 @@ import HealthContactForm from "../components/HealthContactForm";
 
 const FormModal = () => {
 
-  // const [forms, setForms] = useState("Appointment")
+  const [forms, setForms] = useState("Appointment")
 
   const handleChange = (e) => {
-      console.log(e.target.value)
+      setForms(`${e.target.value}`)
   }
 
     return (
@@ -47,6 +47,7 @@ const FormModal = () => {
                     id="inlineRadio1"
                     value="Appointment"
                     onChange={handleChange}
+                    defaultChecked
                     />
                   <label className="form-check-label" htmlFor="inlineRadio1">
                   Appointment
