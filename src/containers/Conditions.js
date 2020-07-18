@@ -5,9 +5,9 @@ class Conditions extends Component {
     return (
       <div>
         Hi from Conditions
-        <div class="main_content">
-          <div class="header">Conditions</div>
-          <div class="info">
+        <div className="main_content">
+          <div className="header">Conditions</div>
+          <div className="info">
             <div>Conditions</div>
             <div>Conditions</div>
             <div>Conditions</div>

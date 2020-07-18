@@ -5,9 +5,9 @@ class Medications extends Component {
     return (
       <div>
         Hi from Medications
-        <div class="main_content">
-          <div class="header">Medications</div>
-          <div class="info">
+        <div className="main_content">
+          <div className="header">Medications</div>
+          <div className="info">
             <div>Medications</div>
             <div>Medications</div>
             <div>Medications</div>

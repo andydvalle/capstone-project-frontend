@@ -5,9 +5,9 @@ class HealthContacts extends Component {
     return (
       <div>
         Hi from HealthContacts
-        <div class="main_content">
-          <div class="header">HealthContacts</div>
-          <div class="info">
+        <div className="main_content">
+          <div className="header">HealthContacts</div>
+          <div className="info">
             <div>HealthContacts</div>
             <div>HealthContacts</div>
             <div>HealthContacts</div>

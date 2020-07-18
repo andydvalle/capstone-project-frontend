@@ -130,6 +130,11 @@ body{
   border-radius: 50%;
 }
 
+.form-check {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 /* temp border to visualize components */
 .temp-border {

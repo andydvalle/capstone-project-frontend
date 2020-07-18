@@ -5,9 +5,9 @@ class Appointments extends Component {
     return (
       <div>
         Hi from Appointments
-        <div class="main_content">
-          <div class="header">Appointments</div>
-          <div class="info">
+        <div className="main_content">
+          <div className="header">Appointments</div>
+          <div className="info">
             <div>Appointments</div>
             <div>Appointments</div>
             <div>Appointments</div>
