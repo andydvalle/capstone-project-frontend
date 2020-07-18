@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom'
+import avatar from '../images/img_avatar3.png'
 
 class Navbar extends Component {
 
@@ -11,14 +12,46 @@ class Navbar extends Component {
         // const currentUser = this.props.currentUser
         // const loggedIn = !!this.props.currentUser.id
         return(
-            // <div className="temp-border">
-            //     Navbar
-            //     <div>
-            //         <Link to="/dashboard">Dashboard</Link>
-            //         <Link to="/login"><div onClick={this.handleSignout}>Signout</div></Link>
-            //     </div>
-            // </div>
-            null
+            <div className="wrapper">
+          <div className="sidebar">
+            <img src={avatar} className="avatar" alt="Avatar" style={{align: "center", width: "65%"}}/>
+              <h2>Patient's Schedule</h2>
+            <div className="mb-5">
+              <h5>view</h5>
+              <ul>
+                <li>Today</li>
+                <li>This Week</li>
+                <li>This Month</li>
+              </ul>
+            </div>
+            <div className="mb-5">
+              <h5>profile</h5>
+              <ul>
+                <li>Appointments</li>
+                <li>Medications</li>
+                <li>Conditions</li>
+                <li>Health Contacts</li>
+              </ul>
+            </div>
+            {/* <ul>
+            <li><a href="#"><i className="fas fa-home"></i>Home</a></li>
+            <li><a href="#"><i className="fas fa-user"></i>Profile</a></li>
+            <li><a href="#"><i className="fas fa-address-card"></i>About</a></li>
+            <li><a href="#"><i className="fas fa-address-book"></i>Contact</a></li>
+        </ul>  */}
+            <div className="social_media">
+              <a href="#">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i className="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          </div>
         )
     }
 }
