@@ -22,10 +22,8 @@ class Dashboard extends Component {
 
         <div className="wrapper">
           <div className="sidebar">
-            {/* <div className="mt-5 mb-5"> */}
             <img src={avatar} className="avatar" alt="Avatar" style={{align: "center", width: "65%"}}/>
               <h2>Patient's Schedule</h2>
-            {/* </div> */}
             <div className="mb-5">
               <h5>view</h5>
               <ul>
