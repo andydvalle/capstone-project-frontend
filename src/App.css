@@ -45,8 +45,17 @@ body{
   font-size: 14pt;
   font-weight: bold;
   margin-bottom: 40px;
-  
 }
+
+#patient-dropdown{
+  color: #fafafa;
+  background: none;
+  outline-color: transparent;
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
 .wrapper .sidebar h5{
   color: #fafafa;
   text-transform: uppercase;
@@ -84,7 +93,7 @@ body{
 .wrapper .sidebar .social_media{
   position: fixed;
   bottom: 0;
-  right: 5%;
+  right: 1%;
   transform: translateX(-50%);
   display: flex;
 }
