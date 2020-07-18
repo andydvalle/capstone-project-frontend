@@ -14,7 +14,7 @@ class Navbar extends Component {
         return(
             <div className="wrapper">
           <div className="sidebar">
-            <img src={avatar} className="avatar" alt="Avatar" style={{align: "center", width: "65%"}}/>
+            <img src={avatar} className="avatar" alt="Avatar" style={{align: "center", width: "45%"}}/>
               <h2>Patient's Schedule</h2>
             <div className="mb-5">
               <h5>view</h5>

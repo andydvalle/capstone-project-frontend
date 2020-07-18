@@ -1,4 +1,6 @@
 /* Side-Navigation-Bar css */
+
+/* style=“margin-left:auto; margin-right:auto; width:785px;” */
 *{
   margin: 0;
   padding: 0;
@@ -27,9 +29,12 @@ body{
 
 .wrapper .sidebar .avatar{
   color: #4ebaaa;
+  display: block;
   border-radius: 50%;
-  margin-left: 40px;
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .wrapper .sidebar h2{
@@ -38,7 +43,8 @@ body{
   text-align: center;
   font-size: 14pt;
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  
 }
 .wrapper .sidebar h5{
   color: #fafafa;
@@ -115,6 +121,13 @@ body{
 
 .main_content .info div{
   margin-bottom: 20px;
+}
+
+#add-form {
+  position: fixed;
+  bottom: 20px;
+  right: 50;
+  border-radius: 50%;
 }
 
 

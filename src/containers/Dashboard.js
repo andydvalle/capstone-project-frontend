@@ -5,6 +5,7 @@ import Conditions from "./Conditions";
 import Medications from "./Medications";
 import Appointments from "./Appointments";
 import HealthContacts from "./HealthContacts";
+import FormModal from "./FormModal";
 
 class Dashboard extends Component {
   handleClick = () => {
@@ -19,10 +20,10 @@ class Dashboard extends Component {
           currentUser={this.props.user}
           onHandleSignout={this.props.onSignout}
         />
-          <Route
-            path="/dashboard/appointments"
-            render={(props) => <Appointments />}
-          ></Route>
+        <Route
+          path="/dashboard/appointments"
+          render={(props) => <Appointments />}
+        ></Route>
         <Route
           path="/dashboard/medications"
           render={(props) => <Medications />}
@@ -35,6 +36,7 @@ class Dashboard extends Component {
           path="/dashboard/contacts"
           render={(props) => <HealthContacts />}
         ></Route>
+        <FormModal />
       </div>
     );
   }
