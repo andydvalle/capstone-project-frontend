@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import AppointmentForm from "../components/AppointmentForm";
 import MedicationForm from "../components/MedicationForm";
 import ConditionForm from "../components/ConditionForm";
@@ -6,10 +6,10 @@ import HealthContactForm from "../components/HealthContactForm";
 
 class FormModal extends Component {
 
+  // const [forms, setForms] = useState("Appointment")
+
   handleChange = (e) => {
-    if(e.target.name === "option1"){
       console.log(e.target.value)
-    }
   }
 
   render() {
