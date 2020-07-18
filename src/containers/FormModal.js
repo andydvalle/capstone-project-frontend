@@ -4,15 +4,14 @@ import MedicationForm from "../components/MedicationForm";
 import ConditionForm from "../components/ConditionForm";
 import HealthContactForm from "../components/HealthContactForm";
 
-class FormModal extends Component {
+const FormModal = () => {
 
   // const [forms, setForms] = useState("Appointment")
 
-  handleChange = (e) => {
+  const handleChange = (e) => {
       console.log(e.target.value)
   }
 
-  render() {
     return (
       // <div className="temp-border">
       // Hi from FormModal
@@ -47,7 +46,7 @@ class FormModal extends Component {
                     name="inlineRadioOptions"
                     id="inlineRadio1"
                     value="Appointment"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     />
                   <label className="form-check-label" htmlFor="inlineRadio1">
                   Appointment
@@ -60,7 +59,7 @@ class FormModal extends Component {
                     name="inlineRadioOptions"
                     id="inlineRadio2"
                     value="Medication"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     />
                   <label className="form-check-label" htmlFor="inlineRadio2">
                     Medication
@@ -73,7 +72,7 @@ class FormModal extends Component {
                     name="inlineRadioOptions"
                     id="inlineRadio3"
                     value="Condition"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     />
                   <label className="form-check-label" htmlFor="inlineRadio3">
                     Condition
@@ -86,7 +85,7 @@ class FormModal extends Component {
                     name="inlineRadioOptions"
                     id="inlineRadio4"
                     value="HealthContact"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     />
                   <label className="form-check-label" htmlFor="inlineRadio4">
                     Health Contact
@@ -106,6 +105,5 @@ class FormModal extends Component {
       // </div>
     );
   }
-}
 
 export default FormModal;
