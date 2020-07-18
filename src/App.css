@@ -1,9 +1,134 @@
+/* Side-Navigation-Bar css */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Helvetica';
+}
+
+body{
+   background-color: #fafafa;
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 275px;
+  height: 100%;
+  background: #00897B;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar .avatar{
+  color: #4ebaaa;
+  border-radius: 50%;
+  margin-left: 40px;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar h2{
+  color: #fafafa;
+  /* text-transform: uppercase; */
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.wrapper .sidebar h5{
+  color: #fafafa;
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 12pt;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+
+.wrapper .sidebar ul li{
+  color: #c4c4c4;
+  padding: 5px;
+  margin-left: 50px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #005b4f;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+ 
+.wrapper .sidebar .social_media{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.wrapper .sidebar .social_media a{
+  display: block;
+  width: 40px;
+  background: #c4c4c4;
+  height: 40px;
+  line-height: 45px;
+  text-align: center;
+  margin: 0 5px;
+  color: #fafafa;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 300px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+
+/* temp border to visualize components */
 .temp-border {
   border-style: solid;
   margin: 3px;
 }
 
-.App {
+
+/* automatically rendered with react app */
+/* .App {
   text-align: center;
 }
 
@@ -40,4 +165,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

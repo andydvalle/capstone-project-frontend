@@ -51,10 +51,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar
-          currentUser={this.state.auth.user}
-          onHandleSignout={this.onSignout}
-        />
         <Route
           exact
           path="/login"
