@@ -57,7 +57,6 @@ class App extends Component {
         />
 
         <Route
-          exact
           path="/dashboard"
           render={(props) => (
             <Dashboard {...props} user={this.state.auth.user} onSignout={this.onSignout} />

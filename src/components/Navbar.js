@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import avatar from '../images/img_avatar3.png'
 
 class Navbar extends Component {
@@ -27,10 +27,10 @@ class Navbar extends Component {
             <div className="mb-5">
               <h5>profile</h5>
               <ul>
-                <li>Appointments</li>
-                <li>Medications</li>
-                <li>Conditions</li>
-                <li>Health Contacts</li>
+                <li><Link to="/dashboard/appointments">Appointments</Link></li>
+                <li><Link to="/dashboard/medications">Medications</Link></li>
+                <li><Link to="/dashboard/conditions">Conditions</Link></li>
+                <li><Link to="/dashboard/contacts">Health Contacts</Link></li>
               </ul>
             </div>
             <ul>
