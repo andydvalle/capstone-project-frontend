@@ -54,7 +54,10 @@ const FormModal = () => {
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div className="form-modal">Forms</div>
+            <div className='p-3'>
             {/* radio buttons */}
+            <div className='p-3'>
+
             <div>I am adding a(n)...</div>
             <div className="row">
               <div className="form-check form-check-inline">
@@ -66,7 +69,7 @@ const FormModal = () => {
                   value="Appointment"
                   onChange={handleChange}
                   defaultChecked
-                />
+                  />
                 <label className="form-check-label" htmlFor="inlineRadio1">
                   Appointment
                 </label>
@@ -79,7 +82,7 @@ const FormModal = () => {
                   id="inlineRadio2"
                   value="Medication"
                   onChange={handleChange}
-                />
+                  />
                 <label className="form-check-label" htmlFor="inlineRadio2">
                   Medication
                 </label>
@@ -92,7 +95,7 @@ const FormModal = () => {
                   id="inlineRadio3"
                   value="Condition"
                   onChange={handleChange}
-                />
+                  />
                 <label className="form-check-label" htmlFor="inlineRadio3">
                   Condition
                 </label>
@@ -105,14 +108,16 @@ const FormModal = () => {
                   id="inlineRadio4"
                   value="HealthContact"
                   onChange={handleChange}
-                />
+                  />
                 <label className="form-check-label" htmlFor="inlineRadio4">
                   Health Contact
                 </label>
               </div>
+                  </div>
             </div>
             {/* forms */}
             {renderForm(forms)}
+            </div>
           </div>
         </div>
       </div>
