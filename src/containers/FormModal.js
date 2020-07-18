@@ -13,44 +13,21 @@ const FormModal = () => {
 
   function renderForm(forms) {
     if (forms === "Appointment") {
-      return <AppointmentForm />
+      return <AppointmentForm />;
     } else if (forms === "Medication") {
-      return <MedicationForm />
+      return <MedicationForm />;
     } else if (forms === "Condition") {
-      return <ConditionForm />
+      return <ConditionForm />;
     } else if (forms === "HealthContact") {
-      return <HealthContactForm />
+      return <HealthContactForm />;
     }
   }
 
-    const chooseForm = (forms) => {
-      renderForm(forms)
-    };
-
-    // switch ({ forms }) {
-    //   case "Medication":
-    //     // return <MedicationForm />;
-    //     console.log(forms)
-    //     break;
-    //   case "Condition":
-    //     // return <ConditionForm />;
-    //     console.log(forms)
-    //     break;
-    //   case "HealthContact":
-    //     // return <HealthContactForm />;
-    //     console.log(forms)
-    //     break;
-    //   case "Appointment":
-    //     // return <AppointmentForm />;
-    //     console.log(forms)
-    //     break;
-    //   default:
-    //     return <AppointmentForm />;
-    // }
-
+  const chooseForm = (forms) => {
+    renderForm(forms);
+  };
 
   useEffect(() => {
-    // removeForm()
     chooseForm(forms);
   }, [forms]);
 
@@ -76,7 +53,9 @@ const FormModal = () => {
         {/* Form modal */}
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
+            <div className="form-modal">Forms</div>
             {/* radio buttons */}
+            <div>I am adding a(n)...</div>
             <div className="row">
               <div className="form-check form-check-inline">
                 <input
