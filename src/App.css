@@ -150,6 +150,7 @@ body{
 
 .btn {
   border-radius: 0%;
+  margin-right: 3px;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
