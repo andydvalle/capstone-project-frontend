@@ -54,9 +54,6 @@ body{
   color: #c4c4c4;
   padding: 5px;
   margin-left: 50px;
-  border-bottom: 1px solid #bdb8d7;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-top: 1px solid rgba(255,255,255,0.05);
 }    
 
 .wrapper .sidebar ul li a{
