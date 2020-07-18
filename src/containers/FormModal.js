@@ -36,7 +36,7 @@ const FormModal = () => {
       <button
         type="button"
         id="add-form"
-        className="btn btn-info"
+        className="btn btn-primary"
         data-toggle="modal"
         data-target=".bd-example-modal-lg"
       >

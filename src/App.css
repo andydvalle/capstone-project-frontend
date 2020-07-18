@@ -66,6 +66,7 @@ body{
 .wrapper .sidebar ul li a{
   color: #bdb8d7;
   display: block;
+  text-decoration: none;
 }
 
 .wrapper .sidebar ul li a .fas{
@@ -145,6 +146,18 @@ body{
   background: #00897B;
   font-size: 14pt;
   font-weight: bold;
+}
+
+.btn {
+  border-radius: 0%;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #00897B !important;
+}
+
+.btn .btn-outline .mb1 {
+  outline-color: #00897B !important;
 }
 
 

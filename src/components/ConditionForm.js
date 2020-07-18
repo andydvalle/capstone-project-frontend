@@ -51,8 +51,8 @@ const ConditionForm = () => {
             </label>
           </div>
         </div>
-        <button type="submit" className="btn btn-primary">Sign in</button>
-      </form>
+        <button type="submit" className="btn btn-primary">Save and add another</button>
+  <button type="submit" className="btn btn-light">Save and exit</button>      </form>
     )
 };
 
