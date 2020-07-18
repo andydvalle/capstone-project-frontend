@@ -4,9 +4,15 @@ import { api } from "../services/api";
 import avatar from "../images/img_avatar3.png";
 
 const Navbar = (props) => {
-  const handleSignout = () => {
-    props.onHandleSignout();
+   const handleSignout = () => {
+    this.props.onHandleSignout();
   };
+
+   const renderPatientOptions = () =>{
+    return props.patients.map(patient=>{
+      return <option value={patient.name}>{patient.name} Schedule</option>
+    })
+  }
 
     return (
       <div className="wrapper">
@@ -20,8 +26,8 @@ const Navbar = (props) => {
           <h2>
             {/* Patient's Schedule */}
             <select id="patient-dropdown">
-              <option value="one">Patient1 Schedule</option>
-              <option value="two">Patient2 Schedule</option>
+              {/* <option value="choosePatient">Choose Patient</option> */}
+              {renderPatientOptions()}
             </select>
           </h2>
           <div className="mb-5">

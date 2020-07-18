@@ -6,18 +6,38 @@ import Medications from "./Medications";
 import Appointments from "./Appointments";
 import HealthContacts from "./HealthContacts";
 import FormModal from "./FormModal";
+import { api } from "../services/api";
 
 class Dashboard extends Component {
+  state = {
+    patients: [],
+  };
+
   handleClick = () => {
     this.props.onSignout();
   };
 
+  getPatients = () => {
+    api.patients.fetchPatients().then((data) => {
+      const userPatients = data.filter(
+        (patient) => patient.user_id === this.props.user.id
+      );
+      this.setState({
+        patients: userPatients
+      })
+    });
+  };
+
+  componentDidMount() {
+    this.getPatients();
+  }
+
   render() {
     return (
       <div>
-        {/* {this.props.user.username} Hi from dashboard */}
         <Navbar
           currentUser={this.props.user}
+          patients={this.state.patients}
           onHandleSignout={this.props.onSignout}
         />
         <Route
