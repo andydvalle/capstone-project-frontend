@@ -33,6 +33,11 @@ class Navbar extends Component {
                 <li>Health Contacts</li>
               </ul>
             </div>
+            <ul>
+                <Link to="/login">
+                <li onClick={this.handleSignout}>Signout</li>
+                </Link>
+            </ul>
             {/* <ul>
             <li><a href="#"><i className="fas fa-home"></i>Home</a></li>
             <li><a href="#"><i className="fas fa-user"></i>Profile</a></li>

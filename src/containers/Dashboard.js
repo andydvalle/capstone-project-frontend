@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-// import ConditionForm from '../components/ConditionForm'
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
-import FormModal from "./FormModal";
-import avatar from "../images/img_avatar3.png";
+// import FormModal from "./FormModal";
 
 class Dashboard extends Component {
   handleClick = () => {

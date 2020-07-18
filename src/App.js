@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import { Route } from "react-router-dom";
 import { api } from "./services/api"
-import Navbar from "./components/Navbar";
 import Dashboard from "./containers/Dashboard";
 import Login from "./components/Login";
 
