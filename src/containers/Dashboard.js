@@ -32,8 +32,7 @@ class Dashboard extends Component {
     return this.state.patients.map((patient) => {
       return (
         <div>
-
-      <Profile key={patient.id} patient={patient} />
+          <Profile key={patient.id} patient={patient} />
         </div>
       );
     });
@@ -45,6 +44,34 @@ class Dashboard extends Component {
         {window.location.pathname === "/dashboard"
           ? this.renderProfiles()
           : null}
+        {/* form modal */}
+        <div>
+          <button
+            type="button"
+            id="add-form"
+            className="btn btn-primary"
+            data-toggle="modal"
+            data-target=".bd-example-modal-lg"
+          >
+            +
+          </button>
+        </div>
+
+        <div
+          className="modal fade bd-example-modal-lg"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="myLargeModalLabel"
+          aria-hidden="true"
+        >
+          {/* Form modal */}
+          <div className="modal-dialog modal-lg">
+            <div className="modal-content">
+              <div className="form-modal">New Profile</div>
+            </div>
+          </div>
+        </div>
+        {/* routes */}
         <Route
           path="/dashboard/:id"
           render={(props) => (
