@@ -27,7 +27,11 @@
   font-size: 10pt;
 }
 
-body {
+.form-control {
+  border-style: none;
+}
+
+.body {
   background-color: #fafafa;
 }
 
@@ -193,6 +197,7 @@ body {
 .btn-primary:active,
 .btn-primary:visited {
   background-color: #00897b !important;
+  font-weight: bold;
 }
 
 .btn .btn-outline .mb1 {
