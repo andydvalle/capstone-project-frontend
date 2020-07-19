@@ -29,10 +29,14 @@
 
 .form-control {
   background-color: #fafafa;
-  font-style: italic;
+  /* font-style: italic; */
   border-style: none;
   box-shadow: 0px 5px 5px #c4c4c4;
   border-radius: 0%;
+}
+
+::placeholder{
+  font-style: italic;
 }
 
 .body {
