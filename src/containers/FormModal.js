@@ -54,7 +54,7 @@ const FormModal = (props) => {
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div className="form-modal">
-              Forms for Profile {props.profileId}
+              New {forms} {props.profileId}
             </div>
             <div className="p-3">
               {/* radio buttons */}
