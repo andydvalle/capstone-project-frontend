@@ -1,9 +1,12 @@
-import React from "react";
-// import useFormInput from "../FormInput";
+import React, { useState, useEffect } from "react";
+import useFormInput from "../FormInput";
 
 const ConditionForm = (props) => {
-  
-    // const condition = useFormInput("")
+
+   const [condition, setCondition]= useState({})
+
+    const name = useFormInput("")
+    const notes = useFormInput("")
   
     return (
         <form>
@@ -20,11 +23,11 @@ const ConditionForm = (props) => {
       </div>
           <div className="form-group">
             <label htmlFor="condition-name">Search Condition Name</label>
-            <input type="text" className="form-control" id="condition-name" placeholder="Hypertension"/>
+            <input type="text" className="form-control" id="condition-name" placeholder="Hypertension" {...name}/>
         </div>
           <div className="form-group">
             <label htmlFor="condition-notes">Notes (optional)</label>
-            <input type="textarea" className="form-control" id="condition-notes" placeholder="Example: My blood pressure is usually high, last office visit was 145/90"/>
+            <input type="textarea" className="form-control" id="condition-notes" placeholder="Example: My blood pressure is usually high, last office visit was 145/90" {...notes}/>
           </div>
         {/* <div className="form-group">
           <label htmlFor="inputAddress">Address</label>
