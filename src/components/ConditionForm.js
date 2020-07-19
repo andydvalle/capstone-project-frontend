@@ -7,18 +7,16 @@ const ConditionForm = () => {
   
     return (
         <form>
-        Hi from ConditionForm
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="inputEmail4">Email</label>
-            <input type="email" className="form-control" id="inputEmail4" placeholder="Email"/>
-          </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="inputPassword4">Password</label>
-            <input type="password" className="form-control" id="inputPassword4" placeholder="Password"/>
-          </div>
+        {/* Hi from ConditionForm */}
+          <div className="form-group">
+            <label htmlFor="condition-name">Search Condition Name</label>
+            <input type="text" className="form-control" id="condition-name" placeholder="Example: Hypertension"/>
         </div>
-        <div className="form-group">
+          <div className="form-group">
+            <label htmlFor="condition-notes">Notes (optional)</label>
+            <input type="textarea" className="form-control" id="condition-notes" placeholder="Example: My blood pressure is usually high, last office visit was 145/90"/>
+          </div>
+        {/* <div className="form-group">
           <label htmlFor="inputAddress">Address</label>
           <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"/>
         </div>
@@ -50,7 +48,7 @@ const ConditionForm = () => {
               Check me out
             </label>
           </div>
-        </div>
+        </div> */}
         <button type="submit" className="btn btn-primary">Save and add another</button>
   <button type="submit" className="btn btn-light">Save and exit</button>      </form>
     )
