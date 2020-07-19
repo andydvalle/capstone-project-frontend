@@ -28,7 +28,7 @@ const HealthContactForm = (props) => {
           />
         </div>
         <div className="form-group col-md-6">
-          <label htmlFor="clinic-doctor">Doctor Name</label>
+          <label htmlFor="clinic-doctor">Practitioner/Doctor</label>
           <input
             type="text"
             className="form-control"
@@ -46,14 +46,27 @@ const HealthContactForm = (props) => {
           placeholder="1234 Main St"
         />
       </div>
-      <div className="form-group">
-        <label htmlFor="clinic-address-2">Address 2</label>
-        <input
-          type="text"
-          className="form-control"
-          id="clinic-address-2"
-          placeholder="Apartment, studio, or floor"
-        />
+      <div className="form-row">
+        <div className="form-group col-md-6">
+          <label htmlFor="clinic-address-2">Address 2</label>
+          <input
+            type="text"
+            className="form-control"
+            id="clinic-address-2"
+            placeholder="Apartment, studio, or floor"
+          />
+        </div>
+        <div className="form-group col-md-6">
+          <label htmlFor="clinic-number">Phone Number</label>
+          <input
+            type="tel"
+            className="form-control"
+            id="clinic-number"
+            placeholder="123-456-7890"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            required
+          />
+        </div>
       </div>
       <div className="form-row">
         <div className="form-group col-md-6">

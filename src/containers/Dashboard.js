@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import ProfileView from "./ProfileView";
 import Profile from "./Profile";
 import PatientForm from "../components/PatientForm";
@@ -43,10 +43,16 @@ class Dashboard extends Component {
     return (
       <div>
         {window.location.pathname === "/dashboard"
-          ? this.renderProfiles()
-          : null}
+          ? (this.renderProfiles()
+          ) : null}
         {/* form modal */}
         <div>
+
+        {/* <Link to="/login">
+              <button onClick={this.handleClick}>Signout</button>
+            </Link> */}
+
+          
           <button
             type="button"
             id="add-form"
@@ -57,7 +63,7 @@ class Dashboard extends Component {
             +
           </button>
         </div>
-
+      {/* form modal content */}
         <div className="modal" tabindex="-1" role="dialog">
           <div className="modal-dialog" role="document">
             <div className="modal-content">

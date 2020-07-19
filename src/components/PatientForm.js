@@ -7,7 +7,7 @@ const AppointmentForm = (props) => {
   return (
     <form>
       <div className="form-group">
-        <label htmlFor="appointment-patient-id">Patient Id (hide later)</label>
+        <label htmlFor="appointment-patient-id">User Id (hide later)</label>
         <input
           type="text"
           className="form-control"
