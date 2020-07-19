@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import ProfileView from "./ProfileView";
 import Profile from "./Profile";
+import PatientForm from "../components/PatientForm";
 import { api } from "../services/api";
 
 class Dashboard extends Component {
@@ -51,23 +52,24 @@ class Dashboard extends Component {
             id="add-form"
             className="btn btn-primary"
             data-toggle="modal"
-            data-target=".bd-example-modal-lg"
+            data-target=".modal"
           >
             +
           </button>
         </div>
 
-        <div
-          className="modal fade bd-example-modal-lg"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="myLargeModalLabel"
-          aria-hidden="true"
-        >
-          {/* Form modal */}
-          <div className="modal-dialog modal-lg">
+        <div className="modal" tabindex="-1" role="dialog">
+          <div className="modal-dialog" role="document">
             <div className="modal-content">
-              <div className="form-modal">New Profile</div>
+              <div className="form-modal">
+                <h5 className="modal-title">New Profile</h5>
+                {/* <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> */}
+              </div>
+              <div className="modal-body">
+                <PatientForm currentUser={this.props.user} />
+              </div>
             </div>
           </div>
         </div>

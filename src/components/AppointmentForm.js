@@ -33,7 +33,7 @@ const AppointmentForm = (props) => {
             type="date"
             className="form-control"
             id="appointment-date"
-            placeholder="Password"
+            // placeholder="Password"
           />
         </div>
         <div className="form-group col-md-3">
@@ -42,7 +42,7 @@ const AppointmentForm = (props) => {
             type="time"
             className="form-control"
             id="appointment-time"
-            placeholder="Password"
+            // placeholder="Password"
           />
         </div>
       </div>
