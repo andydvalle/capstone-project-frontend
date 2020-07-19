@@ -24,7 +24,7 @@ const AppointmentForm = (props) => {
             type="text"
             className="form-control"
             id="appointment-title"
-            placeholder="Add title"
+            placeholder="Visit with Dr. Johnson"
           />
         </div>
         <div className="form-group col-md-3">

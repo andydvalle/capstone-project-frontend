@@ -23,7 +23,7 @@ const MedicationForm = (props) => {
           type="text"
           className="form-control"
           id="medication-name-route"
-          placeholder="Example: Lisinopril (Oral pill)"
+          placeholder="Lisinopril (Oral pill)"
         />
       </div>
       <div className="form-row">
@@ -33,7 +33,7 @@ const MedicationForm = (props) => {
             type="text"
             className="form-control"
             id="medication-strength"
-            placeholder="Example: 200mg Tab"
+            placeholder="200mg Tab"
           />
         </div>
         <div className="form-group col-md-6">
@@ -42,7 +42,7 @@ const MedicationForm = (props) => {
             type="text"
             className="form-control"
             id="medication-instructions"
-            placeholder="Example: Daily"
+            placeholder="Daily"
           />
         </div>
       </div>

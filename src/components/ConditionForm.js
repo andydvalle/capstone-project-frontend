@@ -20,7 +20,7 @@ const ConditionForm = (props) => {
       </div>
           <div className="form-group">
             <label htmlFor="condition-name">Search Condition Name</label>
-            <input type="text" className="form-control" id="condition-name" placeholder="Example: Hypertension"/>
+            <input type="text" className="form-control" id="condition-name" placeholder="Hypertension"/>
         </div>
           <div className="form-group">
             <label htmlFor="condition-notes">Notes (optional)</label>
