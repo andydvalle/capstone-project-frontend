@@ -1,9 +1,9 @@
 import React from "react";
-import useFormInput from "../FormInput";
+// import useFormInput from "../FormInput";
 
 const MedicationForm = () => {
   
-    const condition = useFormInput("")
+    // const condition = useFormInput("")
   
     return (
         <form>

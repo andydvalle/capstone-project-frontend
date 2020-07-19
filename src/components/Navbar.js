@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { api } from "../services/api";
 import avatar from "../images/img_avatar3.png";
-// import { Component } from "react";
-import { render } from "@testing-library/react";
 
 class Navbar extends Component {
   getProfile = () => {
