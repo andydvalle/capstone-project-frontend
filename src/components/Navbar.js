@@ -10,7 +10,7 @@ const Navbar = (props) => {
 
   const renderPatientOptions = () => {
     return props.patients.map((patient) => {
-      return <option key={patient.id} value={patient.name}>{patient.name} Schedule</option>;
+      return <option key={patient.id} value={patient.id}>{patient.name} Schedule</option>;
     });
   };
 

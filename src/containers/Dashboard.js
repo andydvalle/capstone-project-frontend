@@ -57,7 +57,7 @@ class Dashboard extends Component {
           path="/dashboard/contacts"
           render={(props) => <HealthContacts />}
         ></Route> */}
-        <FormModal />
+        {/* <FormModal /> */}
         <Route
           path="/dashboard/:id"
           render={(props) => <Profile {...props} patients={this.state.patients} />}

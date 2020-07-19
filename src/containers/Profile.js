@@ -44,6 +44,7 @@ class Profile extends Component {
               path="/:id/contacts"
               render={(props) => <HealthContacts />}
             ></Route> */}
+            <FormModal />
           </div>
         );
       }
