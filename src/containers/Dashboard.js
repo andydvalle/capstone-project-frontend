@@ -30,7 +30,7 @@ class Dashboard extends Component {
 
   renderProfiles = () => {
     return this.state.patients.map((patient) => {
-      return <Profile patient={patient} />;
+      return <Profile key={patient.id} patient={patient} />;
     });
   };
 
