@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useFormInput from "../FormInput";
 
 const ConditionForm = (props) => {
-  const [conditions, setConditions] = useState({});
+  const [condition, setCondition] = useState({});
 
   const name = useFormInput("");
   const notes = useFormInput("");
