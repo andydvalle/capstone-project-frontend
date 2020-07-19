@@ -42,7 +42,7 @@ class Login extends Component {
             <div className="form-group">
               <label className="login-label">Username</label>
               <input
-                className="form-control shadow p-3 mb-5 bg-white rounded"
+                className="form-control"
                 type="text"
                 name="username"
                 placeholder="Your username"
@@ -56,7 +56,7 @@ class Login extends Component {
             <div className="form-group">
               <label className="login-label">Password</label>
               <input
-                className="form-control shadow p-3 mb-5 bg-white rounded"
+                className="form-control"
                 name="password"
                 type="password"
                 placeholder="Your password"
