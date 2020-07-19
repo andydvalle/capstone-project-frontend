@@ -33,47 +33,52 @@ class Login extends Component {
   render() {
     const { fields } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label>Username</label>
-            <input
-              className="form-control"
-              type="text"
-              name="username"
-              placeholder="Enter username"
-              value={fields.username}
-              onChange={this.handleChange}
-            />
-            {/* <small id="emailHelp" className="form-text text-muted">
+      <div className="login">
+        <div className="login-header">
+          Your health is important. Let's keep you on track.
+        </div>
+        <div className="login-form">
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label className="login-label">Username</label>
+              <input
+                className="form-control"
+                type="text"
+                name="username"
+                placeholder="Your username"
+                value={fields.username}
+                onChange={this.handleChange}
+              />
+              {/* <small id="emailHelp" className="form-text text-muted">
               We'll never share your email with anyone else.
             </small> */}
-          </div>
-          <div className="form-group">
-            <label>Password</label>
+            </div>
+            <div className="form-group">
+              <label className="login-label">Password</label>
+              <input
+                className="form-control"
+                name="password"
+                type="password"
+                placeholder="Your password"
+                value={fields.password}
+                onChange={this.handleChange}
+              />
+            </div>
+            {/* <div className="form-check">
             <input
-              className="form-control"
-              name="password"
-              type="password"
-              placeholder="Enter password"
-              value={fields.password}
-              onChange={this.handleChange}
-            />
-          </div>
-          {/* <div className="form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
+            type="checkbox"
+            className="form-check-input"
+            id="exampleCheck1"
             />
             <label className="form-check-label" for="exampleCheck1">
-              Check me out
+            Check me out
             </label>
           </div> */}
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </form>
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
