@@ -16,6 +16,7 @@ const Navbar = (props) => {
 
   const handleChange = (e) => {
     console.log(e.target.value)
+    props.history.push(`/dashboard/${e.target.value}`)
   }
 
   return (
@@ -30,8 +31,8 @@ const Navbar = (props) => {
         <h2>
           {/* Patient's Schedule */}
           <select id="patient-dropdown" onChange={handleChange}>
-            {/* <option value="choosePatient">Choose Patient</option>
-              <option value="choosePatient">Choose Patient</option> */}
+            {/* <option value="choosePatient">Choose Patient</option> */}
+              <option value="choosePatient">Choose Patient</option> 
             {renderPatientOptions()}
           </select>
         </h2>

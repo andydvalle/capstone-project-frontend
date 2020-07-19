@@ -36,10 +36,12 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Navbar
+        <Route render={(props) => (
+        <Navbar {...props}
           currentUser={this.props.user}
           patients={this.state.patients}
           onHandleSignout={this.props.onSignout}
+        />)}
         />
         {/* <Route
           path="/dashboard/appointments"
