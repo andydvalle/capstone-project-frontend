@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import useFormInput from "../FormInput";
 
 const ProfileForm = (props) => {
+  const [profile, setProfile] = useState({});
 
-  const firstName = useFormInput("")
-  const lastName = useFormInput("")
-  const dob = useFormInput("")
-  const allergies = useFormInput("")
+  const firstName = useFormInput("");
+  const lastName = useFormInput("");
+  const dob = useFormInput("");
+  const allergies = useFormInput("");
 
   const submitProfile = (e) => {
-    e.preventDefault()
-    console.log(`submitting ${firstName.value} ${lastName.value} ${dob.value} ${allergies.value}`)
-  }
+    e.preventDefault();
+    // console.log(`submitting ${firstName.value} ${lastName.value} ${dob.value} ${allergies.value}`)
+    setProfile({
+      firstName: firstName.value,
+      lastName: lastName.value,
+      dob: dob.value,
+      allergies: allergies.value,
+    });
+  };
 
   return (
     <form onSubmit={submitProfile}>
@@ -36,7 +43,7 @@ const ProfileForm = (props) => {
             {...firstName}
           />
         </div>
-        
+
         <div className="form-group col-md-6">
           <label htmlFor="profile-dob">{`Date of Birth`}</label>
           <input
@@ -48,15 +55,15 @@ const ProfileForm = (props) => {
         </div>
       </div>
       <div className="form-group">
-          <label htmlFor="profile-last-name">Last Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="profile-last-name"
-            placeholder="Doe"
-            {...lastName}
-          />
-        </div>
+        <label htmlFor="profile-last-name">Last Name</label>
+        <input
+          type="text"
+          className="form-control"
+          id="profile-last-name"
+          placeholder="Doe"
+          {...lastName}
+        />
+      </div>
       <div className="form-group">
         <label htmlFor="profile-allergies">Any allergies?</label>
         <input
