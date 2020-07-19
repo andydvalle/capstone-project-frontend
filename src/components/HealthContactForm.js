@@ -7,50 +7,55 @@ const HealthContactForm = () => {
   
     return (
         <form>
-        Hi from HealthContactForm
+        {/* Hi from HealthContactForm */}
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label htmlFor="inputEmail4">Email</label>
-            <input type="email" className="form-control" id="inputEmail4" placeholder="Email"/>
+            <label htmlFor="clinic-name">Clinic Name</label>
+            <input type="text" className="form-control" id="clinic-name" placeholder="Care Medical Clinic"/>
           </div>
           <div className="form-group col-md-6">
-            <label htmlFor="inputPassword4">Password</label>
-            <input type="password" className="form-control" id="inputPassword4" placeholder="Password"/>
+            <label htmlFor="clinic-doctor">Doctor Name</label>
+            <input type="text" className="form-control" id="clinic-doctor" placeholder="Dr. Johnson"/>
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="inputAddress">Address</label>
-          <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"/>
+          <label htmlFor="clinic-address">Address</label>
+          <input type="text" className="form-control" id="clinic-address" placeholder="1234 Main St"/>
         </div>
         <div className="form-group">
-          <label htmlFor="inputAddress2">Address 2</label>
-          <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
+          <label htmlFor="clinic-address-2">Address 2</label>
+          <input type="text" className="form-control" id="clinic-address-2" placeholder="Apartment, studio, or floor"/>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label htmlFor="inputCity">City</label>
-            <input type="text" className="form-control" id="inputCity"/>
+            <label htmlFor="clinic-city">City</label>
+            <input type="text" className="form-control" id="clinic-city"/>
           </div>
           <div className="form-group col-md-4">
-            <label htmlFor="inputState">State</label>
-            <select id="inputState" className="form-control">
+            <label htmlFor="clinic-state">State</label>
+            {/* <select id="clinic-state" className="form-control">
               <option defaultValue>Choose...</option>
               <option>...</option>
-            </select>
+            </select> */}
+            <input type="text" className="form-control" id="clinic-state"/>
           </div>
           <div className="form-group col-md-2">
-            <label htmlFor="inputZip">Zip</label>
-            <input type="text" className="form-control" id="inputZip"/>
+            <label htmlFor="clinic-zip">Zip</label>
+            <input type="text" className="form-control" id="clinic-zip"/>
           </div>
         </div>
         <div className="form-group">
+            <label htmlFor="clinic-notes">Notes (optional)</label>
+            <input type="textarea" className="form-control" id="clinic-notes" placeholder="Example: This buildling is always cold, bring a jacket"/>
+          </div>
+        {/* <div className="form-group">
           <div className="form-check">
             <input className="form-check-input" type="checkbox" id="gridCheck"/>
             <label className="form-check-label" htmlFor="gridCheck">
               Check me out
             </label>
           </div>
-        </div>
+        </div> */}
         <button type="submit" className="btn btn-primary">Save and add another</button>
   <button type="submit" className="btn btn-light">Save and exit</button>      </form>
     )

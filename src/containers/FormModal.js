@@ -18,7 +18,7 @@ const FormModal = (props) => {
       return <MedicationForm />;
     } else if (forms === "Condition") {
       return <ConditionForm />;
-    } else if (forms === "HealthContact") {
+    } else if (forms === "Contact") {
       return <HealthContactForm />;
     }
   }
@@ -107,7 +107,7 @@ const FormModal = (props) => {
                       type="radio"
                       name="inlineRadioOptions"
                       id="inlineRadio4"
-                      value="HealthContact"
+                      value="Contact"
                       onChange={handleChange}
                     />
                     <label className="form-check-label" htmlFor="inlineRadio4">
