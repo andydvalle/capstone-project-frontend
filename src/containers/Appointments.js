@@ -4,9 +4,9 @@ class Appointments extends Component {
   render() {
     return (
       <div>
-        Hi from Appointments
+        {/* Hi from Appointments */}
         <div className="main_content">
-          <div className="header">Appointments</div>
+    <div className="header">Appointments {this.props.profileId}</div>
           <div className="info">
             <div>Appointments</div>
             <div>Appointments</div>

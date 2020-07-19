@@ -1,53 +1,14 @@
-import React, { Component } from "react";
-import Navbar from "../components/Navbar";
-import { Route, Switch } from "react-router-dom";
-import Conditions from "./Conditions";
-import Medications from "./Medications";
-import Appointments from "./Appointments";
-import HealthContacts from "./HealthContacts";
-import FormModal from "./FormModal";
-import { api } from "../services/api";
+import React from "react";
+import { Link } from "react-router-dom";
 
-class Profile extends Component {
+const Profile = (props) => {
+  const { name, id } = props.patient;
 
-  getProfile = () => {
-    const id = this.props.match.params.id;
-    let foundProfile = {}
-    for (let patient of this.props.patients) {
-      if(patient.id == id){
-        foundProfile = patient
-      }
-    }
-    return foundProfile
-  }
+  return (
+    <div>
+      Hi <Link to={`/dashboard/${id}`}>{name} </Link>from Profile
+    </div>
+  );
+};
 
-    render() {
-
-      const {name} = this.getProfile()
-
-        return (
-          <div className="main_content">
-          hi {name} from profile
-            {/* <Route
-              path="/:id/appointments"
-              render={(props) => <Appointments />}
-            ></Route>
-            <Route
-              path="/:id/medications"
-              render={(props) => <Medications />}
-            ></Route>
-            <Route
-              path="/:id/conditions"
-              render={(props) => <Conditions />}
-            ></Route>
-            <Route
-              path="/:id/contacts"
-              render={(props) => <HealthContacts />}
-            ></Route> */}
-            <FormModal />
-          </div>
-        );
-      }
-    }
-
-export default Profile
+export default Profile;

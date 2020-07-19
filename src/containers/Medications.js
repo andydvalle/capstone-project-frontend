@@ -4,9 +4,9 @@ class Medications extends Component {
   render() {
     return (
       <div>
-        Hi from Medications
+        {/* Hi from Medications */}
         <div className="main_content">
-          <div className="header">Medications</div>
+          <div className="header">Medications {this.props.profileId}</div>
           <div className="info">
             <div>Medications</div>
             <div>Medications</div>

@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-import Navbar from "../components/Navbar";
-import { Route, Switch } from "react-router-dom";
-import Conditions from "./Conditions";
-import Medications from "./Medications";
-import Appointments from "./Appointments";
-import HealthContacts from "./HealthContacts";
-import FormModal from "./FormModal";
+import { Route, Switch, Link } from "react-router-dom";
+import ProfileView from "./ProfileView";
 import Profile from "./Profile";
 import { api } from "../services/api";
 
@@ -33,36 +28,28 @@ class Dashboard extends Component {
     this.getPatients();
   }
 
+  renderProfiles = () => {
+    return this.state.patients.map((patient) => {
+      return <Profile patient={patient} />;
+    });
+  };
+
   render() {
     return (
       <div>
-        <Route render={(props) => (
-        <Navbar {...props}
-          currentUser={this.props.user}
-          patients={this.state.patients}
-          onHandleSignout={this.props.onSignout}
-        />)}
-        />
-        {/* <Route
-          path="/dashboard/appointments"
-          render={(props) => <Appointments />}
-        ></Route>
-        <Route
-          path="/dashboard/medications"
-          render={(props) => <Medications />}
-        ></Route>
-        <Route
-          path="/dashboard/conditions"
-          render={(props) => <Conditions />}
-        ></Route>
-        <Route
-          path="/dashboard/contacts"
-          render={(props) => <HealthContacts />}
-        ></Route> */}
-        {/* <FormModal /> */}
+        {window.location.pathname === "/dashboard"
+          ? this.renderProfiles()
+          : null}
         <Route
           path="/dashboard/:id"
-          render={(props) => <Profile {...props} patients={this.state.patients} />}
+          render={(props) => (
+            <ProfileView
+              {...props}
+              currentUser={this.props.user}
+              patients={this.state.patients}
+              onHandleSignout={this.props.onSignout}
+            />
+          )}
         ></Route>
       </div>
     );

@@ -4,9 +4,9 @@ class Conditions extends Component {
   render() {
     return (
       <div>
-        Hi from Conditions
+        {/* Hi from Conditions */}
         <div className="main_content">
-          <div className="header">Conditions</div>
+          <div className="header">Conditions {this.props.profileId}</div>
           <div className="info">
             <div>Conditions</div>
             <div>Conditions</div>

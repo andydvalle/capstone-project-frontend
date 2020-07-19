@@ -1,91 +1,119 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../services/api";
 import avatar from "../images/img_avatar3.png";
+// import { Component } from "react";
+import { render } from "@testing-library/react";
 
-const Navbar = (props) => {
-  const handleSignout = () => {
+class Navbar extends Component {
+  getProfile = () => {
+    const id = this.props.match.params.id;
+    let foundProfile = {};
+    for (let patient of this.props.patients) {
+      if (patient.id == id) {
+        foundProfile = patient;
+      }
+    }
+    return foundProfile;
+  };
+
+  handleSignout = () => {
     this.props.onHandleSignout();
   };
 
-  const renderPatientOptions = () => {
-    return props.patients.map((patient) => {
-      return <option key={patient.id} value={patient.id}>{patient.name} Schedule</option>;
+  renderPatientOptions = () => {
+    return this.props.patients.map((patient) => {
+      return (
+        <option key={patient.id} value={patient.id}>
+          {patient.name} Schedule
+        </option>
+      );
     });
   };
 
-  const handleChange = (e) => {
-    console.log(e.target.value)
-    props.history.push(`/dashboard/${e.target.value}`)
-  }
+  handleChange = (e) => {
+    console.log(e.target.value);
+    this.props.history.push(`/dashboard/${e.target.value}`);
+  };
 
-  return (
-    <div className="wrapper">
-      <div className="sidebar">
-        <img
-          src={avatar}
-          className="avatar"
-          alt="Avatar"
-          style={{ align: "center", width: "45%" }}
-        />
-        <h2>
-          {/* Patient's Schedule */}
-          <select id="patient-dropdown" onChange={handleChange}>
-            {/* <option value="choosePatient">Choose Patient</option> */}
-              <option value="choosePatient">Choose Patient</option> 
-            {renderPatientOptions()}
-          </select>
-        </h2>
-        <div className="mb-5">
-          <h5>view</h5>
+  render() {
+    const { name, id } = this.props.patients;
+    return (
+      <div className="wrapper">
+        <div className="sidebar">
+          <img
+            src={avatar}
+            className="avatar"
+            alt="Avatar"
+            style={{ align: "center", width: "45%" }}
+          />
+          <h2>
+            {/* Patient's Schedule */}
+            <select id="patient-dropdown" onChange={this.handleChange}>
+              {/* <option value="choosePatient">Choose Patient</option> */}
+              <option value="choosePatient">Choose Patient</option>
+              {this.renderPatientOptions()}
+            </select>
+          </h2>
+          <div className="mb-5">
+            <h5>view</h5>
+            <ul>
+              <li>Today</li>
+              <li>This Week</li>
+              <li>This Month</li>
+            </ul>
+          </div>
+          <div className="mb-5">
+            <h5>profile</h5>
+            <ul>
+              <li>
+                <Link to={`/dashboard/${this.props.profileId}/appointments`}>
+                  Appointments
+                </Link>
+              </li>
+              <li>
+                <Link to={`/dashboard/${this.props.profileId}/medications`}>
+                  Medications
+                </Link>
+              </li>
+              <li>
+                <Link to={`/dashboard/${this.props.profileId}/conditions`}>
+                  Conditions
+                </Link>
+              </li>
+              <li>
+                <Link to={`/dashboard/${this.props.profileId}/contacts`}>
+                  Health Contacts
+                </Link>
+              </li>
+            </ul>
+          </div>
           <ul>
-            <li>Today</li>
-            <li>This Week</li>
-            <li>This Month</li>
+            <Link to="/login">
+              <li onClick={this.handleSignout}>Signout</li>
+            </Link>
           </ul>
-        </div>
-        <div className="mb-5">
-          <h5>profile</h5>
-          <ul>
-            <li>
-              <Link to="/dashboard/appointments">Appointments</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/medications">Medications</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/conditions">Conditions</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/contacts">Health Contacts</Link>
-            </li>
-          </ul>
-        </div>
-        <ul>
-          <Link to="/login">
-            <li onClick={handleSignout}>Signout</li>
-          </Link>
-        </ul>
-        {/* <ul>
+          {/* <ul>
             <li><a href="#"><i className="fas fa-home"></i>Home</a></li>
             <li><a href="#"><i className="fas fa-user"></i>Profile</a></li>
             <li><a href="#"><i className="fas fa-address-card"></i>About</a></li>
             <li><a href="#"><i className="fas fa-address-book"></i>Contact</a></li>
         </ul>  */}
-        <div className="social_media">
-          <a href="#">
-            <i className="fab fa-linkedin-in"></i>
-          </a>
-          <a href="#">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="#">
-            <i className="fab fa-github"></i>
-          </a>
+          <div className="social_media">
+            <a href="#">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="#">
+              <i className="fab fa-github"></i>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Navbar;

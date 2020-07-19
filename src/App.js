@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Route } from "react-router-dom";
-import { api } from "./services/api"
+import { api } from "./services/api";
 import Dashboard from "./containers/Dashboard";
 import Login from "./components/Login";
 
@@ -36,14 +36,14 @@ class App extends Component {
 
   componentDidMount() {
     // gets token
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem("token");
 
     // if token exists calls getCurrentUser and sets auth state)
     if (token) {
-      api.auth.getCurrentUser().then(user => {
-        const updatedState = { ...this.state.auth, user: user }
-        this.setState({ auth: updatedState })
-      })
+      api.auth.getCurrentUser().then((user) => {
+        const updatedState = { ...this.state.auth, user: user };
+        this.setState({ auth: updatedState });
+      });
     }
   }
 
@@ -59,7 +59,11 @@ class App extends Component {
         <Route
           path="/dashboard"
           render={(props) => (
-            <Dashboard {...props} user={this.state.auth.user} onSignout={this.onSignout} />
+            <Dashboard
+              {...props}
+              user={this.state.auth.user}
+              onSignout={this.onSignout}
+            />
           )}
         />
       </div>

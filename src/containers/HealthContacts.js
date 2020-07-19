@@ -4,9 +4,9 @@ class HealthContacts extends Component {
   render() {
     return (
       <div>
-        Hi from HealthContacts
+        {/* Hi from HealthContacts */}
         <div className="main_content">
-          <div className="header">HealthContacts</div>
+          <div className="header">HealthContacts {this.props.profileId}</div>
           <div className="info">
             <div>HealthContacts</div>
             <div>HealthContacts</div>
