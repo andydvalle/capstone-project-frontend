@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 class Conditions extends Component {
+
   render() {
     return (
       <div>

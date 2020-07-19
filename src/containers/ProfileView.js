@@ -76,7 +76,6 @@ class ProfileView extends Component {
           )}
         ></Route>
         <FormModal patients={this.props.patients} profileId={id} />
-        />
       </div>
     );
   }
