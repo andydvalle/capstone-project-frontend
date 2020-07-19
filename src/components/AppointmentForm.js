@@ -1,8 +1,10 @@
 import React from "react";
-// import useFormInput from "../FormInput";
+import useFormInput from "../FormInput";
 
 const AppointmentForm = (props) => {
-  // const condition = useFormInput("")
+  const title = useFormInput("")
+  const date = useFormInput("")
+  const time = useFormInput("")
 
   return (
     <form>
@@ -15,6 +17,7 @@ const AppointmentForm = (props) => {
           id="appointment-patient-id"
           placeholder={`${props.patientId}`}
           value={`${props.patientId}`}
+          // {...profile_id}
         />
       </div>
       <div className="form-row">
@@ -25,6 +28,7 @@ const AppointmentForm = (props) => {
             className="form-control"
             id="appointment-title"
             placeholder="Visit with Dr. Johnson"
+            {...title}
           />
         </div>
         <div className="form-group col-md-3">
@@ -33,7 +37,7 @@ const AppointmentForm = (props) => {
             type="date"
             className="form-control"
             id="appointment-date"
-            // placeholder="Password"
+            {...date}
           />
         </div>
         <div className="form-group col-md-3">
@@ -42,6 +46,7 @@ const AppointmentForm = (props) => {
             type="time"
             className="form-control"
             id="appointment-time"
+            {...time}
             // placeholder="Password"
           />
         </div>
