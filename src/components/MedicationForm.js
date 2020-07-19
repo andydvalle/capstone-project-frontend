@@ -8,12 +8,13 @@ const MedicationForm = (props) => {
     <form>
       {/* Hi from MedicationForm */}
       <div className="form-group">
-        <label htmlFor="appointment-patient-id">Patient Id (hide later)</label>
+        {/* <label htmlFor="appointment-patient-id">Patient Id (hide later)</label> */}
         <input
-          type="text"
+          type="hidden"
           className="form-control"
           id="appointment-patient-id"
           placeholder={`${props.patientId}`}
+          value={`${props.patientId}`}
         />
       </div>
       <div className="form-group">
