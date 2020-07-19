@@ -30,7 +30,7 @@ class ProfileView extends Component {
               {...props}
               currentUser={this.props.user}
               patients={this.props.patients}
-              onHandleSignout={this.props.onSignout}
+              onHandleSignout={this.props.onHandleSignout}
               profileId={id}
             />
           )}
