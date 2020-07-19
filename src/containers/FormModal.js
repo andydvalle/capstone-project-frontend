@@ -13,13 +13,13 @@ const FormModal = (props) => {
 
   function renderForm(forms) {
     if (forms === "Appointment") {
-      return <AppointmentForm />;
+      return <AppointmentForm patientId={props.profileId}/>;
     } else if (forms === "Medication") {
-      return <MedicationForm />;
+      return <MedicationForm patientId={props.profileId}/>;
     } else if (forms === "Condition") {
-      return <ConditionForm />;
+      return <ConditionForm patientId={props.profileId}/>;
     } else if (forms === "Contact") {
-      return <HealthContactForm />;
+      return <HealthContactForm patientId={props.profileId}/>;
     }
   }
 
@@ -54,7 +54,7 @@ const FormModal = (props) => {
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div className="form-modal">
-              New {forms} {props.profileId}
+              New {forms}
             </div>
             <div className="p-3">
               {/* radio buttons */}

@@ -1,13 +1,22 @@
 import React from "react";
 // import useFormInput from "../FormInput";
 
-const ConditionForm = () => {
+const ConditionForm = (props) => {
   
     // const condition = useFormInput("")
   
     return (
         <form>
         {/* Hi from ConditionForm */}
+        <div className="form-group">
+        <label htmlFor="appointment-patient-id">Patient Id (hide later)</label>
+        <input
+          type="text"
+          className="form-control"
+          id="appointment-patient-id"
+          placeholder={`${props.patientId}`}
+        />
+      </div>
           <div className="form-group">
             <label htmlFor="condition-name">Search Condition Name</label>
             <input type="text" className="form-control" id="condition-name" placeholder="Example: Hypertension"/>

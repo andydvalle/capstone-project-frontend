@@ -1,12 +1,21 @@
 import React from "react";
 // import useFormInput from "../FormInput";
 
-const MedicationForm = () => {
+const MedicationForm = (props) => {
   // const condition = useFormInput("")
 
   return (
     <form>
       {/* Hi from MedicationForm */}
+      <div className="form-group">
+        <label htmlFor="appointment-patient-id">Patient Id (hide later)</label>
+        <input
+          type="text"
+          className="form-control"
+          id="appointment-patient-id"
+          placeholder={`${props.patientId}`}
+        />
+      </div>
       <div className="form-group">
         <label htmlFor="medication-name-route">{`Search Name & Route`}</label>
         <input
