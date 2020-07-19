@@ -8,7 +8,7 @@ class Medications extends Component {
         return patient.medications.map((medication) => {
           return (
             <ul>
-              <li>{medication.name}</li>
+              <li key={medication.name}>{medication.name}</li>
             </ul>
           );
         });

@@ -5,7 +5,7 @@ const Profile = (props) => {
   const { name, id } = props.patient;
 
   return (
-    <div>
+    <div className="main_content">
       Hi <Link to={`/dashboard/${id}`}>{name} </Link>from Profile
     </div>
   );
