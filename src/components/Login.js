@@ -33,32 +33,47 @@ class Login extends Component {
   render() {
     const { fields } = this.state;
     return (
-      <div className="temp-border">
-      Hi from Login
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <div>
-              <label>Username</label>
-              <input
-                name="username"
-                placeholder="Enter username"
-                value={fields.username}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <label>Password</label>
-              <input
-                name="password"
-                type="password"
-                placeholder="Enter password"
-                value={fields.password}
-                onChange={this.handleChange}
-              />
-            </div>
-            <button type="submit">Login</button>
-          </form>
-        </div>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label>Username</label>
+            <input
+              className="form-control"
+              type="text"
+              name="username"
+              placeholder="Enter username"
+              value={fields.username}
+              onChange={this.handleChange}
+            />
+            {/* <small id="emailHelp" className="form-text text-muted">
+              We'll never share your email with anyone else.
+            </small> */}
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              className="form-control"
+              name="password"
+              type="password"
+              placeholder="Enter password"
+              value={fields.password}
+              onChange={this.handleChange}
+            />
+          </div>
+          {/* <div className="form-check">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="exampleCheck1"
+            />
+            <label className="form-check-label" for="exampleCheck1">
+              Check me out
+            </label>
+          </div> */}
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </form>
       </div>
     );
   }
