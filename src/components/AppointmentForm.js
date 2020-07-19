@@ -33,7 +33,7 @@ const AppointmentForm = () => {
     {/* <input type="text" className="form-control" id="appointment-address" placeholder="Add drop down menu of office"/> */}
   </div>
   <div className="form-group">
-    <label htmlFor="appointment-notes">Notes</label>
+    <label htmlFor="appointment-notes">Notes (optional)</label>
     <input type="textarea" className="form-control" id="appointment-notes" placeholder="Add notes about this appointment"/>
   </div>
   {/* <div className="form-row">
