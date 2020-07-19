@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import ProfileView from "./ProfileView";
 import Profile from "./Profile";
-import PatientForm from "../components/PatientForm";
+import ProfileForm from "../components/ProfileForm";
 import { api } from "../services/api";
 
 class Dashboard extends Component {
@@ -74,7 +74,7 @@ class Dashboard extends Component {
         </button> */}
               </div>
               <div className="modal-body">
-                <PatientForm currentUser={this.props.user} />
+                <ProfileForm currentUser={this.props.user} />
               </div>
             </div>
           </div>

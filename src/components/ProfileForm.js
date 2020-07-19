@@ -1,17 +1,20 @@
 import React from "react";
-// import useFormInput from "../FormInput";
+import useFormInput from "../FormInput";
 
-const AppointmentForm = (props) => {
-  // const condition = useFormInput("")
+const ProfileForm = (props) => {
+  const firstName = useFormInput("")
+  const lastName = useFormInput("")
+  const dob = useFormInput("")
+  const allergies = useFormInput("")
 
   return (
     <form>
       <div className="form-group">
-        <label htmlFor="appointment-patient-id">User Id (hide later)</label>
+        <label htmlFor="profile-patient-id">User Id (hide later)</label>
         <input
           type="text"
           className="form-control"
-          id="appointment-patient-id"
+          id="profile-patient-id"
           placeholder={`${props.currentUser.id}`}
           value={`${props.currentUser.id}`}
         />
@@ -24,6 +27,7 @@ const AppointmentForm = (props) => {
             className="form-control"
             id="profile-first-name"
             placeholder="John"
+            {...firstName}
           />
         </div>
         
@@ -33,6 +37,7 @@ const AppointmentForm = (props) => {
             type="date"
             className="form-control"
             id="profile-dob"
+            {...dob}
           />
         </div>
       </div>
@@ -43,6 +48,7 @@ const AppointmentForm = (props) => {
             className="form-control"
             id="profile-last-name"
             placeholder="Doe"
+            {...lastName}
           />
         </div>
       <div className="form-group">
@@ -52,6 +58,7 @@ const AppointmentForm = (props) => {
           className="form-control"
           id="profile-allergies"
           placeholder="'No allergies' if none"
+          {...allergies}
         />
       </div>
       <button type="submit" className="btn btn-primary">
@@ -64,4 +71,4 @@ const AppointmentForm = (props) => {
   );
 };
 
-export default AppointmentForm;
+export default ProfileForm;
