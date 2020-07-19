@@ -6,6 +6,7 @@ import Medications from "./Medications";
 import Appointments from "./Appointments";
 import HealthContacts from "./HealthContacts";
 import FormModal from "./FormModal";
+import Profile from "./Profile";
 import { api } from "../services/api";
 
 class Dashboard extends Component {
@@ -23,8 +24,8 @@ class Dashboard extends Component {
         (patient) => patient.user_id === this.props.user.id
       );
       this.setState({
-        patients: userPatients
-      })
+        patients: userPatients,
+      });
     });
   };
 
@@ -40,7 +41,7 @@ class Dashboard extends Component {
           patients={this.state.patients}
           onHandleSignout={this.props.onSignout}
         />
-        <Route
+        {/* <Route
           path="/dashboard/appointments"
           render={(props) => <Appointments />}
         ></Route>
@@ -55,8 +56,12 @@ class Dashboard extends Component {
         <Route
           path="/dashboard/contacts"
           render={(props) => <HealthContacts />}
-        ></Route>
+        ></Route> */}
         <FormModal />
+        <Route
+          path="/dashboard/:id"
+          render={(props) => <Profile {...props} patients={this.state.patients} />}
+        ></Route>
       </div>
     );
   }

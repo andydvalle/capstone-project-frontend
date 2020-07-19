@@ -56,6 +56,15 @@ body{
   font-weight: bold;
 }
 
+/* .browser-default .custom-select{
+  color: #fafafa !important;
+  background: none;
+  outline-color: transparent;
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+} */
+
 .wrapper .sidebar h5{
   color: #fafafa;
   text-transform: uppercase;
