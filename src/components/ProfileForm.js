@@ -2,13 +2,19 @@ import React from "react";
 import useFormInput from "../FormInput";
 
 const ProfileForm = (props) => {
+
   const firstName = useFormInput("")
   const lastName = useFormInput("")
   const dob = useFormInput("")
   const allergies = useFormInput("")
 
+  const submitProfile = (e) => {
+    e.preventDefault()
+    console.log(`submitting ${firstName.value} ${lastName.value} ${dob.value} ${allergies.value}`)
+  }
+
   return (
-    <form>
+    <form onSubmit={submitProfile}>
       <div className="form-group">
         <label htmlFor="profile-patient-id">User Id (hide later)</label>
         <input
@@ -64,9 +70,9 @@ const ProfileForm = (props) => {
       <button type="submit" className="btn btn-primary">
         Save and add another
       </button>
-      <button type="submit" className="btn btn-light">
+      {/* <button type="submit" className="btn btn-light">
         Save and exit
-      </button>
+      </button> */}
     </form>
   );
 };
