@@ -1,33 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { api } from '../services/api'
 import useFormInput from "../FormInput";
 
 const ProfileForm = (props) => {
-  const [profile, setProfile] = useState({});
 
   const firstName = useFormInput("");
   const lastName = useFormInput("");
   const dob = useFormInput("");
   const allergies = useFormInput("");
 
-  const handleChange = (e) => {
-    // console.log(`submitting ${firstName.value} ${lastName.value} ${dob.value} ${allergies.value}`)
-    setProfile({
+  const submitProfile = (e) => {
+    e.preventDefault()
+    api.patients.postPatient({
       firstName: firstName.value,
       lastName: lastName.value,
       dob: dob.value,
       allergies: allergies.value,
       user_id: props.currentUser.id
-    });
-  };
-
-  const submitProfile = (e) => {
-    e.preventDefault()
-    api.patients.postPatient(profile)
+    })
   }
 
   return (
-    <form onSubmit={submitProfile} onChange={handleChange}>
+    <form onSubmit={submitProfile}>
       <div className="form-row">
         <div className="form-group col-md-6">
           <label htmlFor="profile-first-name">First Name</label>

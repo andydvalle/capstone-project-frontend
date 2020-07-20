@@ -55,8 +55,8 @@ class App extends Component {
           path="/login"
           render={(props) => <Login {...props} onLogin={this.onLogin} />}
         />
-
-        <Route
+{        //should wrap in a ternary user_id ? ...dashboard : null
+}        <Route
           path="/dashboard"
           render={(props) => (
             <Dashboard

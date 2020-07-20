@@ -14,6 +14,7 @@ class Dashboard extends Component {
     this.props.onSignout();
   };
 
+  //should filter in the backend
   getPatients = () => {
     api.patients.fetchPatients().then((data) => {
       const userPatients = data.filter(
