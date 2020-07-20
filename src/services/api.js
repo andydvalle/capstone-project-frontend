@@ -99,6 +99,21 @@ const postCondition = (data) => {
         body: JSON.stringify(data)
     }).then(resp=>resp.json())
 }
+// GET fetch all clinics
+const fetchClinics = () => {
+    const URL = 'http://localhost:3000/api/v1/clinics'
+    return fetch(URL).then(resp=>resp.json())
+}
+
+// POST fetch clnic
+const postClinic = (data) => {
+    const URL = "http://localhost:3000/api/v1/clinics"
+    return fetch(URL, {
+        method: 'POST',
+        headers: headers(),
+        body: JSON.stringify(data)
+    }).then(resp=>resp.json())
+}
 
 //exports all functions 
 export const api = {
@@ -121,5 +136,9 @@ export const api = {
     conditions: {
         fetchConditions,
         postCondition
+    },
+    clinics: {
+        fetchClinics,
+        postClinic
     }
 }

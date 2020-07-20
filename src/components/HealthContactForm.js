@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
 const HealthContactForm = (props) => {
-
-  const [contact, setContact] = useState({})
-
   const name = useFormInput("");
   const practitioner = useFormInput("");
   const address = useFormInput("");
@@ -14,25 +12,21 @@ const HealthContactForm = (props) => {
   const state = useFormInput("");
   const zip = useFormInput("");
   const notes = useFormInput("");
-  
-  const handleChange = () => {
-    setContact({
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    api.clinics.postClinic({
       name: name.value,
       practitioner: practitioner.value,
       location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
       number: number.value,
       notes: notes.value,
-      patient_id: props.patientId
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(contact)
-  }
+      patient_id: props.patientId,
+    });
+  };
 
   return (
-    <form onSubmit={handleSubmit} onChange={handleChange}>
+    <form onSubmit={handleSubmit}>
       <div className="form-row">
         <div className="form-group col-md-6">
           <label htmlFor="clinic-name">Clinic Name</label>
@@ -116,7 +110,13 @@ const HealthContactForm = (props) => {
         </div>
         <div className="form-group col-md-2">
           <label htmlFor="clinic-zip">Zip</label>
-          <input type="text" className="form-control" id="clinic-zip" placeholder="98118" {...zip}/>
+          <input
+            type="text"
+            className="form-control"
+            id="clinic-zip"
+            placeholder="98118"
+            {...zip}
+          />
         </div>
       </div>
       <div className="form-group">

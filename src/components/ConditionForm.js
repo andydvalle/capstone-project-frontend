@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useFormInput from "../FormInput";
 import { api } from "../services/api";
 
