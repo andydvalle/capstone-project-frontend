@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
 const AppointmentForm = (props) => {
-
-  const [appointment, setAppointment] = useState({})
 
   const title = useFormInput("")
   const date = useFormInput("")
@@ -11,37 +10,22 @@ const AppointmentForm = (props) => {
   const notes = useFormInput("")
   const clinic_id = useFormInput("")
 
-  const handleChange = () => {
-    setAppointment({
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    api.appointments.postAppointment({
       title: title.value,
       date: date.value,
       time: time.value,
       notes: notes.value,
       clinic_id: clinic_id.value,
       patient_id: props.patientId
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(appointment)
-  }
+    });
+  };
   
 
   return (
-    <form onSubmit={handleSubmit} onChange={handleChange}>
-      {/* Hi from AppointmentForm */}
-      <div className="form-group">
-        {/* <label htmlFor="appointment-patient-id">Patient Id (hide later)</label> */}
-        <input
-          type="hidden"
-          className="form-control"
-          id="appointment-patient-id"
-          placeholder={`${props.patientId}`}
-          value={`${props.patientId}`}
-          // {...profile_id}
-        />
-      </div>
+    <form onSubmit={handleSubmit}>
       <div className="form-row">
         <div className="form-group col-md-6">
           <label htmlFor="appointment-title">Title</label>
@@ -76,8 +60,8 @@ const AppointmentForm = (props) => {
         <label htmlFor="appointment-address">Location</label>
         <select className="form-control" {...clinic_id}>
           <option value="chooseClinic">Select a clinic</option>
-          <option value="clinic1">Clinic 1</option>
-          <option value="clinic2">Clinic 2</option>
+          <option value="1">Clinic 1</option>
+          <option value="2">Clinic 2</option>
           {/* <div className="dropdown-divider"></div> */}
         </select>
       </div>

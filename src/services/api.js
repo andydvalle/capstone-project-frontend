@@ -43,16 +43,29 @@ const fetchPatients = () => {
     return fetch(URL).then(resp=>resp.json())
 }
 
-// POST fetch all patients
+// POST fetch patient/profile
 const postPatient = (data) => {
-    console.log(`hi from api.js`)
     const URL = "http://localhost:3000/api/v1/patients"
     return fetch(URL, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-        },
+        headers: headers(),
+        body: JSON.stringify(data)
+    }).then(resp=>resp.json())
+}
+
+// GET fetch all patients
+const fetchAppointments = () => {
+    const URL = 'http://localhost:3000/api/v1/appointments'
+    return fetch(URL).then(resp=>resp.json())
+}
+
+// POST fetch appointment
+const postAppointment = (data) => {
+    console.log('hi from postAppointment api.js')
+    const URL = "http://localhost:3000/api/v1/appointments"
+    return fetch(URL, {
+        method: 'POST',
+        headers: headers(),
         body: JSON.stringify(data)
     }).then(resp=>resp.json())
 }
@@ -66,5 +79,9 @@ export const api = {
     patients: {
         fetchPatients,
         postPatient
+    },
+    appointments: {
+        fetchAppointments,
+        postAppointment
     }
 }
