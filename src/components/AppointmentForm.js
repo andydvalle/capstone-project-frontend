@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import useFormInput from "../FormInput";
 
 const AppointmentForm = (props) => {
+
+  const [appointment, setAppointment] = useState({})
+
   const title = useFormInput("")
   const date = useFormInput("")
   const time = useFormInput("")
+
+  
 
   return (
     <form>
@@ -47,7 +52,6 @@ const AppointmentForm = (props) => {
             className="form-control"
             id="appointment-time"
             {...time}
-            // placeholder="Password"
           />
         </div>
       </div>
@@ -59,7 +63,6 @@ const AppointmentForm = (props) => {
           <div className="dropdown-divider"></div>
           <option value="office2">Add an office</option>
         </select>
-        {/* <input type="text" className="form-control" id="appointment-address" placeholder="Add drop down menu of office"/> */}
       </div>
       <div className="form-group">
         <label htmlFor="appointment-notes">Notes (optional)</label>
@@ -70,31 +73,6 @@ const AppointmentForm = (props) => {
           placeholder="Example: Don't forget to update medication list!"
         />
       </div>
-      {/* <div className="form-row">
-    <div className="form-group col-md-6">
-      <label htmlFor="inputCity">City</label>
-      <input type="text" className="form-control" id="inputCity"/>
-    </div>
-    <div className="form-group col-md-4">
-      <label htmlFor="inputState">State</label>
-      <select id="inputState" className="form-control">
-        <option defaultValue>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div className="form-group col-md-2">
-      <label htmlFor="inputZip">Zip</label>
-      <input type="text" className="form-control" id="inputZip"/>
-    </div>
-  </div> */}
-      {/* <div className="form-group">
-    <div className="form-check">
-      <input className="form-check-input" type="checkbox" id="gridCheck"/>
-      <label className="form-check-label" htmlFor="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div> */}
       <button type="submit" className="btn btn-primary">
         Save and add another
       </button>

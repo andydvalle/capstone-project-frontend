@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useFormInput from "../FormInput";
 
 const ProfileForm = (props) => {
@@ -9,8 +9,7 @@ const ProfileForm = (props) => {
   const dob = useFormInput("");
   const allergies = useFormInput("");
 
-  const submitProfile = (e) => {
-    e.preventDefault();
+  const handleChange = (e) => {
     // console.log(`submitting ${firstName.value} ${lastName.value} ${dob.value} ${allergies.value}`)
     setProfile({
       firstName: firstName.value,
@@ -21,8 +20,13 @@ const ProfileForm = (props) => {
     });
   };
 
+  const submitProfile = (e) => {
+    e.preventDefault()
+    console.log(profile)
+  }
+
   return (
-    <form onSubmit={submitProfile}>
+    <form onSubmit={submitProfile} onChange={handleChange}>
       <div className="form-row">
         <div className="form-group col-md-6">
           <label htmlFor="profile-first-name">First Name</label>
