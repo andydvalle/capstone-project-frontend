@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useFormInput from "../FormInput";
-import useBoxInput from "../BoxInput";
+// import useBoxInput from "../BoxInput";
 
 const MedicationForm = (props) => {
   const [medication, setMedication] = useState({})
@@ -9,8 +9,8 @@ const MedicationForm = (props) => {
   const strength = useFormInput("")
   const instructions = useFormInput("")
   const notes = useFormInput("")
-  const onSun = useBoxInput("")
-  const onMon = useBoxInput("")
+  // const onSun = useBoxInput("")
+  // const onMon = useBoxInput("")
 
   const handleChange = () =>{
     setMedication({
@@ -18,8 +18,8 @@ const MedicationForm = (props) => {
       strength: strength.value,
       instructions: instructions.value,
       notes: notes.value,
-      onSun: !onSun.value,
-      onMon: !onMon.value,
+      // onSun: !onSun.value,
+      // onMon: !onMon.value,
       patient_id: props.patientId
     })
   }
@@ -71,7 +71,7 @@ const MedicationForm = (props) => {
             type="checkbox"
             value="sun"
             id="sunCheck"
-            {...onSun}
+            // {...onSun}
           />
           <label className="form-check-label" htmlFor="sunCheck">
             Sunday
@@ -83,7 +83,7 @@ const MedicationForm = (props) => {
             type="checkbox"
             value="mon"
             id="monCheck"
-            {...onMon}
+            // {...onMon}
           />
           <label className="form-check-label" htmlFor="monCheck">
             Monday
