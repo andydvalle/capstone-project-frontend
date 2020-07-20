@@ -14,6 +14,7 @@ const HealthContactForm = (props) => {
   const state = useFormInput("");
   const zip = useFormInput("");
   const notes = useFormInput("");
+  
   const handleChange = () => {
     setContact({
       name: name.value,
