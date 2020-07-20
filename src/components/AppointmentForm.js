@@ -8,11 +8,26 @@ const AppointmentForm = (props) => {
   const title = useFormInput("")
   const date = useFormInput("")
   const time = useFormInput("")
+  const notes = useFormInput("")
 
+  const handleChange = () => {
+    setAppointment({
+      title: title.value,
+      date: date.value,
+      time: time.value,
+      notes: notes.value,
+      patient_id: props.patientId
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(appointment)
+  }
   
 
   return (
-    <form>
+    <form onSubmit={handleSubmit} onChange={handleChange}>
       {/* Hi from AppointmentForm */}
       <div className="form-group">
         {/* <label htmlFor="appointment-patient-id">Patient Id (hide later)</label> */}
@@ -71,6 +86,7 @@ const AppointmentForm = (props) => {
           className="form-control"
           id="appointment-notes"
           placeholder="Example: Don't forget to update medication list!"
+          {...notes}
         />
       </div>
       <button type="submit" className="btn btn-primary">
