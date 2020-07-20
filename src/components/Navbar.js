@@ -48,7 +48,7 @@ class Navbar extends Component {
             {/* Patient's Schedule */}
             <select id="patient-dropdown" value={this.props.profileId} onChange={this.handleChange}>
               {/* <option value="choosePatient">Choose Patient</option> */}
-              <option value="choosePatient">Choose Patient</option>
+              <option value="choosePatient">Choose Profile</option>
               {this.renderPatientOptions()}
             </select>
           </h2>
