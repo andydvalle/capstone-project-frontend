@@ -1,27 +1,22 @@
 import React, { useState, useEffect } from "react";
 import useFormInput from "../FormInput";
+import { api } from "../services/api";
 
 const ConditionForm = (props) => {
-  const [condition, setCondition] = useState({});
-
   const name = useFormInput("");
-  const notes = useFormInput("")
-
-  const handleChange = () => {
-    setCondition({
-      name: name.value,
-      notes: notes.value,
-      patient_id: props.patientId
-    })
-  }
+  const notes = useFormInput("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(condition)
-  }
+    e.preventDefault();
+    api.conditions.postCondition({
+      name: name.value,
+      notes: notes.value,
+      patient_id: props.patientId,
+    });
+  };
 
   return (
-    <form onSubmit={handleSubmit} onChange={handleChange}>
+    <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label htmlFor="condition-name">Search Condition Name</label>
         <input

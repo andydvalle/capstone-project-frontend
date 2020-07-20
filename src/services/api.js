@@ -53,7 +53,7 @@ const postPatient = (data) => {
     }).then(resp=>resp.json())
 }
 
-// GET fetch all patients
+// GET fetch all appointments
 const fetchAppointments = () => {
     const URL = 'http://localhost:3000/api/v1/appointments'
     return fetch(URL).then(resp=>resp.json())
@@ -69,15 +69,30 @@ const postAppointment = (data) => {
     }).then(resp=>resp.json())
 }
 
-// GET fetch all patients
+// GET fetch all medications
 const fetchMedications = () => {
     const URL = 'http://localhost:3000/api/v1/medications'
     return fetch(URL).then(resp=>resp.json())
 }
 
-// POST fetch appointment
+// POST fetch medication
 const postMedication = (data) => {
     const URL = "http://localhost:3000/api/v1/medications"
+    return fetch(URL, {
+        method: 'POST',
+        headers: headers(),
+        body: JSON.stringify(data)
+    }).then(resp=>resp.json())
+}
+// GET fetch all conditions
+const fetchConditions = () => {
+    const URL = 'http://localhost:3000/api/v1/conditions'
+    return fetch(URL).then(resp=>resp.json())
+}
+
+// POST fetch condition
+const postCondition = (data) => {
+    const URL = "http://localhost:3000/api/v1/conditions"
     return fetch(URL, {
         method: 'POST',
         headers: headers(),
@@ -102,5 +117,9 @@ export const api = {
     medications: {
         fetchMedications,
         postMedication
+    },
+    conditions: {
+        fetchConditions,
+        postCondition
     }
 }
