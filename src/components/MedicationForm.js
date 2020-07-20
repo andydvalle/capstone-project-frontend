@@ -4,7 +4,6 @@ import useBoxInput from "../BoxInput";
 import { api } from "../services/api";
 
 const MedicationForm = (props) => {
-  const [medication, setMedication] = useState({})
   
   const name_route = useFormInput("")
   const strength = useFormInput("")
@@ -12,23 +11,27 @@ const MedicationForm = (props) => {
   const notes = useFormInput("")
   const onSun = useBoxInput(false)
   const onMon = useBoxInput(false)
-
-  // const handleChange = () =>{
-  //   setMedication({
-  //     name_route: name_route.value,
-  //     strength: strength.value,
-  //     instructions: instructions.value,
-  //     notes: notes.value,
-  //     // onSun: !onSun.value,
-  //     // onMon: !onMon.value,
-  //     patient_id: props.patientId
-  //   })
-  // }
+  const onTue = useBoxInput(false)
+  const onWed = useBoxInput(false)
+  const onThu = useBoxInput(false)
+  const onFri = useBoxInput(false)
+  const onSat = useBoxInput(false)
 
   const handleSubmit =(e) => {
     e.preventDefault()
     api.medications.postMedication({
-      onSun,
+      name_route: name_route.value,
+      strength: strength.value,
+      instructions: instructions.value,
+      notes: notes.value,
+      onSun: onSun.value,
+      onMon: onMon.value,
+      onTue: onTue.value,
+      onWed: onWed.value,
+      onThu: onThu.value,
+      onFri: onFri.value,
+      onSat: onSat.value,
+      patient_id: props.patientId
     })
   }
 
@@ -86,7 +89,7 @@ const MedicationForm = (props) => {
             type="checkbox"
             value="mon"
             id="monCheck"
-            // {...onMon}
+            {...onMon}
           />
           <label className="form-check-label" htmlFor="monCheck">
             Monday
@@ -98,6 +101,8 @@ const MedicationForm = (props) => {
             type="checkbox"
             value="tue"
             id="tueCheck"
+            {...onTue}
+
           />
           <label className="form-check-label" htmlFor="tueCheck">
             Tuesday
@@ -109,7 +114,8 @@ const MedicationForm = (props) => {
             type="checkbox"
             value="wed"
             id="wedCheck"
-          />
+            {...onWed}
+            />
           <label className="form-check-label" htmlFor="wedCheck">
             Wednesday
           </label>
@@ -120,7 +126,8 @@ const MedicationForm = (props) => {
             type="checkbox"
             value="thu"
             id="thuCheck"
-          />
+            {...onThu}
+            />
           <label className="form-check-label" htmlFor="thuCheck">
             Thursday
           </label>
@@ -131,7 +138,8 @@ const MedicationForm = (props) => {
             type="checkbox"
             value="fri"
             id="friCheck"
-          />
+            {...onFri}
+            />
           <label className="form-check-label" htmlFor="friCheck">
             Friday
           </label>
@@ -142,7 +150,8 @@ const MedicationForm = (props) => {
             type="checkbox"
             value="sat"
             id="satCheck"
-          />
+            {...onSat}
+            />
           <label className="form-check-label" htmlFor="satCheck">
             Saturday
           </label>

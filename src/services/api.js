@@ -61,8 +61,23 @@ const fetchAppointments = () => {
 
 // POST fetch appointment
 const postAppointment = (data) => {
-    console.log('hi from postAppointment api.js')
     const URL = "http://localhost:3000/api/v1/appointments"
+    return fetch(URL, {
+        method: 'POST',
+        headers: headers(),
+        body: JSON.stringify(data)
+    }).then(resp=>resp.json())
+}
+
+// GET fetch all patients
+const fetchMedications = () => {
+    const URL = 'http://localhost:3000/api/v1/medications'
+    return fetch(URL).then(resp=>resp.json())
+}
+
+// POST fetch appointment
+const postMedication = (data) => {
+    const URL = "http://localhost:3000/api/v1/medications"
     return fetch(URL, {
         method: 'POST',
         headers: headers(),
@@ -83,5 +98,9 @@ export const api = {
     appointments: {
         fetchAppointments,
         postAppointment
+    },
+    medications: {
+        fetchMedications,
+        postMedication
     }
 }
