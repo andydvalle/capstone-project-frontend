@@ -7,23 +7,21 @@ const ConditionForm = (props) => {
   const name = useFormInput("");
   const notes = useFormInput("");
 
-  const submitCondition = () => {
-    console.log("hi")
+  const handleChange = () => {
+    setCondition({
+      name: name.value,
+      notes: notes.values,
+      patient_id: props.patientId
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(condition)
   }
 
   return (
-    <form>
-      {/* Hi from ConditionForm */}
-      <div className="form-group">
-        {/* <label htmlFor="appointment-patient-id">Patient Id (hide later)</label> */}
-        <input
-          type="hidden"
-          className="form-control"
-          id="appointment-patient-id"
-          placeholder={`${props.patientId}`}
-          value={`${props.patientId}`}
-        />
-      </div>
+    <form onSubmit={handleSubmit} onChange={handleChange}>
       <div className="form-group">
         <label htmlFor="condition-name">Search Condition Name</label>
         <input
