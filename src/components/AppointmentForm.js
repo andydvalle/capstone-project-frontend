@@ -9,6 +9,7 @@ const AppointmentForm = (props) => {
   const date = useFormInput("")
   const time = useFormInput("")
   const notes = useFormInput("")
+  const clinic_id = useFormInput("")
 
   const handleChange = () => {
     setAppointment({
@@ -16,6 +17,7 @@ const AppointmentForm = (props) => {
       date: date.value,
       time: time.value,
       notes: notes.value,
+      clinic_id: clinic_id.value,
       patient_id: props.patientId
     })
   }
@@ -72,11 +74,11 @@ const AppointmentForm = (props) => {
       </div>
       <div className="form-group">
         <label htmlFor="appointment-address">Location</label>
-        <select className="form-control">
-          <option value="office1">Office 1</option>
-          <option value="office2">Office 2</option>
-          <div className="dropdown-divider"></div>
-          <option value="office2">Add an office</option>
+        <select className="form-control" {...clinic_id}>
+          <option value="chooseClinic">Select a clinic</option>
+          <option value="clinic1">Clinic 1</option>
+          <option value="clinic2">Clinic 2</option>
+          {/* <div className="dropdown-divider"></div> */}
         </select>
       </div>
       <div className="form-group">
