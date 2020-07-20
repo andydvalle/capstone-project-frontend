@@ -44,6 +44,20 @@ const fetchPatients = () => {
     return fetch(URL).then(resp=>resp.json())
 }
 
+// POST fetch all patients
+const postPatient = (data) => {
+    console.log(`hi from api.js`)
+    const URL = "http://localhost:3000/api/v1/patients"
+    return fetch(URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(resp=>resp.json())
+}
+
 //exports all functions 
 export const api = {
     auth: {
@@ -51,6 +65,7 @@ export const api = {
         getCurrentUser
     },
     patients: {
-        fetchPatients
+        fetchPatients,
+        postPatient
     }
 }

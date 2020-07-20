@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { api } from '../services/api'
 import useFormInput from "../FormInput";
 
 const ProfileForm = (props) => {
@@ -22,7 +23,7 @@ const ProfileForm = (props) => {
 
   const submitProfile = (e) => {
     e.preventDefault()
-    console.log(profile)
+    api.patients.postPatient(profile)
   }
 
   return (

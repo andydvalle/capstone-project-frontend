@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Profile = (props) => {
-  const { name, id } = props.patient;
+  const { firstName, id } = props.patient;
 
   return (
     <div className="main_content">
-      Hi <Link to={`/dashboard/${id}`}>{name} </Link>from Profile
+      Hi <Link to={`/dashboard/${id}`}>{firstName} </Link>from Profile
     </div>
   );
 };

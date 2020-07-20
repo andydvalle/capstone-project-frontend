@@ -22,7 +22,7 @@ class Navbar extends Component {
     return this.props.patients.map((patient) => {
       return (
         <option key={patient.id} value={patient.id}>
-          {patient.name}'s Schedule
+          {patient.firstName}'s Schedule
         </option>
       );
     });
