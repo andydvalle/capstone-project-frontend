@@ -14,7 +14,6 @@ const HealthContactForm = (props) => {
   const state = useFormInput("");
   const zip = useFormInput("");
   const notes = useFormInput("");
-
   const handleChange = () => {
     setContact({
       name: name.value,
@@ -33,17 +32,6 @@ const HealthContactForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit} onChange={handleChange}>
-      {/* Hi from HealthContactForm */}
-      <div className="form-group">
-        {/* <label htmlFor="appointment-patient-id">Patient Id (hide later)</label> */}
-        <input
-          type="hidden"
-          className="form-control"
-          id="appointment-patient-id"
-          placeholder={`${props.patientId}`}
-          value={`${props.patientId}`}
-        />
-      </div>
       <div className="form-row">
         <div className="form-group col-md-6">
           <label htmlFor="clinic-name">Clinic Name</label>
@@ -140,14 +128,6 @@ const HealthContactForm = (props) => {
           {...notes}
         />
       </div>
-      {/* <div className="form-group">
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" id="gridCheck"/>
-            <label className="form-check-label" htmlFor="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div> */}
       <button type="submit" className="btn btn-primary">
         Save and add another
       </button>
