@@ -12,7 +12,6 @@ const headers = () => {
 
 //sends login information to backend, auth#create
 const login = data => {
-    console.log(data)
     return fetch('http://localhost:3000/api/v1/auth', {
         method: "POST",
         headers: headers(),

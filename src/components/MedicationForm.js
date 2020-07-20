@@ -1,11 +1,31 @@
-import React from "react";
-// import useFormInput from "../FormInput";
+import React, { useState } from "react";
+import useFormInput from "../FormInput";
 
 const MedicationForm = (props) => {
-  // const condition = useFormInput("")
+  const [medication, setMedication] = useState({})
+  
+  const name_route = useFormInput("")
+  const strength = useFormInput("")
+  const instructions = useFormInput("")
+  const notes = useFormInput("")
+
+  const handleChange = () =>{
+    setMedication({
+      name_route: name_route.value,
+      strength: strength.value,
+      instructions: instructions.value,
+      notes: notes.value,
+      patient_id: props.patientId
+    })
+  }
+
+  const handleSubmit =(e) => {
+    e.preventDefault()
+    console.log(medication)
+  }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit} onChange={handleChange}>
       {/* Hi from MedicationForm */}
       <div className="form-group">
         {/* <label htmlFor="appointment-patient-id">Patient Id (hide later)</label> */}
@@ -24,6 +44,7 @@ const MedicationForm = (props) => {
           className="form-control"
           id="medication-name-route"
           placeholder="Lisinopril (Oral pill)"
+          {...name_route}
         />
       </div>
       <div className="form-row">
@@ -34,6 +55,7 @@ const MedicationForm = (props) => {
             className="form-control"
             id="medication-strength"
             placeholder="200mg Tab"
+            {...strength}
           />
         </div>
         <div className="form-group col-md-6">
@@ -43,6 +65,7 @@ const MedicationForm = (props) => {
             className="form-control"
             id="medication-instructions"
             placeholder="Daily"
+            {...instructions}
           />
         </div>
       </div>
@@ -133,33 +156,9 @@ const MedicationForm = (props) => {
           className="form-control"
           id="medication-notes"
           placeholder="Example: Dr. Johnson says to take around same time, I like to take it in the morning."
+          {...notes}
         />
       </div>
-      {/* <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="inputCity">City</label>
-            <input type="text" className="form-control" id="inputCity"/>
-          </div>
-          <div className="form-group col-md-4">
-            <label htmlFor="inputState">State</label>
-            <select id="inputState" className="form-control">
-              <option defaultValue>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div className="form-group col-md-2">
-            <label htmlFor="inputZip">Zip</label>
-            <input type="text" className="form-control" id="inputZip"/>
-          </div>
-        </div>
-        <div className="form-group">
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" id="gridCheck"/>
-            <label className="form-check-label" htmlFor="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div> */}
       <button type="submit" className="btn btn-primary">
         Save and add another
       </button>
