@@ -5,12 +5,12 @@ const ConditionForm = (props) => {
   const [condition, setCondition] = useState({});
 
   const name = useFormInput("");
-  const notes = useFormInput("");
+  const notes = useFormInput("")
 
   const handleChange = () => {
     setCondition({
       name: name.value,
-      notes: notes.values,
+      notes: notes.value,
       patient_id: props.patientId
     })
   }
