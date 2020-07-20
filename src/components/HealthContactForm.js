@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import useFormInput from "../FormInput";
 
 const HealthContactForm = (props) => {
+
+  const [contact, setContact] = useState({})
+
   const name = useFormInput("");
   const practitioner = useFormInput("");
   const address = useFormInput("");
@@ -12,8 +15,24 @@ const HealthContactForm = (props) => {
   const zip = useFormInput("");
   const notes = useFormInput("");
 
+  const handleChange = () => {
+    setContact({
+      name: name.value,
+      practitioner: practitioner.value,
+      location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
+      number: number.value,
+      notes: notes.value,
+      patient_id: props.patientId
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(contact)
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit} onChange={handleChange}>
       {/* Hi from HealthContactForm */}
       <div className="form-group">
         {/* <label htmlFor="appointment-patient-id">Patient Id (hide later)</label> */}
