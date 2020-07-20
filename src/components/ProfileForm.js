@@ -17,21 +17,12 @@ const ProfileForm = (props) => {
       lastName: lastName.value,
       dob: dob.value,
       allergies: allergies.value,
+      user_id: props.currentUser.id
     });
   };
 
   return (
     <form onSubmit={submitProfile}>
-      <div className="form-group">
-        <label htmlFor="profile-patient-id">User Id (hide later)</label>
-        <input
-          type="text"
-          className="form-control"
-          id="profile-patient-id"
-          placeholder={`${props.currentUser.id}`}
-          value={`${props.currentUser.id}`}
-        />
-      </div>
       <div className="form-row">
         <div className="form-group col-md-6">
           <label htmlFor="profile-first-name">First Name</label>
