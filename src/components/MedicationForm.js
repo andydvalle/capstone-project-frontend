@@ -26,17 +26,6 @@ const MedicationForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit} onChange={handleChange}>
-      {/* Hi from MedicationForm */}
-      <div className="form-group">
-        {/* <label htmlFor="appointment-patient-id">Patient Id (hide later)</label> */}
-        <input
-          type="hidden"
-          className="form-control"
-          id="appointment-patient-id"
-          placeholder={`${props.patientId}`}
-          value={`${props.patientId}`}
-        />
-      </div>
       <div className="form-group">
         <label htmlFor="medication-name-route">{`Search Name & Route`}</label>
         <input
