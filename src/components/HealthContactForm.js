@@ -1,5 +1,5 @@
 import React from "react";
-// import useFormInput from "../FormInput";
+import useFormInput from "../FormInput";
 
 const HealthContactForm = (props) => {
   // const condition = useFormInput("")
