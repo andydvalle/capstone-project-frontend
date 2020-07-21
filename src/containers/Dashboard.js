@@ -63,10 +63,15 @@ class Dashboard extends Component {
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="form-modal">
-                <h5 className="modal-title">New Profile</h5>
-                {/* <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> */}
+                New Profile
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
               <div className="modal-body">
                 <ProfileForm currentUser={this.props.user} />

@@ -13,13 +13,18 @@ const FormModal = (props) => {
 
   function renderForm(forms) {
     if (forms === "Appointment") {
-      return <AppointmentForm clinics={props.foundProfile.clinics} patientId={props.profileId}/>;
+      return (
+        <AppointmentForm
+          clinics={props.foundProfile.clinics}
+          patientId={props.profileId}
+        />
+      );
     } else if (forms === "Medication") {
-      return <MedicationForm patientId={props.profileId}/>;
+      return <MedicationForm patientId={props.profileId} />;
     } else if (forms === "Condition") {
-      return <ConditionForm patientId={props.profileId}/>;
+      return <ConditionForm patientId={props.profileId} />;
     } else if (forms === "Contact") {
-      return <HealthContactForm patientId={props.profileId}/>;
+      return <HealthContactForm patientId={props.profileId} />;
     }
   }
 
@@ -54,6 +59,14 @@ const FormModal = (props) => {
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div className="form-modal">
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
               New {forms} {props.profileId}
             </div>
             <div className="p-3">
