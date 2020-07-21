@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import TodayChecklist from "../components/TodayChecklist";
+import AppointmentChecklist from "../components/AppointmentChecklist";
 
 const Today = (props) => {
   const weekday = () => {
-    var d = new Date();
-    var weekday = new Array(7);
+    const d = new Date();
+    const weekday = new Array(7);
     weekday[0] = "sunday";
     weekday[1] = "monday";
     weekday[2] = "tuesday";
@@ -13,11 +14,21 @@ const Today = (props) => {
     weekday[5] = "friday";
     weekday[6] = "saturday";
 
-    var n = weekday[d.getDay()];
+    const n = weekday[d.getDay()];
     return n;
   };
 
+  const getDate = () => {
+    const d = new Date();
+    const mm = `0${+d.getMonth() + 1}`;
+    const yyyy = `${d.getFullYear()}`;
+    const dd = `${d.getDate()}`;
+    const dStr = `${yyyy}-${mm}-${dd}`;
+    return dStr;
+  };
+
   const [day, setDay] = useState(weekday());
+  const [date, setDate] = useState(getDate());
 
   const renderMeds = () => {
     return props.foundProfile.medications.map((medication) => {
@@ -38,6 +49,19 @@ const Today = (props) => {
     });
   };
 
+  const renderAppts = () => {
+    return props.foundProfile.appointments.map((appointment) => {
+      if (appointment.date === date) {
+        return (
+          <AppointmentChecklist
+            key={appointment.id}
+            appointment={appointment}
+          />
+        );
+      }
+    });
+  };
+
   return (
     <div className="main_content">
       {props.foundProfile.firstName.charAt(0).toUpperCase() +
@@ -45,6 +69,8 @@ const Today = (props) => {
       's {day.charAt(0).toUpperCase() + day.slice(1)} Schedule{" "}
       <div>Medications</div>
       {renderMeds()}
+      <div>Appointments</div>
+      {renderAppts()}
     </div>
   );
 };
