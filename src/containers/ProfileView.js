@@ -74,7 +74,7 @@ class ProfileView extends Component {
             <HealthContacts
               {...props}
               patients={this.props.patients}
-              contacts={foundProfile.contacts}
+              clinics={foundProfile.clinics}
               profileId={foundProfile.id}
             />
           )}
