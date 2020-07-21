@@ -4,13 +4,13 @@ const Today = (props) => {
   const weekday = () => {
     var d = new Date();
     var weekday = new Array(7);
-    weekday[0] = "onSun";
-    weekday[1] = "onMon";
-    weekday[2] = "onTue";
-    weekday[3] = "onWed";
-    weekday[4] = "onThu";
-    weekday[5] = "onFri";
-    weekday[6] = "onSat";
+    weekday[0] = "sunday";
+    weekday[1] = "monday";
+    weekday[2] = "tuesday";
+    weekday[3] = "wednesday";
+    weekday[4] = "thursday";
+    weekday[5] = "friday";
+    weekday[6] = "saturday";
 
     var n = weekday[d.getDay()];
     return n;
