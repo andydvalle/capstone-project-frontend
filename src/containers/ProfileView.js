@@ -5,6 +5,7 @@ import Conditions from "./Conditions";
 import Medications from "./Medications";
 import Appointments from "./Appointments";
 import HealthContacts from "./HealthContacts";
+import ProfileInfo from "../components/ProfileInfo";
 import Today from "./Today";
 import FormModal from "./FormModal";
 
@@ -25,6 +26,7 @@ class ProfileView extends Component {
 
     return (
       <div>
+        {/* <ProfileInfo foundProfile={foundProfile} /> */}
         <Route
           render={(props) => (
             <Navbar
@@ -36,6 +38,16 @@ class ProfileView extends Component {
             />
           )}
         />
+        <Route
+          path={`/dashboard/${foundProfile.id}/view`}
+          render={(props) => (
+            <ProfileInfo
+              {...props}
+              // patients={this.props.patients}
+              foundProfile={foundProfile}
+            />
+          )}
+        ></Route>
         <Route
           path={`/dashboard/${foundProfile.id}/today`}
           render={(props) => (

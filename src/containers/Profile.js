@@ -6,7 +6,7 @@ const Profile = (props) => {
 
   return (
     <div className="main_content">
-      Hi <Link to={`/dashboard/${id}`}>{firstName} </Link>from Profile
+      Hi <Link to={`/dashboard/${id}/view`}>{firstName} </Link>from Profile
     </div>
   );
 };
