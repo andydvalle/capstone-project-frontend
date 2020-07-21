@@ -40,7 +40,9 @@ const Today = (props) => {
 
   return (
     <div className="main_content">
-      Today's Schedule {props.foundProfile.firstName}
+      {props.foundProfile.firstName.charAt(0).toUpperCase() +
+        props.foundProfile.firstName.slice(1)}
+      's {day.charAt(0).toUpperCase() + day.slice(1)} Schedule{" "}
       <div>Medications</div>
       {renderMeds()}
     </div>

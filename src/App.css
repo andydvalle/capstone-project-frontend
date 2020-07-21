@@ -45,7 +45,7 @@
   border-radius: 0%;
 }
 
-::placeholder{
+::placeholder {
   font-style: italic;
 }
 
@@ -220,6 +220,10 @@
 
 .btn .btn-outline .mb1 {
   outline-color: #00897b !important;
+}
+
+input[type="checkbox"]:checked + label.strikethrough {
+  text-decoration: line-through;
 }
 
 /* temp border to visualize components */
