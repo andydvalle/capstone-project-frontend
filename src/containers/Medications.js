@@ -1,19 +1,12 @@
 import React, { Component } from "react";
+import MedicationInfo from "../components/MedicationInfo"
 
 class Medications extends Component {
 
   renderMedications = () => {
-    return this.props.patients.map((patient) => {
-      if (patient.id === this.props.profileId) {
-        return patient.medications.map((medication) => {
-          return (
-            <ul>
-              <li key={medication.name}>{medication.name}</li>
-            </ul>
-          );
-        });
-      }
-    });
+    return this.props.medications.map(medication=> {
+      return <MedicationInfo key={medication.id} medication={medication}/>
+    })
   };
 
   render() {
@@ -21,7 +14,7 @@ class Medications extends Component {
       <div>
         {/* Hi from Medications */}
         <div className="main_content">
-          <div className="header">Medications {this.props.profileId}</div>
+          <div className="header">Medications</div>
           <div className="info">
             {this.renderMedications()}
             {/* <div>Medications</div>

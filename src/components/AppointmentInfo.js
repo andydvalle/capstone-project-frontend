@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const AppointmentInfo = (props) =>{
-    return(
-        <div>Hi from {props.appointment.title} </div>
-    )
-}
+const AppointmentInfo = (props) => {
 
-export default AppointmentInfo
+  return (
+    <div>
+       {props.appointment.title}
+    </div>
+  );
+};
+
+export default AppointmentInfo;

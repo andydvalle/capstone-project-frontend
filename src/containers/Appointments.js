@@ -14,11 +14,8 @@ class Appointments extends Component {
       <div>
         {/* Hi from Appointments */}
         <div className="main_content">
-    <div className="header">Appointments {this.props.profileId}</div>
+    <div className="header">Appointments</div>
           <div className="info">
-            <div>Appointments</div>
-            <div>Appointments</div>
-            <div>Appointments</div>
             {this.renderAppointments()}
           </div>
         </div>
