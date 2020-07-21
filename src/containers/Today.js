@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TodayChecklist from '../components/TodayChecklist'
+import TodayChecklist from "../components/TodayChecklist";
 
 const Today = (props) => {
   const weekday = () => {
@@ -24,7 +24,9 @@ const Today = (props) => {
       return Object.keys(medication).map((key) => {
         if (key === day) {
           if (key) {
-              return <TodayChecklist key={medication.id} medication={medication}/>
+            return (
+              <TodayChecklist key={medication.id} medication={medication} />
+            );
             // console.log(key);
           } else {
             return null;
