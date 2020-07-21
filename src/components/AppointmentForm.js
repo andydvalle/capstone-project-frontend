@@ -22,7 +22,13 @@ const AppointmentForm = (props) => {
   };
 
   const getClinicOptions = () => {
-    props.clinics.map((clinic) => console.log(clinic));
+    return props.clinics.map((clinic) => {
+      return (
+        <option key={clinic.id} value={clinic.id}>
+          {clinic.name}
+        </option>
+      );
+    });
   };
 
   return (
