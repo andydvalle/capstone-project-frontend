@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodayChecklist from '../components/TodayChecklist'
 
 const Today = (props) => {
   const weekday = () => {
@@ -19,11 +20,12 @@ const Today = (props) => {
   const [day, setDay] = useState(weekday());
 
   const renderMeds = () => {
-    props.foundProfile.medications.map((medication) => {
-      Object.keys(medication).map((key) => {
+    return props.foundProfile.medications.map((medication) => {
+      return Object.keys(medication).map((key) => {
         if (key === day) {
           if (key) {
-            console.log(key);
+              return <TodayChecklist key={medication.id} medication={medication}/>
+            // console.log(key);
           } else {
             return null;
           }
