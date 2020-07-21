@@ -1,6 +1,14 @@
 import React, { Component } from "react";
+import AppointmentInfo from "../components/AppointmentInfo"
 
 class Appointments extends Component {
+
+  renderAppointments = () => {
+    return this.props.appointments.map(appointment=>{
+      return <AppointmentInfo key={appointment.id} appointment={appointment}/>
+    })
+  }
+
   render() {
     return (
       <div>
@@ -11,6 +19,7 @@ class Appointments extends Component {
             <div>Appointments</div>
             <div>Appointments</div>
             <div>Appointments</div>
+            {this.renderAppointments()}
           </div>
         </div>
       </div>
