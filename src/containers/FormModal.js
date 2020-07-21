@@ -13,7 +13,7 @@ const FormModal = (props) => {
 
   function renderForm(forms) {
     if (forms === "Appointment") {
-      return <AppointmentForm patients={props.patients}patientId={props.profileId}/>;
+      return <AppointmentForm clinics={props.foundProfile.clinics} patientId={props.profileId}/>;
     } else if (forms === "Medication") {
       return <MedicationForm patientId={props.profileId}/>;
     } else if (forms === "Condition") {

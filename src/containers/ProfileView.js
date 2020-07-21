@@ -20,7 +20,7 @@ class ProfileView extends Component {
   };
 
   render() {
-    const { name, id } = this.getProfile();
+    const foundProfile = this.getProfile();
 
     return (
       <div>
@@ -31,51 +31,51 @@ class ProfileView extends Component {
               currentUser={this.props.user}
               patients={this.props.patients}
               onHandleSignout={this.props.onHandleSignout}
-              profileId={id}
+              profileId={foundProfile.id}
             />
           )}
         />
         <Route
-          path={`/dashboard/${id}/appointments`}
+          path={`/dashboard/${foundProfile.id}/appointments`}
           render={(props) => (
             <Appointments
               {...props}
               patients={this.props.patients}
-              profileId={id}
+              profileId={foundProfile.id}
             />
           )}
         ></Route>
         <Route
-          path={`/dashboard/${id}/medications`}
+          path={`/dashboard/${foundProfile.id}/medications`}
           render={(props) => (
             <Medications
               {...props}
               patients={this.props.patients}
-              profileId={id}
+              profileId={foundProfile.id}
             />
           )}
         ></Route>
         <Route
-          path={`/dashboard/${id}/conditions`}
+          path={`/dashboard/${foundProfile.id}/conditions`}
           render={(props) => (
             <Conditions
               {...props}
               patients={this.props.patients}
-              profileId={id}
+              profileId={foundProfile.id}
             />
           )}
         ></Route>
         <Route
-          path={`/dashboard/${id}/contacts`}
+          path={`/dashboard/${foundProfile.id}/contacts`}
           render={(props) => (
             <HealthContacts
               {...props}
               patients={this.props.patients}
-              profileId={id}
+              profileId={foundProfile.id}
             />
           )}
         ></Route>
-        <FormModal patients={this.props.patients} profileId={id} />
+        <FormModal foundProfile={foundProfile} profileId={foundProfile.id} />
       </div>
     );
   }

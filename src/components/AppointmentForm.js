@@ -3,35 +3,27 @@ import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
 const AppointmentForm = (props) => {
-
-  const title = useFormInput("")
-  const date = useFormInput("")
-  const time = useFormInput("")
-  const notes = useFormInput("")
-  const clinic_id = useFormInput("")
-
+  const title = useFormInput("");
+  const date = useFormInput("");
+  const time = useFormInput("");
+  const notes = useFormInput("");
+  const clinic_id = useFormInput("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     api.appointments.postAppointment({
       title: title.value,
       date: date.value,
       time: time.value,
       notes: notes.value,
       clinic_id: clinic_id.value,
-      patient_id: props.patientId
+      patient_id: props.patientId,
     });
   };
 
   const getClinicOptions = () => {
-    return props.patients.map(patient=>{
-      console.log(patient.clinics.map(clinic=>console.log(clinic)))
-      // return patient.clinics.map(clinic=>{
-      //   return <option key={clinic.id} value={clinic.id}>{clinic.name}</option>
-      // })
-    })
-  }
-  
+    console.log(props.clinics);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
