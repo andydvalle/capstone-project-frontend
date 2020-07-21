@@ -55,7 +55,7 @@ class App extends Component {
           path="/login"
           render={(props) => <Login {...props} onLogin={this.onLogin} />}
         />
-{        //should wrap in a ternary user_id ? ...dashboard : null
+{        //should wrap in a ternary token ? ...dashboard : null
 }        <Route
           path="/dashboard"
           render={(props) => (

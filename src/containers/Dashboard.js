@@ -14,18 +14,13 @@ class Dashboard extends Component {
     this.props.onSignout();
   };
 
-  //should filter in the backend
   getPatients = () => {
     api.patients.fetchPatients().then((data) => {
-      // const userPatients = data.filter(
-      //   (patient) => patient.user_id === this.props.user.id
-      // );
       this.setState({
-        patients: data
+        patients: data,
       });
     });
   };
-  
 
   componentDidMount() {
     this.getPatients();
@@ -45,16 +40,14 @@ class Dashboard extends Component {
     return (
       <div>
         {window.location.pathname === "/dashboard"
-          ? (this.renderProfiles()
-          ) : null}
+          ? this.renderProfiles()
+          : null}
         {/* form modal */}
         <div>
-
-        {/* <Link to="/login">
+          {/* <Link to="/login">
               <button onClick={this.handleClick}>Signout</button>
             </Link> */}
 
-          
           <button
             type="button"
             id="add-form"
@@ -65,7 +58,7 @@ class Dashboard extends Component {
             +
           </button>
         </div>
-      {/* form modal content */}
+        {/* form modal content */}
         <div className="modal" tabindex="-1" role="dialog">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
