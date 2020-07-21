@@ -41,6 +41,7 @@ class ProfileView extends Component {
             <Appointments
               {...props}
               patients={this.props.patients}
+              appointments={foundProfile.appointments}
               profileId={foundProfile.id}
             />
           )}
@@ -51,6 +52,7 @@ class ProfileView extends Component {
             <Medications
               {...props}
               patients={this.props.patients}
+              medications={foundProfile.medications}
               profileId={foundProfile.id}
             />
           )}
@@ -61,6 +63,7 @@ class ProfileView extends Component {
             <Conditions
               {...props}
               patients={this.props.patients}
+              conditions={foundProfile.conditions}
               profileId={foundProfile.id}
             />
           )}
@@ -71,6 +74,7 @@ class ProfileView extends Component {
             <HealthContacts
               {...props}
               patients={this.props.patients}
+              contacts={foundProfile.contacts}
               profileId={foundProfile.id}
             />
           )}
