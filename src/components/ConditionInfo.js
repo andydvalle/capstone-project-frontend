@@ -4,7 +4,7 @@ const ConditionInfo = (props) => {
 
   return (
     <div>
-       {props.condition.name}
+       {props.condition.name.charAt(0).toUpperCase() + props.condition.name.slice(1)}
     </div>
   );
 };
