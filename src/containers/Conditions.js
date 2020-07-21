@@ -1,17 +1,10 @@
 import React, { Component } from "react";
+import ConditionInfo from "../components/ConditionInfo"
 
 class Conditions extends Component {
   renderConditions = () => {
-    return this.props.patients.map((patient) => {
-      if (patient.id === this.props.profileId) {
-        return patient.conditions.map((condition) => {
-          return (
-            <ul>
-              <li>{condition.name}</li>
-            </ul>
-          );
-        });
-      }
+    return this.props.conditions.map((condition) => {
+     return <ConditionInfo key={condition.id} condition={condition}/>
     });
   };
 
@@ -20,7 +13,7 @@ class Conditions extends Component {
       <div>
         {/* Hi from Conditions */}
         <div className="main_content">
-          <div className="header">Conditions {this.props.profileId}</div>
+          <div className="header">Conditions</div>
           <div className="info">
             {this.renderConditions()}
             {/* <div>Conditions</div>

@@ -1,13 +1,12 @@
-import React, {Component} from 'react';
+import React from "react";
 
-class ConditionInfo extends Component {
-    render(){
-        return(
-            <div>
-                Hi from ConditionInfo
-            </div>
-        )
-    }
-}
+const ConditionInfo = (props) => {
+
+  return (
+    <div>
+       {props.condition.name}
+    </div>
+  );
+};
 
 export default ConditionInfo;
