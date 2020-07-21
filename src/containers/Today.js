@@ -18,10 +18,17 @@ const Today = (props) => {
 
   const [day, setDay] = useState(weekday());
 
+  const renderMeds = () =>{
+      props.foundProfile.medications.map(medication=>console.log(medication.onMon))
+  }
+
   return (
     <div className="main_content">
-      hi from today.js {props.foundProfile.firstName}
-      {/* {renderTodayMeds()} */}
+      Today's Schedule {props.foundProfile.firstName}
+      <div>
+          Medications
+      </div>
+      {renderMeds()}
     </div>
   );
 };
