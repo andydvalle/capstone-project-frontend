@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import useFormInput from "../FormInput";
 import { api } from "../services/api";
 
 const ConditionForm = (props) => {
+  // //sets search table state
+  // const [items, setItems] = useState([]);
+
   const name = useFormInput("");
   const notes = useFormInput("");
 
@@ -15,6 +18,21 @@ const ConditionForm = (props) => {
     });
   };
 
+  // //fetch request for search table
+  // const handleSearch = (e) => {
+  //   fetch(
+  //     `https://clinicaltables.nlm.nih.gov/api/conditions/v3/search?terms=${e.target.value}`
+  //   )
+  //     .then((resp) => resp.json())
+  //     //setState array
+  //     .then(
+  //       (data) => setItems(data[3])
+  //       // data[3].map((item) => item.map((condition) => setItems(condition)))
+  //     );
+  //   //requires css
+  //   //display array in a dropdown format
+  // };
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
@@ -25,6 +43,8 @@ const ConditionForm = (props) => {
           id="condition-name"
           placeholder="Hypertension"
           {...name}
+          // //change to handleSearch with autocomplete
+          // onChange={handleSearch}
         />
       </div>
       <div className="form-group">
