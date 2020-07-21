@@ -23,16 +23,14 @@ const AppointmentForm = (props) => {
     });
   };
 
-  // const getClinicOptions = () => {
-  //   api.patients.fetchPatients().then(user=>{
-  //      user.map(patient => {
-  //          patient.clinics.map(clinic => {
-  //            console.log(clinic.name)
-  //         })
-  //       }
-  //     )
-  //   })
-  // }
+  const getClinicOptions = () => {
+    return props.patients.map(patient=>{
+      console.log(patient.clinics.map(clinic=>console.log(clinic)))
+      // return patient.clinics.map(clinic=>{
+      //   return <option key={clinic.id} value={clinic.id}>{clinic.name}</option>
+      // })
+    })
+  }
   
 
   return (
@@ -71,10 +69,10 @@ const AppointmentForm = (props) => {
         <label htmlFor="appointment-address">Location</label>
         <select className="form-control" {...clinic_id}>
           <option value="chooseClinic">Select a clinic</option>
-          <option value="1">Clinic 1</option>
-          <option value="2">Clinic 2</option>
+          {/* <option value="1">Clinic 1</option>
+          <option value="2">Clinic 2</option> */}
           {/* <div className="dropdown-divider"></div> */}
-          {/* {getClinicOptions()} */}
+          {getClinicOptions()}
         </select>
       </div>
       <div className="form-group">
