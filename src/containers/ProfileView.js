@@ -5,6 +5,7 @@ import Conditions from "./Conditions";
 import Medications from "./Medications";
 import Appointments from "./Appointments";
 import HealthContacts from "./HealthContacts";
+import Today from "./Today";
 import FormModal from "./FormModal";
 
 class ProfileView extends Component {
@@ -35,6 +36,16 @@ class ProfileView extends Component {
             />
           )}
         />
+        <Route
+          path={`/dashboard/${foundProfile.id}/today`}
+          render={(props) => (
+            <Today
+              {...props}
+              patients={this.props.patients}
+              foundProfile={foundProfile}
+            />
+          )}
+        ></Route>
         <Route
           path={`/dashboard/${foundProfile.id}/appointments`}
           render={(props) => (

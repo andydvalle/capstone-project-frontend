@@ -46,7 +46,11 @@ class Navbar extends Component {
           />
           <h2>
             {/* Patient's Schedule */}
-            <select id="patient-dropdown" value={this.props.profileId} onChange={this.handleChange}>
+            <select
+              id="patient-dropdown"
+              value={this.props.profileId}
+              onChange={this.handleChange}
+            >
               {/* <option value="choosePatient">Choose Patient</option> */}
               <option value="choosePatient">Choose Profile</option>
               {this.renderPatientOptions()}
@@ -55,7 +59,11 @@ class Navbar extends Component {
           <div className="mb-5">
             <h5>view</h5>
             <ul>
-              <li>Today</li>
+              <li>
+                <Link to={`/dashboard/${this.props.profileId}/today`}>
+                  Today
+                </Link>
+              </li>
               <li>This Week</li>
               <li>This Month</li>
             </ul>
