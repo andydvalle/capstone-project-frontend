@@ -113,6 +113,18 @@
   margin-left: 40px;
   margin-bottom: 10px;
 }
+.wrapper .sidebar p {
+  color: #c4c4c4;
+  text-align: left;
+  font-size: 12pt;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+a:link {
+  text-decoration: none;
+}
 
 .wrapper .sidebar ul li {
   color: #c4c4c4;

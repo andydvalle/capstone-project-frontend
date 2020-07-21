@@ -29,7 +29,7 @@ class Navbar extends Component {
   };
 
   handleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.props.history.push(`/dashboard/${e.target.value}`);
   };
 
@@ -38,6 +38,11 @@ class Navbar extends Component {
     return (
       <div className="wrapper">
         <div className="sidebar">
+          <div>
+            <Link to="/dashboard">
+              <p>{"< Back"}</p>
+            </Link>
+          </div>
           <img
             src={avatar}
             className="avatar"
