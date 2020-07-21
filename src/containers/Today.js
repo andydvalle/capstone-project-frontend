@@ -27,8 +27,8 @@ const Today = (props) => {
     return dStr;
   };
 
-  const [day, setDay] = useState(weekday());
-  const [date, setDate] = useState(getDate());
+  const [day] = useState(weekday());
+  const [date] = useState(getDate());
 
   const renderMeds = () => {
     return props.foundProfile.medications.map((medication) => {
