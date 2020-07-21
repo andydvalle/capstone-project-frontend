@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
@@ -22,7 +22,7 @@ const AppointmentForm = (props) => {
   };
 
   const getClinicOptions = () => {
-    console.log(props.clinics);
+    props.clinics.map((clinic) => console.log(clinic));
   };
 
   return (
@@ -64,7 +64,7 @@ const AppointmentForm = (props) => {
           {/* <option value="1">Clinic 1</option>
           <option value="2">Clinic 2</option> */}
           {/* <div className="dropdown-divider"></div> */}
-          {getClinicOptions()}
+          {props.clinics && getClinicOptions()}
         </select>
       </div>
       <div className="form-group">

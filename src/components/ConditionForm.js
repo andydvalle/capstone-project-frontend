@@ -25,10 +25,10 @@ const ConditionForm = (props) => {
   //   )
   //     .then((resp) => resp.json())
   //     //setState array
-  //     .then(
-  //       (data) => setItems(data[3])
-  //       // data[3].map((item) => item.map((condition) => setItems(condition)))
-  //     );
+  //     .then((data) => {
+  //       let filteredItems = data[3].flat();
+  //       setItems(filteredItems);
+  //     });
   //   //requires css
   //   //display array in a dropdown format
   // };
