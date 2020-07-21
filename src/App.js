@@ -55,17 +55,19 @@ class App extends Component {
           path="/login"
           render={(props) => <Login {...props} onLogin={this.onLogin} />}
         />
-{        //should wrap in a ternary token ? ...dashboard : null
-}        <Route
+       {this.state.auth.user.id ? (
+
+        <Route
           path="/dashboard"
           render={(props) => (
             <Dashboard
-              {...props}
-              user={this.state.auth.user}
-              onSignout={this.onSignout}
+            {...props}
+            user={this.state.auth.user}
+            onSignout={this.onSignout}
             />
-          )}
-        />
+            )}
+            />
+    ) : null}
       </div>
     );
   }
