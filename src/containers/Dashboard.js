@@ -17,14 +17,15 @@ class Dashboard extends Component {
   //should filter in the backend
   getPatients = () => {
     api.patients.fetchPatients().then((data) => {
-      const userPatients = data.filter(
-        (patient) => patient.user_id === this.props.user.id
-      );
+      // const userPatients = data.filter(
+      //   (patient) => patient.user_id === this.props.user.id
+      // );
       this.setState({
-        patients: userPatients,
+        patients: data
       });
     });
   };
+  
 
   componentDidMount() {
     this.getPatients();
