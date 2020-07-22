@@ -286,9 +286,9 @@ input[type="checkbox"]:checked + label.strikethrough {
   border-style: solid;
   border-color: #00897b;
   background-color: #fafafa;
-  right: 10px;
-  top: 52px;
-  width: 520px;
+  left: 10px;
+  top: 235px;
+  width: 475px;
 }
 
 .option {
