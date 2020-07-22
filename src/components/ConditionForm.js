@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useFormInput from "../FormInput";
 import { api } from "../services/api";
+// import Autocomplete from "./Autocomplete";
 
 const ConditionForm = (props) => {
   // //sets search table state
-  // const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]);
+  const [display, setDisplay] = useState(false);
+  const [options, setOptions] = useState([]);
+  const [search, setSearch] = useState("");
 
   const name = useFormInput("");
   const notes = useFormInput("");
@@ -18,34 +22,61 @@ const ConditionForm = (props) => {
     });
   };
 
-  // //fetch request for search table
-  // const handleSearch = (e) => {
-  //   fetch(
-  //     `https://clinicaltables.nlm.nih.gov/api/conditions/v3/search?terms=${e.target.value}`
-  //   )
-  //     .then((resp) => resp.json())
-  //     //setState array
-  //     .then((data) => {
-  //       let filteredItems = data[3].flat();
-  //       setItems(filteredItems);
-  //     });
-  //   //requires css
-  //   //display array in a dropdown format
-  // };
+  // useEffect(() => {
+  //   setOptions(items);
+  // }, [items]);
+
+  //fetch request for search table
+  const handleSearch = (e) => {
+    fetch(
+      `https://clinicaltables.nlm.nih.gov/api/conditions/v3/search?terms=${e.target.value}`
+    )
+      .then((resp) => resp.json())
+      //setState array
+      .then((data) => {
+        let filteredItems = data[3].flat();
+        setItems(filteredItems);
+      })
+      .then(setOptions(items));
+    //requires css
+    //display array in a dropdown format
+  };
+
+  const setCondition = (condition) => {
+    setSearch(condition);
+    setDisplay(false);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
+      {/* <div className="form-group">
+        <Autocomplete suggestions={items} />
+      </div> */}
+
       <div className="form-group">
         <label htmlFor="condition-name">Search Condition Name</label>
         <input
           type="text"
           className="form-control"
-          id="condition-name"
+          id="auto"
           placeholder="Hypertension"
-          {...name}
+          value={search}
+          // {...name}
           // //change to handleSearch with autocomplete
-          // onChange={handleSearch}
+          onClick={() => setDisplay(!display)}
+          onChange={handleSearch}
         />
+        {display && (
+          <div className="autoContainer">
+            {options.map((v, i) => {
+              return (
+                <div className="option" key={i} onClick={() => setCondition(v)}>
+                  <span>{v}</span>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
       <div className="form-group">
         <label htmlFor="condition-notes">Notes (optional)</label>
