@@ -25,7 +25,7 @@ class ProfileView extends Component {
     const foundProfile = this.getProfile();
 
     return (
-      <div>
+      <div className="profile_view">
         {/* <ProfileInfo foundProfile={foundProfile} /> */}
         <Route
           render={(props) => (

@@ -174,14 +174,26 @@ a:link {
 .main_content {
   width: 75%;
   margin-left: 300px;
+  /* background: #fafafa; */
   /* margin-right: 100px; */
 }
 
 .main_content .header {
+  font-weight: bold;
+  font-size: 14pt;
+  margin-top: 150px;
   padding: 20px;
-  background: #fff;
-  color: #717171;
+  padding-left: 0;
+  /* background: #fafafa; */
+  color: #2e2e2e;
   border-bottom: 1px solid #e0e4e8;
+}
+
+.subheader {
+  color: #4ebaaa;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .main_content .info {

@@ -38,7 +38,7 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>
+      <div className="dashboard">
         {window.location.pathname === "/dashboard"
           ? this.renderProfiles()
           : null}
