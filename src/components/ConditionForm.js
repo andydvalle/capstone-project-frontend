@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useFormInput from "../FormInput";
 import { api } from "../services/api";
 // import Autocomplete from "./Autocomplete";
@@ -9,9 +9,25 @@ const ConditionForm = (props) => {
   const [display, setDisplay] = useState(false);
   const [options, setOptions] = useState([]);
   const [search, setSearch] = useState("");
+  const wrapperRef = useRef(null);
 
   const name = useFormInput("");
   const notes = useFormInput("");
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleClickOutside = (e) => {
+    const { current: wrap } = wrapperRef;
+    if (wrap && !wrap.contains(e.target)) {
+      setDisplay(false);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,14 +69,14 @@ const ConditionForm = (props) => {
         <Autocomplete suggestions={items} />
       </div> */}
 
-      <div className="form-group">
+      <div ref={wrapperRef} className="form-group">
         <label htmlFor="condition-name">Search Condition Name</label>
         <input
           type="text"
           className="form-control"
           id="auto"
           placeholder="Hypertension"
-          value={search}
+          // value={search}
           // {...name}
           // //change to handleSearch with autocomplete
           onClick={() => setDisplay(!display)}
@@ -70,7 +86,12 @@ const ConditionForm = (props) => {
           <div className="autoContainer">
             {options.map((v, i) => {
               return (
-                <div className="option" key={i} onClick={() => setCondition(v)}>
+                <div
+                  className="option"
+                  key={i}
+                  onClick={() => setCondition(v)}
+                  tabIndex="0"
+                >
                   <span>{v}</span>
                 </div>
               );

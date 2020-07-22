@@ -284,8 +284,8 @@ input[type="checkbox"]:checked + label.strikethrough {
   position: absolute;
   border-width: 0px 1px 1px 1px;
   border-style: solid;
-  border-color: goldenrod;
-  background-color: whitesmoke;
+  border-color: #00897b;
+  background-color: #fafafa;
   right: 10px;
   top: 52px;
   width: 520px;
