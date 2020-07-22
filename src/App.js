@@ -52,22 +52,21 @@ class App extends Component {
       <div className="App">
         <Route
           exact
-          path="/login"
+          path="/"
           render={(props) => <Login {...props} onLogin={this.onLogin} />}
         />
-       {this.state.auth.user.id ? (
-
-        <Route
-          path="/dashboard"
-          render={(props) => (
-            <Dashboard
-            {...props}
-            user={this.state.auth.user}
-            onSignout={this.onSignout}
-            />
+        {this.state.auth.user.id ? (
+          <Route
+            path="/dashboard"
+            render={(props) => (
+              <Dashboard
+                {...props}
+                user={this.state.auth.user}
+                onSignout={this.onSignout}
+              />
             )}
-            />
-    ) : null}
+          />
+        ) : null}
       </div>
     );
   }

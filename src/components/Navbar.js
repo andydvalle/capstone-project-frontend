@@ -99,7 +99,7 @@ class Navbar extends Component {
             </ul>
           </div>
           <ul>
-            <Link to="/login">
+            <Link to="/">
               <li onClick={this.handleSignout}>Signout</li>
             </Link>
           </ul>
