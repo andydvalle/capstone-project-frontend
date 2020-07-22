@@ -56,7 +56,7 @@ class Dashboard extends Component {
       <div className="dashboard">
         {window.location.pathname === "/dashboard" ? (
           <>
-            <DashboardHeader />
+            <DashboardHeader currentUser={this.props.user.username} />
             {this.renderProfiles()}
             {/* form modal */}
             <div>
