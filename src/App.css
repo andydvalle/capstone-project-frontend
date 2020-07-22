@@ -250,6 +250,9 @@ input[type="checkbox"]:checked + label.strikethrough {
   text-decoration: line-through;
 }
 
+.card {
+  border-radius: 0%;
+}
 /* autocomplete */
 .auto-container {
   display: flex;

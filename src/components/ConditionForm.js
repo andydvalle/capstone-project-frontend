@@ -44,6 +44,7 @@ const ConditionForm = (props) => {
 
   //fetch request for search table
   const handleSearch = (e) => {
+    setSearch(e.target.value);
     fetch(
       `https://clinicaltables.nlm.nih.gov/api/conditions/v3/search?terms=${e.target.value}`
     )
@@ -76,7 +77,7 @@ const ConditionForm = (props) => {
           className="form-control"
           id="auto"
           placeholder="Hypertension"
-          // value={search}
+          value={search}
           // {...name}
           // //change to handleSearch with autocomplete
           onClick={() => setDisplay(!display)}

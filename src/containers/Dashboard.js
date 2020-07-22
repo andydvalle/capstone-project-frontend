@@ -3,6 +3,8 @@ import { Route, Link } from "react-router-dom";
 import ProfileView from "./ProfileView";
 import Profile from "./Profile";
 import ProfileForm from "../components/ProfileForm";
+import DashboardHeader from "../components/DashboardHeader";
+
 import { api } from "../services/api";
 
 class Dashboard extends Component {
@@ -39,9 +41,12 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-        {window.location.pathname === "/dashboard"
-          ? this.renderProfiles()
-          : null}
+        {window.location.pathname === "/dashboard" ? (
+          <>
+            <DashboardHeader />
+            {this.renderProfiles()}
+          </>
+        ) : null}
         {/* form modal */}
         <div>
           {/* <Link to="/login">
