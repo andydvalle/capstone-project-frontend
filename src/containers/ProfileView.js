@@ -5,7 +5,7 @@ import Conditions from "./Conditions";
 import Medications from "./Medications";
 import Appointments from "./Appointments";
 import HealthContacts from "./HealthContacts";
-import ProfileInfo from "../components/ProfileInfo";
+// import ProfileInfo from "../components/ProfileInfo";
 import Today from "./Today";
 import FormModal from "./FormModal";
 
@@ -38,7 +38,7 @@ class ProfileView extends Component {
             />
           )}
         />
-        <Route
+        {/* <Route
           path={`/dashboard/${foundProfile.id}/view`}
           render={(props) => (
             <ProfileInfo
@@ -47,9 +47,9 @@ class ProfileView extends Component {
               foundProfile={foundProfile}
             />
           )}
-        ></Route>
+        ></Route> */}
         <Route
-          path={`/dashboard/${foundProfile.id}/today`}
+          path={`/dashboard/${foundProfile.id}/view`}
           render={(props) => (
             <Today
               {...props}
