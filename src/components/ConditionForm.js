@@ -38,10 +38,6 @@ const ConditionForm = (props) => {
     });
   };
 
-  // useEffect(() => {
-  //   setOptions(items);
-  // }, [items]);
-
   //fetch request for search table
   const handleSearch = (e) => {
     setSearch(e.target.value);
