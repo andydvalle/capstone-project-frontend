@@ -54,7 +54,7 @@ const postPatient = (data) => {
 
 // DELETE fetch patient/profile
 const deletePatient = (patientId) => {
-  const URL = `http://localhost:3000/api/v1/journals/${patientId}`;
+  const URL = `http://localhost:3000/api/v1/patients/${patientId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());

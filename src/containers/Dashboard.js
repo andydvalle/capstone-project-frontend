@@ -4,7 +4,6 @@ import ProfileView from "./ProfileView";
 import Profile from "./Profile";
 import ProfileForm from "../components/ProfileForm";
 import DashboardHeader from "../components/DashboardHeader";
-
 import { api } from "../services/api";
 
 class Dashboard extends Component {
@@ -24,6 +23,16 @@ class Dashboard extends Component {
     });
   };
 
+  removePatient = (patientId) => {
+    console.log(patientId);
+    const updatedPatients = this.state.patients.filter(
+      (patient) => patient.id !== patientId
+    );
+    this.setState({
+      patients: updatedPatients,
+    });
+  };
+
   componentDidMount() {
     this.getPatients();
   }
@@ -32,7 +41,11 @@ class Dashboard extends Component {
     return this.state.patients.map((patient) => {
       return (
         <div>
-          <Profile key={patient.id} patient={patient} />
+          <Profile
+            key={patient.id}
+            patient={patient}
+            removePatient={this.removePatient}
+          />
         </div>
       );
     });
