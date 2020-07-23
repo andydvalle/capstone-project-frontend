@@ -26,6 +26,10 @@ const AppointmentInfo = (props) => {
     }
   };
 
+  const resetIsEdit = () => {
+    setIsEdit(false);
+  };
+
   const handleEdit = () => {
     setIsEdit(true);
   };
@@ -35,6 +39,7 @@ const AppointmentInfo = (props) => {
       {isEdit ? (
         <AppointmentForm
           isEdit={isEdit}
+          resetIsEdit={resetIsEdit}
           appointment={props.appointment}
           clinics={props.clinics}
         />

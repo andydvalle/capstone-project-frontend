@@ -43,17 +43,17 @@ const AppointmentForm = (props) => {
 
   const handleEditAppointment = (e) => {
     e.preventDefault();
-    console.log(props.appointment.id);
-    // api.appointments.editAppointment({
-    //   id: props.appointment.id,
-    //   title: title.value,
-    //   date: date.value,
-    //   time: time.value,
-    //   notes: notes.value,
-    //   clinic_id: clinic_id.value,
-    //   patient_id: props.patientId,
-    // });
-    title.value = "";
+    api.appointments
+      .editAppointment({
+        id: props.appointment.id,
+        title: title.value,
+        date: date.value,
+        time: time.value,
+        notes: notes.value,
+        clinic_id: clinic_id.value,
+        patient_id: props.patientId,
+      })
+      .then(props.resetIsEdit ? props.resetIsEdit() : null);
   };
 
   const getClinicOptions = () => {
