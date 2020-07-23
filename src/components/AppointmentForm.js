@@ -19,7 +19,7 @@ const AppointmentForm = (props) => {
     (props.appointment && props.appointment.clinic_id) || ""
   );
 
-  const handleSubmit = (e) => {
+  const handlePostAppointment = (e) => {
     e.preventDefault();
     api.appointments.postAppointment({
       title: title.value,
@@ -29,6 +29,19 @@ const AppointmentForm = (props) => {
       clinic_id: clinic_id.value,
       patient_id: props.patientId,
     });
+  };
+
+  const handleEditAppointment = (e) => {
+    e.preventDefault();
+    console.log(props.appointment.id);
+    // api.appointments.editAppointment({
+    //   title: title.value,
+    //   date: date.value,
+    //   time: time.value,
+    //   notes: notes.value,
+    //   clinic_id: clinic_id.value,
+    //   patient_id: props.patientId,
+    // });
   };
 
   const getClinicOptions = () => {
@@ -42,7 +55,9 @@ const AppointmentForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={props.isEdit ? handleEditAppointment : handlePostAppointment}
+    >
       <div className="form-row">
         <div className="form-group col-md-6">
           <label htmlFor="appointment-title">Title</label>
