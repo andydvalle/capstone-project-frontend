@@ -4,7 +4,16 @@ import AppointmentInfo from "../components/AppointmentInfo";
 class Appointments extends Component {
   renderAppointments = () => {
     return this.props.appointments.map((appointment) => {
-      return <AppointmentInfo key={appointment.id} appointment={appointment} />;
+      return (
+        <div>
+          <span data-toggle="collapse" data-target={`#${appointment.id}`}>
+            {appointment.title}
+          </span>
+          <div id={appointment.id} className="collapse">
+            <AppointmentInfo key={appointment.id} appointment={appointment} />
+          </div>
+        </div>
+      );
     });
   };
 

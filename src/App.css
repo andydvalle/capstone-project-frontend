@@ -320,6 +320,13 @@ span {
   flex-direction: column;
 }
 
+.dropdown-info {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 10px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
 /* temp border to visualize components */
 .temp-border {
   border-style: solid;
