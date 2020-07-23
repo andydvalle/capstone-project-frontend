@@ -35,6 +35,7 @@ const AppointmentInfo = (props) => {
       {props.appointment.title}
       {isEdit ? (
         <AppointmentForm
+          isEdit={isEdit}
           appointment={props.appointment}
           clinics={props.clinics}
         />

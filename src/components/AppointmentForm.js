@@ -93,9 +93,14 @@ const AppointmentForm = (props) => {
           {...notes}
         />
       </div>
-      <button type="submit" className="btn btn-primary">
-        Save and add another
-      </button>
+      {props.isEdit ? (
+        <button>Submit edit</button>
+      ) : (
+        <button type="submit" className="btn btn-primary">
+          Save and add another
+        </button>
+      )}
+
       {/* <button type="submit" className="btn btn-light">
         Save and exit
       </button> */}
