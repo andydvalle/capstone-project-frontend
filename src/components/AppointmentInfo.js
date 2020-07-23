@@ -32,7 +32,7 @@ const AppointmentInfo = (props) => {
   };
 
   const handleEdit = () => {
-    setIsEdit(true);
+    setIsEdit(!isEdit);
   };
 
   const handleDelete = () => {
