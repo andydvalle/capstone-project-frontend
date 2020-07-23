@@ -33,7 +33,12 @@ const AppointmentInfo = (props) => {
   return (
     <div ref={wrapperRef} className="dropdown-info">
       {props.appointment.title}
-      {isEdit ? <AppointmentForm /> : null}
+      {isEdit ? (
+        <AppointmentForm
+          appointment={props.appointment}
+          clinics={props.clinics}
+        />
+      ) : null}
       {/* <form>
         <div className="form-row">
           <div className="form-group col-md-6">

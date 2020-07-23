@@ -55,7 +55,11 @@ class Appointments extends Component {
             </div>
           </span>
           <div id={appointment.id} className="collapse">
-            <AppointmentInfo key={appointment.id} appointment={appointment} />
+            <AppointmentInfo
+              key={appointment.id}
+              appointment={appointment}
+              clinics={this.props.clinics}
+            />
           </div>
         </div>
       );

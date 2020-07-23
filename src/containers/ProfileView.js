@@ -65,6 +65,7 @@ class ProfileView extends Component {
               {...props}
               patients={this.props.patients}
               appointments={foundProfile.appointments}
+              clinics={foundProfile.clinics}
               profileId={foundProfile.id}
             />
           )}
