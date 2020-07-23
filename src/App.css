@@ -327,6 +327,11 @@ span {
   border-bottom: 1px solid #e0e4e8;
 }
 
+.item-header {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
 /* temp border to visualize components */
 .temp-border {
   border-style: solid;
