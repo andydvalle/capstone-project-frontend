@@ -3,24 +3,33 @@ import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
 const AppointmentForm = (props) => {
-  const title = useFormInput(
+  const [title, setTitle] = useFormInput(
     (props.appointment && props.appointment.title) || ""
   );
-  const date = useFormInput(
+  const [date, setDate] = useFormInput(
     (props.appointment && props.appointment.date) || ""
   );
-  const time = useFormInput(
+  const [time, setTime] = useFormInput(
     (props.appointment && props.appointment.time) || ""
   );
-  const notes = useFormInput(
+  const [notes, setNotes] = useFormInput(
     (props.appointment && props.appointment.notes) || ""
   );
-  const clinic_id = useFormInput(
+  const [clinic_id, setClinics] = useFormInput(
     (props.appointment && props.appointment.clinic_id) || ""
   );
 
+  const resetFields = () => {
+    setTitle("");
+    setDate("");
+    setTime("");
+    setNotes("");
+    setClinics("");
+  };
+
   const handlePostAppointment = (e) => {
     e.preventDefault();
+    e.persist();
     api.appointments.postAppointment({
       title: title.value,
       date: date.value,
@@ -29,12 +38,14 @@ const AppointmentForm = (props) => {
       clinic_id: clinic_id.value,
       patient_id: props.patientId,
     });
+    resetFields();
   };
 
   const handleEditAppointment = (e) => {
     e.preventDefault();
     console.log(props.appointment.id);
     // api.appointments.editAppointment({
+    //   id: props.appointment.id,
     //   title: title.value,
     //   date: date.value,
     //   time: time.value,
@@ -42,6 +53,7 @@ const AppointmentForm = (props) => {
     //   clinic_id: clinic_id.value,
     //   patient_id: props.patientId,
     // });
+    title.value = "";
   };
 
   const getClinicOptions = () => {
