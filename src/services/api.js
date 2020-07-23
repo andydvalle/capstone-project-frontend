@@ -96,6 +96,15 @@ const editAppointment = (data) => {
   }).then((resp) => resp.json());
 };
 
+//DELETE fetch appointment
+const deleteAppointment = (patientId) => {
+  // console.log(patientId);
+  const URL = `http://localhost:3000/api/v1/appointments/${patientId}`;
+  return fetch(URL, {
+    method: "DELETE",
+  }).then((resp) => resp.json());
+};
+
 // GET fetch all medications
 const fetchMedications = () => {
   const URL = "http://localhost:3000/api/v1/medications";
@@ -157,6 +166,7 @@ export const api = {
     fetchAppointments,
     postAppointment,
     editAppointment,
+    deleteAppointment,
   },
   medications: {
     fetchMedications,

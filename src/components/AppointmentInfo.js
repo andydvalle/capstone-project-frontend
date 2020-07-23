@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import useFormInput from "../FormInput";
 import AppointmentForm from "./AppointmentForm";
+import { api } from "../services/api";
 
 const AppointmentInfo = (props) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -34,6 +35,10 @@ const AppointmentInfo = (props) => {
     setIsEdit(true);
   };
 
+  const handleDelete = () => {
+    api.appointments.deleteAppointment(props.appointment.id);
+  };
+
   return (
     <div ref={wrapperRef} className="dropdown-info">
       {isEdit ? (
@@ -50,7 +55,7 @@ const AppointmentInfo = (props) => {
         <span className="mr-3" onClick={handleEdit}>
           Edit
         </span>
-        <span>Delete</span>
+        <span onClick={handleDelete}>Delete</span>
       </div>
     </div>
   );
