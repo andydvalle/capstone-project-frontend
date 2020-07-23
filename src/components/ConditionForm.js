@@ -12,8 +12,16 @@ const ConditionForm = (props) => {
   const wrapperRef = useRef(null);
 
   //uses custom hooks for field states
-  const name = useFormInput("");
-  const notes = useFormInput("");
+  const [name, setName] = useFormInput("");
+  const [notes, setNotes] = useFormInput("");
+
+  const resetFields = () => {
+    setItems([]);
+    setDisplay(false);
+    setOptions([]);
+    setSearch("");
+    setNotes("");
+  };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -32,11 +40,13 @@ const ConditionForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    api.conditions.postCondition({
-      name: name.value,
-      notes: notes.value,
-      patient_id: props.patientId,
-    });
+    api.conditions
+      .postCondition({
+        name: search,
+        notes: notes.value,
+        patient_id: props.patientId,
+      })
+      .then(resetFields());
   };
 
   //fetch request for search table
