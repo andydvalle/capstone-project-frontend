@@ -3,26 +3,40 @@ import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
 const HealthContactForm = (props) => {
-  const name = useFormInput("");
-  const practitioner = useFormInput("");
-  const address = useFormInput("");
-  const address2 = useFormInput("");
-  const number = useFormInput("");
-  const city = useFormInput("");
-  const state = useFormInput("");
-  const zip = useFormInput("");
-  const notes = useFormInput("");
+  const [name, setName] = useFormInput("");
+  const [practitioner, setPractitioner] = useFormInput("");
+  const [address, setAddress] = useFormInput("");
+  const [address2, setAddress2] = useFormInput("");
+  const [number, setNumber] = useFormInput("");
+  const [city, setCity] = useFormInput("");
+  const [state, setState] = useFormInput("");
+  const [zip, setZip] = useFormInput("");
+  const [notes, setNotes] = useFormInput("");
+
+  const resetFields = () => {
+    setName("");
+    setPractitioner("");
+    setAddress("");
+    setAddress2("");
+    setNumber("");
+    setCity("");
+    setState("");
+    setZip("");
+    setNotes("");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    api.clinics.postClinic({
-      name: name.value,
-      practitioner: practitioner.value,
-      location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
-      number: number.value,
-      notes: notes.value,
-      patient_id: props.patientId,
-    });
+    api.clinics
+      .postClinic({
+        name: name.value,
+        practitioner: practitioner.value,
+        location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
+        number: number.value,
+        notes: notes.value,
+        patient_id: props.patientId,
+      })
+      .then(resetFields());
   };
 
   return (

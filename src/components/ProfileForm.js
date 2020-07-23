@@ -3,20 +3,29 @@ import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
 const ProfileForm = (props) => {
-  const firstName = useFormInput("");
-  const lastName = useFormInput("");
-  const dob = useFormInput("");
-  const allergies = useFormInput("");
+  const [firstName, setFirstName] = useFormInput("");
+  const [lastName, setLastName] = useFormInput("");
+  const [dob, setDob] = useFormInput("");
+  const [allergies, setAllergies] = useFormInput("");
+
+  const resetFields = () => {
+    setFirstName("");
+    setLastName("");
+    setDob("");
+    setAllergies("");
+  };
 
   const submitProfile = (e) => {
     e.preventDefault();
-    api.patients.postPatient({
-      firstName: firstName.value,
-      lastName: lastName.value,
-      dob: dob.value,
-      allergies: allergies.value,
-      user_id: props.currentUser.id,
-    });
+    api.patients
+      .postPatient({
+        firstName: firstName.value,
+        lastName: lastName.value,
+        dob: dob.value,
+        allergies: allergies.value,
+        user_id: props.currentUser.id,
+      })
+      .then(resetFields());
   };
 
   return (
