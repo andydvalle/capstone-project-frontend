@@ -3,7 +3,9 @@ import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
 const AppointmentForm = (props) => {
-  const title = useFormInput("");
+  const title = useFormInput(
+    (props.appointment && props.appointment.title) || ""
+  );
   const date = useFormInput("");
   const time = useFormInput("");
   const notes = useFormInput("");
