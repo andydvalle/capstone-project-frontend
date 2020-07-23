@@ -32,7 +32,7 @@ const AppointmentInfo = (props) => {
 
   return (
     <div ref={wrapperRef} className="dropdown-info">
-      {props.appointment.title}
+      {isEdit ? null : props.appointment.title}
       {isEdit ? (
         <AppointmentForm
           isEdit={isEdit}
