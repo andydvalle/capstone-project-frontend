@@ -76,6 +76,26 @@ const postAppointment = (data) => {
   }).then((resp) => resp.json());
 };
 
+//PATCH fetch appointment
+const editAppointment = (data) => {
+  const URL = `http://localhost:3000/api/v1/appointments/${data.id}`;
+  return fetch(URL, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      title: data.title,
+      date: data.content,
+      time: data.time,
+      notes: data.notes,
+      patient_id: data.patient_id,
+      clinic_id: data.clinic_id,
+    }),
+  }).then((resp) => resp.json());
+};
+
 // GET fetch all medications
 const fetchMedications = () => {
   const URL = "http://localhost:3000/api/v1/medications";
@@ -136,6 +156,7 @@ export const api = {
   appointments: {
     fetchAppointments,
     postAppointment,
+    editAppointment,
   },
   medications: {
     fetchMedications,
