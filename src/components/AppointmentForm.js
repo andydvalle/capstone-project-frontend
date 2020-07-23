@@ -104,9 +104,6 @@ const AppointmentForm = (props) => {
         <label htmlFor="appointment-address">Location</label>
         <select className="form-control" {...clinic_id}>
           <option value="chooseClinic">Select a clinic</option>
-          {/* <option value="1">Clinic 1</option>
-          <option value="2">Clinic 2</option> */}
-          {/* <div className="dropdown-divider"></div> */}
           {props.clinics && getClinicOptions()}
         </select>
       </div>

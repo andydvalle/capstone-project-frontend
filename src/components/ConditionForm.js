@@ -85,8 +85,6 @@ const ConditionForm = (props) => {
           id="auto"
           placeholder="Hypertension"
           value={search}
-          // {...name}
-          // //change to handleSearch with autocomplete
           onClick={() => setDisplay(!display)}
           onChange={handleSearch}
         />
