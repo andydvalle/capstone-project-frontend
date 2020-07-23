@@ -1,24 +1,46 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useFormInput from "../FormInput";
 import useBoxInput from "../BoxInput";
 import { api } from "../services/api";
 
 const MedicationForm = (props) => {
-  
-  const name_route = useFormInput("")
-  const strength = useFormInput("")
-  const instructions = useFormInput("")
-  const notes = useFormInput("")
-  const sunday = useBoxInput(false)
-  const monday = useBoxInput(false)
-  const tuesday = useBoxInput(false)
-  const wednesday = useBoxInput(false)
-  const thursday = useBoxInput(false)
-  const friday = useBoxInput(false)
-  const saturday = useBoxInput(false)
+  //sets search table state
+  const [meds, setMeds] = useState([]);
+  const [display, setDisplay] = useState(false);
+  const [options, setOptions] = useState([]);
+  const [search, setSearch] = useState("");
+  const wrapperRef = useRef(null);
 
-  const handleSubmit =(e) => {
-    e.preventDefault()
+  //uses custom hooks for field states
+  const name_route = useFormInput("");
+  const strength = useFormInput("");
+  const instructions = useFormInput("");
+  const notes = useFormInput("");
+  const sunday = useBoxInput(false);
+  const monday = useBoxInput(false);
+  const tuesday = useBoxInput(false);
+  const wednesday = useBoxInput(false);
+  const thursday = useBoxInput(false);
+  const friday = useBoxInput(false);
+  const saturday = useBoxInput(false);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleClickOutside = (e) => {
+    const { current: wrap } = wrapperRef;
+    if (wrap && !wrap.contains(e.target)) {
+      setDisplay(false);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     api.medications.postMedication({
       name_route: name_route.value,
       strength: strength.value,
@@ -31,21 +53,60 @@ const MedicationForm = (props) => {
       thursday: thursday.value,
       friday: friday.value,
       saturday: saturday.value,
-      patient_id: props.patientId
-    })
-  }
+      patient_id: props.patientId,
+    });
+  };
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    fetch(
+      `https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=${e.target.value}&ef=STRENGTHS_AND_FORMS`
+    )
+      .then((resp) => resp.json())
+      //setState array
+      .then((data) => {
+        let filteredMeds = data[1].flat();
+        setMeds(filteredMeds);
+        // console.log(Object.values(data[2]).flat());
+      })
+      .then(setOptions(meds));
+  };
+
+  const setMed = (med) => {
+    setSearch(med);
+    setDisplay(false);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-group">
+      <div ref={wrapperRef} className="form-group">
         <label htmlFor="medication-name-route">{`Search Name & Route`}</label>
         <input
           type="text"
           className="form-control"
           id="medication-name-route"
           placeholder="Lisinopril (Oral pill)"
-          {...name_route}
+          value={search}
+          onClick={() => setDisplay(!display)}
+          onChange={handleSearch}
+          // {...name_route}
         />
+        {display && (
+          <div className="autoContainer">
+            {options.map((v, i) => {
+              return (
+                <div
+                  className="option"
+                  key={i}
+                  onClick={() => setMed(v)}
+                  tabIndex="0"
+                >
+                  <span>{v}</span>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
       <div className="form-row">
         <div className="form-group col-md-6">
@@ -102,7 +163,6 @@ const MedicationForm = (props) => {
             value="tue"
             id="tueCheck"
             {...tuesday}
-
           />
           <label className="form-check-label" htmlFor="tueCheck">
             Tuesday
@@ -115,7 +175,7 @@ const MedicationForm = (props) => {
             value="wed"
             id="wedCheck"
             {...wednesday}
-            />
+          />
           <label className="form-check-label" htmlFor="wedCheck">
             Wednesday
           </label>
@@ -127,7 +187,7 @@ const MedicationForm = (props) => {
             value="thu"
             id="thuCheck"
             {...thursday}
-            />
+          />
           <label className="form-check-label" htmlFor="thuCheck">
             Thursday
           </label>
@@ -139,7 +199,7 @@ const MedicationForm = (props) => {
             value="fri"
             id="friCheck"
             {...friday}
-            />
+          />
           <label className="form-check-label" htmlFor="friCheck">
             Friday
           </label>
@@ -151,12 +211,12 @@ const MedicationForm = (props) => {
             value="sat"
             id="satCheck"
             {...saturday}
-            />
+          />
           <label className="form-check-label" htmlFor="satCheck">
             Saturday
           </label>
         </div>
-       </div>
+      </div>
       <div className="form-group">
         <label htmlFor="medication-notes">Notes (optional)</label>
         <input

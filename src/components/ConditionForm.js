@@ -11,6 +11,7 @@ const ConditionForm = (props) => {
   const [search, setSearch] = useState("");
   const wrapperRef = useRef(null);
 
+  //uses custom hooks for field states
   const name = useFormInput("");
   const notes = useFormInput("");
 

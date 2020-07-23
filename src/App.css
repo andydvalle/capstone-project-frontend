@@ -261,6 +261,10 @@ input[type="checkbox"]:checked + label.strikethrough {
   width: 200px;
 }
 
+.autoContainer {
+  z-index: 1;
+}
+
 /* .logo {
   background-image: url("./loc-logo.png");
   height: 70px;
