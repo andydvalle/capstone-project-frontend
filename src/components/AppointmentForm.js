@@ -6,10 +6,18 @@ const AppointmentForm = (props) => {
   const title = useFormInput(
     (props.appointment && props.appointment.title) || ""
   );
-  const date = useFormInput("");
-  const time = useFormInput("");
-  const notes = useFormInput("");
-  const clinic_id = useFormInput("");
+  const date = useFormInput(
+    (props.appointment && props.appointment.date) || ""
+  );
+  const time = useFormInput(
+    (props.appointment && props.appointment.time) || ""
+  );
+  const notes = useFormInput(
+    (props.appointment && props.appointment.notes) || ""
+  );
+  const clinic_id = useFormInput(
+    (props.appointment && props.appointment.clinic_id) || ""
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
