@@ -12,17 +12,16 @@ const MedicationForm = (props) => {
   const wrapperRef = useRef(null);
 
   //uses custom hooks for field states
-  const name_route = useFormInput("");
-  const strength = useFormInput("");
-  const instructions = useFormInput("");
-  const notes = useFormInput("");
-  const sunday = useBoxInput(false);
-  const monday = useBoxInput(false);
-  const tuesday = useBoxInput(false);
-  const wednesday = useBoxInput(false);
-  const thursday = useBoxInput(false);
-  const friday = useBoxInput(false);
-  const saturday = useBoxInput(false);
+  const [strength, setStrength] = useFormInput("");
+  const [instructions, setInstructions] = useFormInput("");
+  const [notes, setNotes] = useFormInput("");
+  const [sunday, setSunday] = useBoxInput(false);
+  const [monday, setMonday] = useBoxInput(false);
+  const [tuesday, setTuesday] = useBoxInput(false);
+  const [wednesday, setWednesday] = useBoxInput(false);
+  const [thursday, setThursday] = useBoxInput(false);
+  const [friday, setFriday] = useBoxInput(false);
+  const [saturday, setSaturday] = useBoxInput(false);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -31,6 +30,23 @@ const MedicationForm = (props) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const resetFields = () => {
+    setStrength("");
+    setInstructions("");
+    setNotes("");
+    setSunday(false);
+    setMonday(false);
+    setTuesday(false);
+    setWednesday(false);
+    setThursday(false);
+    setFriday(false);
+    setSaturday(false);
+    setMeds([]);
+    setDisplay(false);
+    setOptions([]);
+    setSearch("");
+  };
 
   const handleClickOutside = (e) => {
     const { current: wrap } = wrapperRef;
@@ -41,20 +57,22 @@ const MedicationForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    api.medications.postMedication({
-      name_route: name_route.value,
-      strength: strength.value,
-      instructions: instructions.value,
-      notes: notes.value,
-      sunday: sunday.value,
-      monday: monday.value,
-      tuesday: tuesday.value,
-      wednesday: wednesday.value,
-      thursday: thursday.value,
-      friday: friday.value,
-      saturday: saturday.value,
-      patient_id: props.patientId,
-    });
+    api.medications
+      .postMedication({
+        name_route: search,
+        strength: strength.value,
+        instructions: instructions.value,
+        notes: notes.value,
+        sunday: sunday.value,
+        monday: monday.value,
+        tuesday: tuesday.value,
+        wednesday: wednesday.value,
+        thursday: thursday.value,
+        friday: friday.value,
+        saturday: saturday.value,
+        patient_id: props.patientId,
+      })
+      .then(resetFields());
   };
 
   const handleSearch = (e) => {
@@ -89,7 +107,6 @@ const MedicationForm = (props) => {
           value={search}
           onClick={() => setDisplay(!display)}
           onChange={handleSearch}
-          // {...name_route}
         />
         {display && (
           <div className="autoContainer">
