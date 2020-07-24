@@ -1,10 +1,21 @@
 import React, { Component } from "react";
-import ConditionInfo from "../components/ConditionInfo"
+import ConditionInfo from "../components/ConditionInfo";
 
 class Conditions extends Component {
   renderConditions = () => {
     return this.props.conditions.map((condition) => {
-     return <ConditionInfo key={condition.id} condition={condition}/>
+      return (
+        <div>
+          <span data-toggle="collapse" data-target={`#${condition.id}`}>
+            <div className="row">
+              <div className="item-header">{condition.name}</div>
+            </div>
+          </span>
+          <div id={condition.id} className="collapse">
+            <ConditionInfo key={condition.id} condition={condition} />
+          </div>
+        </div>
+      );
     });
   };
 

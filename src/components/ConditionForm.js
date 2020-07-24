@@ -8,12 +8,16 @@ const ConditionForm = (props) => {
   const [items, setItems] = useState([]);
   const [display, setDisplay] = useState(false);
   const [options, setOptions] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(
+    (props.condition && props.condition.name) || ""
+  );
   const wrapperRef = useRef(null);
 
   //uses custom hooks for field states
   const [name, setName] = useFormInput("");
-  const [notes, setNotes] = useFormInput("");
+  const [notes, setNotes] = useFormInput(
+    (props.condition && props.condition.notes) || ""
+  );
 
   const resetFields = () => {
     setItems([]);
@@ -38,7 +42,7 @@ const ConditionForm = (props) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handlePostCondition = (e) => {
     e.preventDefault();
     api.conditions
       .postCondition({
@@ -47,6 +51,18 @@ const ConditionForm = (props) => {
         patient_id: props.patientId,
       })
       .then(resetFields());
+  };
+
+  const handleEditCondition = (e) => {
+    e.preventDefault();
+    api.conditions
+      .editCondition({
+        id: props.condition.id,
+        name: search,
+        notes: notes.value,
+        patient_id: props.patientId,
+      })
+      .then(props.resetIsEdit ? props.resetIsEdit() : null);
   };
 
   //fetch request for search table
@@ -72,11 +88,11 @@ const ConditionForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={props.isEdit ? handleEditCondition : handlePostCondition}>
+      {" "}
       {/* <div className="form-group">
         <Autocomplete suggestions={items} />
       </div> */}
-
       <div ref={wrapperRef} className="form-group">
         <label htmlFor="condition-name">Search Condition Name</label>
         <input
@@ -115,9 +131,15 @@ const ConditionForm = (props) => {
           {...notes}
         />
       </div>
-      <button type="submit" className="btn btn-primary">
-        Save and add another
-      </button>
+      {props.isEdit ? (
+        <button type="submit" className="btn btn-primary">
+          Submit edit
+        </button>
+      ) : (
+        <button type="submit" className="btn btn-primary">
+          Save and add another
+        </button>
+      )}
     </form>
   );
 };
