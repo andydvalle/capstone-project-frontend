@@ -39,7 +39,7 @@ class Login extends Component {
           Your health is important. Let's keep you on track.
         </div>
         <div className="login-form">
-          {this.state.error ? <h5>Try Again</h5> : null}
+          {this.state.error ? <p>Please try again</p> : null}
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label className="login-label">Username</label>
