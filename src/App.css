@@ -27,6 +27,19 @@
   font-size: 10pt;
 }
 
+.login-signup {
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+.login-signup a {
+  color: #4ebaaa;
+}
+.login-signup a:hover {
+  color: #00897b;
+  /* font-style: italic; */
+}
+
 /* .dashboard {
   padding: 1em;
   max-width:100%;

@@ -82,10 +82,14 @@ const Signup = (props) => {
               onChange={handleChange}
             />
           </div>
-          <button class="btn btn-primary btn mt-3" type="submit">
-            Sign up
-          </button>
-          <Link to={`/`}>Have an account? Login!</Link>
+          <div className="form-row">
+            <button class="btn btn-primary btn mt-3" type="submit">
+              Sign up
+            </button>
+            <div className="login-signup">
+              <Link to={`/`}>Have an account? Login!</Link>
+            </div>
+          </div>
         </div>
       </form>
     </div>

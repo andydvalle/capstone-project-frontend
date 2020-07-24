@@ -76,10 +76,14 @@ class Login extends Component {
             Check me out
             </label>
           </div> */}
-            <button type="submit" className="btn btn-primary">
-              Login
-            </button>
-            <Link to={`/signup`}>Not a member? Sign up!</Link>
+            <div className="form-row">
+              <button class="btn btn-primary btn mt-3" type="submit">
+                Login
+              </button>
+              <div className="login-signup">
+                <Link to={`/signup`}>Not a member? Signup!</Link>
+              </div>
+            </div>
           </form>
         </div>
       </div>
