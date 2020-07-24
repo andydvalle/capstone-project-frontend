@@ -19,6 +19,15 @@ const login = (data) => {
   }).then((resp) => resp.json());
 };
 
+//sends signup information to backend, users#create
+const signUp = (data) => {
+  return fetch("http://localhost:3000/api/v1/users", {
+    method: "POST",
+    headers: headers(),
+    body: JSON.stringify(data),
+  }).then((resp) => resp.json());
+};
+
 //get fetch the current user after login
 const getCurrentUser = () => {
   const URL = "http://localhost:3000/api/v1/current_user";

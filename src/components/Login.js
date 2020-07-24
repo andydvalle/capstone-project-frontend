@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { api } from "../services/api";
 
 class Login extends Component {
@@ -38,6 +39,7 @@ class Login extends Component {
           Your health is important. Let's keep you on track.
         </div>
         <div className="login-form">
+          {this.state.error ? <h5>Try Again</h5> : null}
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label className="login-label">Username</label>
@@ -77,6 +79,7 @@ class Login extends Component {
             <button type="submit" className="btn btn-primary">
               Login
             </button>
+            <Link to={`/signup`}>Not a member? Sign up!</Link>
           </form>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import { api } from "./services/api";
 import Dashboard from "./containers/Dashboard";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 class App extends Component {
   state = {
@@ -54,6 +55,11 @@ class App extends Component {
           exact
           path="/"
           render={(props) => <Login {...props} onLogin={this.onLogin} />}
+        />
+        <Route
+          exact
+          path="/signup"
+          render={(props) => <Signup {...props} onLogin={this.onLogin} />}
         />
         {this.state.auth.user.id ? (
           <Route
