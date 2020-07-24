@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import AppointmentChecklist from "../components/AppointmentChecklist";
+import moment from "moment";
 
 const ThisWeek = (props) => {
+  const [day, setDay] = useState(moment().format("L"));
   const [sunday, setSunday] = useState([]);
   const [monday, setMonday] = useState([]);
   const [tuesday, setTuesday] = useState([]);
@@ -14,21 +16,6 @@ const ThisWeek = (props) => {
     assignDays();
   }, []);
 
-  //displays the date in a prettier format
-  const displayDate = (apptDate) => {
-    const date = new Date(apptDate);
-    const displayDate =
-      (date.getMonth() > 8
-        ? date.getMonth() + 1
-        : "0" + (date.getMonth() + 1)) +
-      "/" +
-      (date.getDate() > 9 ? date.getDate() + 1 : "0" + (date.getDate() + 1)) +
-      "/" +
-      date.getFullYear();
-
-    return displayDate;
-  };
-
   const renderDay = (weekday) => {
     return weekday.map((day) => {
       return <div>{day.title}</div>;
@@ -40,6 +27,11 @@ const ThisWeek = (props) => {
     props.foundProfile.appointments.map((appointment) => {
       const d = new Date(appointment.date);
       const n = d.getUTCDay();
+      //   const now = moment();
+      //   const input = moment(d);
+      //   const isThisWeek = now.isoWeek() == input.isoWeek();
+      //   console.log(d, now, input, isThisWeek);
+      //   if (isThisWeek) {
       if (n === 0) {
         setSunday([...sunday, appointment]);
       }
@@ -61,12 +53,13 @@ const ThisWeek = (props) => {
       if (n === 6) {
         setSaturday([...saturday, appointment]);
       }
-      //   console.log(appointment.date, d, n);
+      //   }
     });
   };
 
   return (
     <div className="main_content">
+      {console.log(day)}
       <div className="header">
         {props.foundProfile.firstName.charAt(0).toUpperCase() +
           props.foundProfile.firstName.slice(1)}
@@ -83,7 +76,9 @@ const ThisWeek = (props) => {
       {wednesday.length ? renderDay(wednesday) : null}
       <div className="subheader">Thursday</div>
       {thursday.length ? renderDay(thursday) : null}
-      <div className="subheader">Friday</div>
+      <div className="subheader">
+        Friday {moment().subtract(10, "days").calendar()}
+      </div>
       {friday.length ? renderDay(friday) : null}
       <div className="subheader">Saturday</div>
       {saturday.length ? renderDay(saturday) : null}
