@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import useFormInput from "../FormInput";
+// import useFormInput from "../FormInput";
 import AppointmentForm from "./AppointmentForm";
 import { api } from "../services/api";
 
@@ -7,10 +7,10 @@ const AppointmentInfo = (props) => {
   const [isEdit, setIsEdit] = useState(false);
   const wrapperRef = useRef(null);
 
-  const title = useFormInput(props.appointment.title);
-  const date = useFormInput(props.appointment.date);
-  const time = useFormInput(props.appointment.time);
-  const notes = useFormInput(props.appointment.notes);
+  // const title = useFormInput(props.appointment.title);
+  // const date = useFormInput(props.appointment.date);
+  // const time = useFormInput(props.appointment.time);
+  // const notes = useFormInput(props.appointment.notes);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);

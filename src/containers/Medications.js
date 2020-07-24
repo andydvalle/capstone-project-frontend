@@ -1,12 +1,22 @@
 import React, { Component } from "react";
-import MedicationInfo from "../components/MedicationInfo"
+import MedicationInfo from "../components/MedicationInfo";
 
 class Medications extends Component {
-
   renderMedications = () => {
-    return this.props.medications.map(medication=> {
-      return <MedicationInfo key={medication.id} medication={medication}/>
-    })
+    return this.props.medications.map((medication) => {
+      return (
+        <div>
+          <span data-toggle="collapse" data-target={`#${medication.id}`}>
+            <div className="row">
+              <div className="item-header">{medication.name_route}</div>
+            </div>
+          </span>
+          <div id={medication.id} className="collapse">
+            <MedicationInfo key={medication.id} medication={medication} />
+          </div>
+        </div>
+      );
+    });
   };
 
   render() {

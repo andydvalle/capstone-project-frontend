@@ -8,20 +8,42 @@ const MedicationForm = (props) => {
   const [meds, setMeds] = useState([]);
   const [display, setDisplay] = useState(false);
   const [options, setOptions] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(
+    (props.medication && props.medication.name_route) || ""
+  );
   const wrapperRef = useRef(null);
 
   //uses custom hooks for field states
-  const [strength, setStrength] = useFormInput("");
-  const [instructions, setInstructions] = useFormInput("");
-  const [notes, setNotes] = useFormInput("");
-  const [sunday, setSunday] = useBoxInput(false);
-  const [monday, setMonday] = useBoxInput(false);
-  const [tuesday, setTuesday] = useBoxInput(false);
-  const [wednesday, setWednesday] = useBoxInput(false);
-  const [thursday, setThursday] = useBoxInput(false);
-  const [friday, setFriday] = useBoxInput(false);
-  const [saturday, setSaturday] = useBoxInput(false);
+  const [strength, setStrength] = useFormInput(
+    (props.medication && props.medication.strength) || ""
+  );
+  const [instructions, setInstructions] = useFormInput(
+    (props.medication && props.medication.instructions) || ""
+  );
+  const [notes, setNotes] = useFormInput(
+    (props.medication && props.medication.notes) || ""
+  );
+  const [sunday, setSunday] = useBoxInput(
+    (props.medication && props.medication.sunday) || false
+  );
+  const [monday, setMonday] = useBoxInput(
+    (props.medication && props.medication.monday) || false
+  );
+  const [tuesday, setTuesday] = useBoxInput(
+    (props.medication && props.medication.tuesday) || false
+  );
+  const [wednesday, setWednesday] = useBoxInput(
+    (props.medication && props.medication.wednesday) || false
+  );
+  const [thursday, setThursday] = useBoxInput(
+    (props.medication && props.medication.thursday) || false
+  );
+  const [friday, setFriday] = useBoxInput(
+    (props.medication && props.medication.friday) || false
+  );
+  const [saturday, setSaturday] = useBoxInput(
+    (props.medication && props.medication.saturday) || false
+  );
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -55,7 +77,7 @@ const MedicationForm = (props) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handlePostMedication = (e) => {
     e.preventDefault();
     api.medications
       .postMedication({
@@ -73,6 +95,27 @@ const MedicationForm = (props) => {
         patient_id: props.patientId,
       })
       .then(resetFields());
+  };
+
+  const handleEditMedication = (e) => {
+    e.preventDefault();
+    api.medications
+      .editMedication({
+        id: props.medication.id,
+        name_route: search,
+        strength: strength.value,
+        instructions: instructions.value,
+        notes: notes.value,
+        sunday: sunday.value,
+        monday: monday.value,
+        tuesday: tuesday.value,
+        wednesday: wednesday.value,
+        thursday: thursday.value,
+        friday: friday.value,
+        saturday: saturday.value,
+        patient_id: props.patientId,
+      })
+      .then(props.resetIsEdit ? props.resetIsEdit() : null);
   };
 
   const handleSearch = (e) => {
@@ -96,7 +139,8 @@ const MedicationForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={props.isEdit ? handleEditMedication : handlePostMedication}>
+      {" "}
       <div ref={wrapperRef} className="form-group">
         <label htmlFor="medication-name-route">{`Search Name & Route`}</label>
         <input
@@ -244,9 +288,15 @@ const MedicationForm = (props) => {
           {...notes}
         />
       </div>
-      <button type="submit" className="btn btn-primary">
-        Save and add another
-      </button>
+      {props.isEdit ? (
+        <button type="submit" className="btn btn-primary">
+          Submit edit
+        </button>
+      ) : (
+        <button type="submit" className="btn btn-primary">
+          Save and add another
+        </button>
+      )}
       {/* <button type="submit" className="btn btn-light">
         Save and exit
       </button>{" "} */}

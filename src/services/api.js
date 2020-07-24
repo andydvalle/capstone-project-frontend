@@ -120,6 +120,40 @@ const postMedication = (data) => {
     body: JSON.stringify(data),
   }).then((resp) => resp.json());
 };
+
+//PATCH fetch medication
+const editMedication = (data) => {
+  console.log(data);
+  const URL = `http://localhost:3000/api/v1/medications/${data.id}`;
+  return fetch(URL, {
+    method: "PATCH",
+    headers: headers(),
+    body: JSON.stringify({
+      name_route: data.name_route,
+      strength: data.strength,
+      instructions: data.instructions,
+      notes: data.notes,
+      sunday: data.sunday,
+      monday: data.monday,
+      tuesday: data.tuesday,
+      wednesday: data.wednesday,
+      thursday: data.thursday,
+      friday: data.friday,
+      saturday: data.saturday,
+      patient_id: data.patient_id,
+    }),
+  }).then((resp) => resp.json());
+};
+
+//DELETE fetch medication
+const deleteMedication = (patientId) => {
+  // console.log(patientId);
+  const URL = `http://localhost:3000/api/v1/medications/${patientId}`;
+  return fetch(URL, {
+    method: "DELETE",
+  }).then((resp) => resp.json());
+};
+
 // GET fetch all conditions
 const fetchConditions = () => {
   const URL = "http://localhost:3000/api/v1/conditions";
@@ -171,6 +205,8 @@ export const api = {
   medications: {
     fetchMedications,
     postMedication,
+    editMedication,
+    deleteMedication,
   },
   conditions: {
     fetchConditions,
