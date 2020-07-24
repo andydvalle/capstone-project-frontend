@@ -68,6 +68,7 @@ const fetchAppointments = () => {
 
 // POST fetch appointment
 const postAppointment = (data) => {
+  console.log(data);
   const URL = "http://localhost:3000/api/v1/appointments";
   return fetch(URL, {
     method: "POST",
@@ -78,16 +79,14 @@ const postAppointment = (data) => {
 
 //PATCH fetch appointment
 const editAppointment = (data) => {
+  console.log(data);
   const URL = `http://localhost:3000/api/v1/appointments/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
+    headers: headers(),
     body: JSON.stringify({
       title: data.title,
-      date: data.content,
+      date: data.date,
       time: data.time,
       notes: data.notes,
       patient_id: data.patient_id,
@@ -113,6 +112,7 @@ const fetchMedications = () => {
 
 // POST fetch medication
 const postMedication = (data) => {
+  console.log(data);
   const URL = "http://localhost:3000/api/v1/medications";
   return fetch(URL, {
     method: "POST",
@@ -162,6 +162,7 @@ const fetchConditions = () => {
 
 // POST fetch condition
 const postCondition = (data) => {
+  console.log(data);
   const URL = "http://localhost:3000/api/v1/conditions";
   return fetch(URL, {
     method: "POST",
@@ -201,6 +202,7 @@ const fetchClinics = () => {
 
 // POST fetch clnic
 const postClinic = (data) => {
+  console.log(data);
   const URL = "http://localhost:3000/api/v1/clinics";
   return fetch(URL, {
     method: "POST",
