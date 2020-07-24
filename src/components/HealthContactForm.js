@@ -3,15 +3,31 @@ import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
 const HealthContactForm = (props) => {
-  const [name, setName] = useFormInput("");
-  const [practitioner, setPractitioner] = useFormInput("");
-  const [address, setAddress] = useFormInput("");
-  const [address2, setAddress2] = useFormInput("");
-  const [number, setNumber] = useFormInput("");
-  const [city, setCity] = useFormInput("");
-  const [state, setState] = useFormInput("");
-  const [zip, setZip] = useFormInput("");
-  const [notes, setNotes] = useFormInput("");
+  const [name, setName] = useFormInput(
+    (props.clinic && props.clinic.name) || ""
+  );
+  const [practitioner, setPractitioner] = useFormInput(
+    (props.clinic && props.clinic.practitioner) || ""
+  );
+  const [address, setAddress] = useFormInput(
+    (props.clinic && props.clinic.address) || ""
+  );
+  const [address2, setAddress2] = useFormInput(
+    (props.clinic && props.clinic.address2) || ""
+  );
+  const [number, setNumber] = useFormInput(
+    (props.clinic && props.clinic.number) || ""
+  );
+  const [city, setCity] = useFormInput(
+    (props.clinic && props.clinic.city) || ""
+  );
+  const [state, setState] = useFormInput(
+    (props.clinic && props.clinic.state) || ""
+  );
+  const [zip, setZip] = useFormInput((props.clinic && props.clinic.zip) || "");
+  const [notes, setNotes] = useFormInput(
+    (props.clinic && props.clinic.notes) || ""
+  );
 
   const resetFields = () => {
     setName("");
@@ -25,7 +41,7 @@ const HealthContactForm = (props) => {
     setNotes("");
   };
 
-  const handleSubmit = (e) => {
+  const handlePostClinic = (e) => {
     e.preventDefault();
     api.clinics
       .postClinic({
@@ -39,8 +55,24 @@ const HealthContactForm = (props) => {
       .then(resetFields());
   };
 
+  const handleEditClinic = (e) => {
+    e.preventDefault();
+    api.clinics
+      .editClinic({
+        id: props.clinic.id,
+        name: name.value,
+        practitioner: practitioner.value,
+        location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
+        number: number.value,
+        notes: notes.value,
+        patient_id: props.patientId,
+      })
+      .then(props.resetIsEdit ? props.resetIsEdit() : null);
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={props.isEdit ? handleEditClinic : handlePostClinic}>
+      {" "}
       <div className="form-row">
         <div className="form-group col-md-6">
           <label htmlFor="clinic-name">Clinic Name</label>
@@ -143,9 +175,15 @@ const HealthContactForm = (props) => {
           {...notes}
         />
       </div>
-      <button type="submit" className="btn btn-primary">
-        Save and add another
-      </button>
+      {props.isEdit ? (
+        <button type="submit" className="btn btn-primary">
+          Submit edit
+        </button>
+      ) : (
+        <button type="submit" className="btn btn-primary">
+          Save and add another
+        </button>
+      )}
       {/* <button type="submit" className="btn btn-light">
         Save and exit
       </button>{" "} */}

@@ -209,6 +209,33 @@ const postClinic = (data) => {
   }).then((resp) => resp.json());
 };
 
+//PATCH fetch clinic
+const editClinic = (data) => {
+  console.log(data);
+  const URL = `http://localhost:3000/api/v1/clinics/${data.id}`;
+  return fetch(URL, {
+    method: "PATCH",
+    headers: headers(),
+    body: JSON.stringify({
+      name: data.name,
+      practitioner: data.practitioner,
+      location: data.location,
+      number: data.number,
+      notes: data.notes,
+      patient_id: data.patient_id,
+    }),
+  }).then((resp) => resp.json());
+};
+
+//DELETE fetch clinic
+const deleteClinic = (patientId) => {
+  // console.log(patientId);
+  const URL = `http://localhost:3000/api/v1/clinics/${patientId}`;
+  return fetch(URL, {
+    method: "DELETE",
+  }).then((resp) => resp.json());
+};
+
 //exports all functions
 export const api = {
   auth: {
@@ -241,5 +268,7 @@ export const api = {
   clinics: {
     fetchClinics,
     postClinic,
+    editClinic,
+    deleteClinic,
   },
 };
