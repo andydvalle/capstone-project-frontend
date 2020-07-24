@@ -23,7 +23,7 @@ const Signup = (props) => {
     e.preventDefault();
     if (password && password === confirm) {
       api.auth
-        .signUp({
+        .signup({
           username: username,
           password: password,
         })
@@ -47,13 +47,12 @@ const Signup = (props) => {
         Ready to get started? Let's sign you up!
       </div>{" "}
       {error ? <h5>Try Again</h5> : null}
-      {unmatch ? <h5>Try Again</h5> : null}
       <form onSubmit={handleSubmit}>
         <div className="login-form">
           <div className="form-group">
             <label className="login-label">Username</label>
             <input
-              name="name"
+              name="username"
               class="form-control"
               placeholder="Enter username"
               value={username}
@@ -62,6 +61,7 @@ const Signup = (props) => {
           </div>
           <div className="form-group">
             <label className="login-label">Password</label>
+            {unmatch ? <p>Passwords do not match, try again.</p> : null}
             <input
               name="password"
               type="password"
@@ -78,7 +78,7 @@ const Signup = (props) => {
               type="password"
               class="form-control"
               placeholder="Password"
-              value={password}
+              value={confirm}
               onChange={handleChange}
             />
           </div>

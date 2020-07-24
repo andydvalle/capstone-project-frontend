@@ -20,7 +20,7 @@ const login = (data) => {
 };
 
 //sends signup information to backend, users#create
-const signUp = (data) => {
+const signup = (data) => {
   return fetch("http://localhost:3000/api/v1/users", {
     method: "POST",
     headers: headers(),
@@ -256,6 +256,7 @@ export const api = {
   auth: {
     login,
     getCurrentUser,
+    signup,
   },
   patients: {
     fetchPatients,
