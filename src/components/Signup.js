@@ -46,7 +46,7 @@ const Signup = (props) => {
       <div className="login-header">
         Ready to get started? Let's sign you up!
       </div>{" "}
-      {error ? <h5>Try Again</h5> : null}
+      {error ? <h5>Username already taken, please try again.</h5> : null}
       <form onSubmit={handleSubmit}>
         <div className="login-form">
           <div className="form-group">

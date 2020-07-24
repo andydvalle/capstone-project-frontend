@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
+import AuthHOC from "../HOCs/AuthHOC";
 import ProfileView from "./ProfileView";
 import Profile from "./Profile";
 import ProfileForm from "../components/ProfileForm";
@@ -114,4 +115,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default AuthHOC(Dashboard);
