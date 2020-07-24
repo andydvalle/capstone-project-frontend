@@ -169,6 +169,30 @@ const postCondition = (data) => {
     body: JSON.stringify(data),
   }).then((resp) => resp.json());
 };
+
+//PATCH fetch condition
+const editCondition = (data) => {
+  console.log(data);
+  const URL = `http://localhost:3000/api/v1/conditions/${data.id}`;
+  return fetch(URL, {
+    method: "PATCH",
+    headers: headers(),
+    body: JSON.stringify({
+      name: data.name,
+      notes: data.notes,
+      patient_id: data.patient_id,
+    }),
+  }).then((resp) => resp.json());
+};
+
+//DELETE fetch condition
+const deleteCondition = (patientId) => {
+  // console.log(patientId);
+  const URL = `http://localhost:3000/api/v1/conditions/${patientId}`;
+  return fetch(URL, {
+    method: "DELETE",
+  }).then((resp) => resp.json());
+};
 // GET fetch all clinics
 const fetchClinics = () => {
   const URL = "http://localhost:3000/api/v1/clinics";
@@ -211,6 +235,8 @@ export const api = {
   conditions: {
     fetchConditions,
     postCondition,
+    editCondition,
+    deleteCondition,
   },
   clinics: {
     fetchClinics,
