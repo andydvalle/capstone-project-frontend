@@ -69,7 +69,11 @@ class Navbar extends Component {
                   Today
                 </Link>
               </li>
-              <li>This Week</li>
+              <li>
+                <Link to={`/dashboard/${this.props.profileId}/thisWeek`}>
+                  This Week
+                </Link>
+              </li>
               <li>This Month</li>
             </ul>
           </div>
