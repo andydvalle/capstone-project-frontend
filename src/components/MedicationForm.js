@@ -113,7 +113,7 @@ const MedicationForm = (props) => {
         thursday: thursday.value,
         friday: friday.value,
         saturday: saturday.value,
-        patient_id: props.patientId,
+        patient_id: props.medication.patient_id,
       })
       .then(props.resetIsEdit ? props.resetIsEdit() : null);
   };

@@ -60,7 +60,7 @@ const ConditionForm = (props) => {
         id: props.condition.id,
         name: search,
         notes: notes.value,
-        patient_id: props.patientId,
+        patient_id: props.condition.patient_id,
       })
       .then(props.resetIsEdit ? props.resetIsEdit() : null);
   };

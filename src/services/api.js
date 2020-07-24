@@ -219,7 +219,11 @@ const editClinic = (data) => {
     body: JSON.stringify({
       name: data.name,
       practitioner: data.practitioner,
-      location: data.location,
+      address: data.address,
+      address2: data.address2,
+      city: data.city,
+      state: data.state,
+      zip: data.zip,
       number: data.number,
       notes: data.notes,
       patient_id: data.patient_id,

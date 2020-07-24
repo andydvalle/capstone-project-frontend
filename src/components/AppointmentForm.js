@@ -51,7 +51,7 @@ const AppointmentForm = (props) => {
         time: time.value,
         notes: notes.value,
         clinic_id: clinic_id.value,
-        patient_id: props.patientId,
+        patient_id: props.appointment.patient_id,
       })
       .then(props.resetIsEdit ? props.resetIsEdit() : null);
   };

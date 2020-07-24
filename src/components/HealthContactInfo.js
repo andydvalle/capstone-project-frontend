@@ -7,6 +7,8 @@ const HealthContactInfo = (props) => {
   const [isEdit, setIsEdit] = useState(false);
   const wrapperRef = useRef(null);
 
+  const location = `${props.clinic.address} ${props.clinic.address2} ${props.clinic.city} ${props.clinic.state} ${props.clinic.zip}`;
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
 
@@ -43,7 +45,7 @@ const HealthContactInfo = (props) => {
           clinic={props.clinic}
         />
       ) : (
-        props.clinic.name
+        (props.clinic.name, location)
       )}
       <div>
         <span className="mr-3" onClick={handleEdit}>

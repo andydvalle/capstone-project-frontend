@@ -47,7 +47,12 @@ const HealthContactForm = (props) => {
       .postClinic({
         name: name.value,
         practitioner: practitioner.value,
-        location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
+        // location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
+        address: address.value,
+        address2: address2.value,
+        city: city.value,
+        state: state.value,
+        zip: zip.value,
         number: number.value,
         notes: notes.value,
         patient_id: props.patientId,
@@ -62,10 +67,15 @@ const HealthContactForm = (props) => {
         id: props.clinic.id,
         name: name.value,
         practitioner: practitioner.value,
-        location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
+        // location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
+        address: address.value,
+        address2: address2.value,
+        city: city.value,
+        state: state.value,
+        zip: zip.value,
         number: number.value,
         notes: notes.value,
-        patient_id: props.patientId,
+        patient_id: props.clinic.patient_id,
       })
       .then(props.resetIsEdit ? props.resetIsEdit() : null);
   };
