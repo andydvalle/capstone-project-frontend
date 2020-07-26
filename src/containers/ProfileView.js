@@ -32,7 +32,7 @@ class ProfileView extends Component {
           render={(props) => (
             <Navbar
               {...props}
-              currentUser={this.props.user}
+              currentUser={this.props.currentUser}
               patients={this.props.patients}
               onHandleSignout={this.props.onHandleSignout}
               profileId={foundProfile.id}
