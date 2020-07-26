@@ -51,6 +51,12 @@
   background-color:#ffbcaf;
 } */
 
+/* .dashboard-modal {
+  position: relative;
+  left: 80px;
+  top: 2px;
+} */
+
 .form-control {
   background-color: #fafafa;
   /* font-style: italic; */
@@ -224,6 +230,13 @@ a:link {
   position: fixed;
   bottom: 20px;
   right: 50;
+  border-radius: 50%;
+}
+
+#dashboard-form {
+  position: relative;
+  top: 20px;
+  left: 50;
   border-radius: 50%;
 }
 

@@ -65,42 +65,43 @@ class Dashboard extends Component {
               </div>
               <div>
                 <h1>Select a profile to view:</h1>
-                {this.renderProfiles()}
-              </div>
-            </div>
-            {/* form modal */}
-            <div>
-              {/* <Link to="/login">
+                <div className="row">{this.renderProfiles()}</div>
+
+                {/* form modal */}
+                <div className="dashboard-modal">
+                  {/* <Link to="/login">
               <button onClick={this.handleClick}>Signout</button>
             </Link> */}
 
-              <button
-                type="button"
-                id="add-form"
-                className="btn btn-primary"
-                data-toggle="modal"
-                data-target=".modal"
-              >
-                +
-              </button>
-            </div>
-            {/* form modal content */}
-            <div className="modal" tabindex="-1" role="dialog">
-              <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                  <div className="form-modal">
-                    New Profile
-                    <button
-                      type="button"
-                      className="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div className="modal-body">
-                    <ProfileForm currentUser={this.props.user} />
+                  <button
+                    type="button"
+                    id="dashboard-form"
+                    className="btn btn-primary"
+                    data-toggle="modal"
+                    data-target=".modal"
+                  >
+                    +
+                  </button>
+                </div>
+                {/* form modal content */}
+                <div className="modal" tabindex="-1" role="dialog">
+                  <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                      <div className="form-modal">
+                        New Profile
+                        <button
+                          type="button"
+                          className="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div className="modal-body">
+                        <ProfileForm currentUser={this.props.user} />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
