@@ -53,7 +53,7 @@ class Navbar extends Component {
             {/* Patient's Schedule */}
             <select
               id="patient-dropdown"
-              value={this.props.profileId}
+              value={this.props.foundProfile.id}
               onChange={this.handleChange}
             >
               {/* <option value="choosePatient">Choose Patient</option> */}
@@ -65,12 +65,12 @@ class Navbar extends Component {
             <h5>view</h5>
             <ul>
               <li>
-                <Link to={`/dashboard/${this.props.profileId}/view`}>
+                <Link to={`/dashboard/${this.props.foundProfile.id}/view`}>
                   Today
                 </Link>
               </li>
               <li>
-                <Link to={`/dashboard/${this.props.profileId}/thisWeek`}>
+                <Link to={`/dashboard/${this.props.foundProfile.id}/thisWeek`}>
                   This Week
                 </Link>
               </li>
@@ -81,22 +81,28 @@ class Navbar extends Component {
             <h5>profile</h5>
             <ul>
               <li>
-                <Link to={`/dashboard/${this.props.profileId}/appointments`}>
+                <Link
+                  to={`/dashboard/${this.props.foundProfile.id}/appointments`}
+                >
                   Appointments
                 </Link>
               </li>
               <li>
-                <Link to={`/dashboard/${this.props.profileId}/medications`}>
+                <Link
+                  to={`/dashboard/${this.props.foundProfile.id}/medications`}
+                >
                   Medications
                 </Link>
               </li>
               <li>
-                <Link to={`/dashboard/${this.props.profileId}/conditions`}>
+                <Link
+                  to={`/dashboard/${this.props.foundProfile.id}/conditions`}
+                >
                   Conditions
                 </Link>
               </li>
               <li>
-                <Link to={`/dashboard/${this.props.profileId}/contacts`}>
+                <Link to={`/dashboard/${this.props.foundProfile.id}/contacts`}>
                   Health Contacts
                 </Link>
               </li>
@@ -106,7 +112,9 @@ class Navbar extends Component {
             <Link to="/">
               <li onClick={this.handleSignout}>Signout</li>
             </Link>
-            <li>Edit {this.props.foundProfile.firstName}'s Info</li>
+            {/* <li data-toggle="modal" data-target=".modal">
+              Edit {this.props.foundProfile.firstName}'s Info
+            </li> */}
           </ul>
           {/* <ul>
             <li><a href="#"><i className="fas fa-home"></i>Home</a></li>

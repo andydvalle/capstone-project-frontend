@@ -70,7 +70,7 @@ class Dashboard extends Component {
                 </div>
               </div>
               <div className="dashboard-profile-section">
-                <h1>We're gathering your records</h1>
+                <h1>We've gathered your records!</h1>
                 <h5>Select a profile to start</h5>
                 <div className="row">{this.renderProfiles()}</div>
 
