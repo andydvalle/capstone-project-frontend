@@ -368,6 +368,10 @@ input[type="checkbox"]:checked + label.strikethrough {
   right: 0px;
 }
 
+.navbar {
+  background: rgba(196, 196, 196, 0.1);
+}
+
 /* .img-overlay-wrap:hover {
   transform: rotate(15deg);
 } */

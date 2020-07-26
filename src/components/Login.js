@@ -40,7 +40,6 @@ class Login extends Component {
     const { fields } = this.state;
     return (
       <div>
-        <DashboardHeader />
         <div className="login-overlay-wrap">
           <div className="login-ellipses">
             <div className="row">
@@ -61,6 +60,7 @@ class Login extends Component {
             </div>
           </div>
           <div className="notelist">
+            {/* <DashboardHeader /> */}
             <div className="login">
               <div className="login-header">
                 Your health is important. Let's keep you on track.

@@ -4,7 +4,7 @@ import AuthHOC from "../HOCs/AuthHOC";
 import ProfileView from "./ProfileView";
 import Profile from "./Profile";
 import ProfileForm from "../components/ProfileForm";
-import DashboardHeader from "../components/DashboardHeader";
+// import DashboardHeader from "../components/DashboardHeader";
 import { api } from "../services/api";
 import NoteList from "../svgs/NoteList";
 import Ellipse1 from "../svgs/Ellipse1";
@@ -59,7 +59,7 @@ class Dashboard extends Component {
       <div className="dashboard">
         {window.location.pathname === "/dashboard" ? (
           <>
-            <DashboardHeader currentUser={this.props.user.username} />
+            {/* <DashboardHeader currentUser={this.props.user.username} /> */}
             <div className="row m-5">
               <div className="img-overlay-wrap">
                 <div className="ellipse1">
@@ -70,7 +70,7 @@ class Dashboard extends Component {
                 </div>
               </div>
               <div className="dashboard-profile-section">
-                <h1>We're gathering profile records</h1>
+                <h1>We're gathering your records</h1>
                 <h5>Select a profile to start</h5>
                 <div className="row">{this.renderProfiles()}</div>
 

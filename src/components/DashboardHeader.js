@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const DashboardHeader = (props) => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar">
       <Link className="navbar-brand" to="/">
         <img
           src="/docs/4.0/assets/brand/bootstrap-solid.svg"

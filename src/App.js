@@ -6,6 +6,7 @@ import { api } from "./services/api";
 import Dashboard from "./containers/Dashboard";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import DashboardHeader from "./components/DashboardHeader";
 
 class App extends Component {
   state = {
@@ -52,6 +53,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <DashboardHeader />
         <Route
           exact
           path="/"
