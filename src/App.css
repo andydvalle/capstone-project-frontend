@@ -346,6 +346,9 @@ span {
   color: #00897b;
 }
 
+.info-form {
+  margin-bottom: 10px;
+}
 .info-label {
   /* font-weight: bold; */
 }

@@ -39,11 +39,13 @@ const HealthContactInfo = (props) => {
   return (
     <div ref={wrapperRef} className="dropdown-info">
       {isEdit ? (
-        <HealthContactForm
-          isEdit={isEdit}
-          resetIsEdit={resetIsEdit}
-          clinic={props.clinic}
-        />
+        <div className="info-form">
+          <HealthContactForm
+            isEdit={isEdit}
+            resetIsEdit={resetIsEdit}
+            clinic={props.clinic}
+          />
+        </div>
       ) : (
         <div>
           <div className="row">

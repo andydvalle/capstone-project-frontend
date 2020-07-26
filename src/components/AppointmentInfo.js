@@ -52,12 +52,14 @@ const AppointmentInfo = (props) => {
   return (
     <div ref={wrapperRef} className="dropdown-info">
       {isEdit ? (
-        <AppointmentForm
-          isEdit={isEdit}
-          resetIsEdit={resetIsEdit}
-          appointment={props.appointment}
-          clinics={props.clinics}
-        />
+        <div className="info-form">
+          <AppointmentForm
+            isEdit={isEdit}
+            resetIsEdit={resetIsEdit}
+            appointment={props.appointment}
+            clinics={props.clinics}
+          />
+        </div>
       ) : (
         <div>
           <div className="row">

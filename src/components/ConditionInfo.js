@@ -36,11 +36,13 @@ const ConditionInfo = (props) => {
   return (
     <div ref={wrapperRef} className="dropdown-info">
       {isEdit ? (
-        <ConditionForm
-          isEdit={isEdit}
-          resetIsEdit={resetIsEdit}
-          condition={props.condition}
-        />
+        <div className="info-form">
+          <ConditionForm
+            isEdit={isEdit}
+            resetIsEdit={resetIsEdit}
+            condition={props.condition}
+          />
+        </div>
       ) : (
         <div>
           <div className="row">
