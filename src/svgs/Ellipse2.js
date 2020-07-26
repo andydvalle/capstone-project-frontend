@@ -5,7 +5,7 @@ const Ellipse2 = () => {
     <svg
       width="162"
       height="271"
-      viewBox="0 0 162 271"
+      viewBox="-55 0 162 271"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
