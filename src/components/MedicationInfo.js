@@ -43,7 +43,24 @@ const MedicationInfo = (props) => {
           medication={props.medication}
         />
       ) : (
-        props.medication.name_route
+        <div>
+          <div className="row">
+            <div className="info-label">Name: </div>
+            <div className="info-detail">{props.medication.name_route}</div>
+          </div>
+          <div className="row">
+            <div className="info-label">Dose/Strength:</div>
+            <div className="info-detail">{props.medication.strength}</div>
+          </div>
+          <div className="row">
+            <div className="info-label">Instructions:</div>
+            <div className="info-detail">{props.medication.instructions}</div>
+          </div>
+          <div className="row">
+            <div className="info-label">Your notes:</div>
+            <div className="info-detail">{props.medication.notes}</div>
+          </div>
+        </div>
       )}
       <div>
         <span className="mr-3" onClick={handleEdit}>
