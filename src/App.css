@@ -230,7 +230,7 @@ a:link {
   position: fixed;
   bottom: 20px;
   right: 50;
-  border-radius: 50%;
+  border-radius: 0%;
 }
 
 .dashboard-profile-section {

@@ -45,7 +45,7 @@ const FormModal = (props) => {
         data-toggle="modal"
         data-target=".bd-example-modal-lg"
       >
-        +
+        Add new
       </button>
 
       <div
