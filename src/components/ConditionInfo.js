@@ -42,7 +42,16 @@ const ConditionInfo = (props) => {
           condition={props.condition}
         />
       ) : (
-        props.condition.name
+        <div>
+          <div className="row">
+            <div className="info-label">Condition: </div>
+            <div className="info-detail">{props.condition.name}</div>
+          </div>
+          <div className="row">
+            <div className="info-label">Your notes:</div>
+            <div className="info-detail">{props.condition.notes}</div>
+          </div>
+        </div>
       )}
       <div>
         <span className="mr-3" onClick={handleEdit}>
