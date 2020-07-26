@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../services/api";
+import DashboardHeader from "./DashboardHeader";
 import Ellipse2 from "../svgs/Ellipse2";
 import Ellipse3 from "../svgs/Ellipse3";
 import Ellipse4 from "../svgs/Ellipse4";
@@ -39,6 +40,7 @@ class Login extends Component {
     const { fields } = this.state;
     return (
       <div>
+        <DashboardHeader />
         <div className="login-overlay-wrap">
           <div className="login-ellipses">
             <div className="row">
