@@ -237,7 +237,7 @@ a:link {
   position: relative;
   top: 20px;
   left: 50;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .form-check {
@@ -290,9 +290,22 @@ input[type="checkbox"]:checked + label.strikethrough {
   outline-color: #c4c4c4 !important;
 }
 
-.card {
-  border-radius: 0%;
+.dashboard-profile-section {
+  margin: 10px;
+  margin-left: 20px;
+  padding-top: 30px;
+  /* border-style: solid; */
 }
+
+/* .dashboard-profile-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dashboard-profile-cards > * {
+  flex: 1 1 160px;
+} */
+
 /* autocomplete */
 .auto-container {
   display: flex;

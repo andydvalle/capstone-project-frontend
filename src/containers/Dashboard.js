@@ -63,8 +63,9 @@ class Dashboard extends Component {
               <div>
                 <NoteList />
               </div>
-              <div>
-                <h1>Select a profile to view:</h1>
+              <div className="dashboard-profile-section">
+                <h1>We're gathering profile records</h1>
+                <h5>Select a profile to start</h5>
                 <div className="row">{this.renderProfiles()}</div>
 
                 {/* form modal */}
@@ -80,7 +81,7 @@ class Dashboard extends Component {
                     data-toggle="modal"
                     data-target=".modal"
                   >
-                    +
+                    Add a profile
                   </button>
                 </div>
                 {/* form modal content */}
