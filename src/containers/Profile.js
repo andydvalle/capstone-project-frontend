@@ -11,7 +11,7 @@ const Profile = (props) => {
 
   return (
     <div>
-      <div className="card" style={{ width: "10rem" }}>
+      <div className="card m-2" style={{ width: "10rem" }}>
         <div className="card-body">
           <Link to={`/dashboard/${id}/view`}>
             <h5 className="card-title">{firstName}</h5>{" "}
