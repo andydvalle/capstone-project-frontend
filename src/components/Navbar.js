@@ -106,7 +106,7 @@ class Navbar extends Component {
             <Link to="/">
               <li onClick={this.handleSignout}>Signout</li>
             </Link>
-            <li>Edit</li>
+            <li>Edit {this.props.foundProfile.firstName}'s Info</li>
           </ul>
           {/* <ul>
             <li><a href="#"><i className="fas fa-home"></i>Home</a></li>
