@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const DashboardHeader = (props) => {
   return (
     <nav className="navbar navbar-light bg-light">
-      <a className="navbar-brand" href="#">
+      <Link className="navbar-brand" to="/">
         <img
           src="/docs/4.0/assets/brand/bootstrap-solid.svg"
           width="30"
@@ -12,7 +13,7 @@ const DashboardHeader = (props) => {
           alt=""
         />
         Simple Care
-      </a>
+      </Link>
     </nav>
   );
 };
