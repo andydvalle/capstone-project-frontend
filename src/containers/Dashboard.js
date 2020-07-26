@@ -60,7 +60,7 @@ class Dashboard extends Component {
         {window.location.pathname === "/dashboard" ? (
           <>
             <DashboardHeader currentUser={this.props.user.username} />
-            <div className="row">
+            <div className="row m-5">
               <div className="img-overlay-wrap">
                 <div className="ellipse1">
                   <Ellipse1 />
