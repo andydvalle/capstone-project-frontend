@@ -59,6 +59,8 @@ class Appointments extends Component {
               key={appointment.id}
               appointment={appointment}
               clinics={this.props.clinics}
+              date={date}
+              time={time}
             />
           </div>
         </div>

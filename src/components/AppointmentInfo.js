@@ -7,6 +7,16 @@ const AppointmentInfo = (props) => {
   const [isEdit, setIsEdit] = useState(false);
   const wrapperRef = useRef(null);
 
+  const foundClinic = () => {
+    let foundClinic = "";
+    for (let clinic of props.clinics) {
+      if (clinic.id == props.appointment.clinic_id) {
+        foundClinic = clinic.name;
+      }
+    }
+    return foundClinic;
+  };
+
   // const title = useFormInput(props.appointment.title);
   // const date = useFormInput(props.appointment.date);
   // const time = useFormInput(props.appointment.time);
@@ -49,7 +59,26 @@ const AppointmentInfo = (props) => {
           clinics={props.clinics}
         />
       ) : (
-        props.appointment.title
+        <div>
+          <div className="row">
+            <div className="info-label">Title: </div>
+            <div className="info-detail">{props.appointment.title}</div>
+          </div>
+          <div className="row">
+            <div className="info-label">When:</div>
+            <div className="info-detail">
+              {props.date} @ {props.time}
+            </div>
+          </div>
+          <div className="row">
+            <div className="info-label">Where:</div>
+            <div className="info-detail">{foundClinic()}</div>
+          </div>
+          <div className="row">
+            <div className="info-label">Your notes:</div>
+            <div className="info-detail">{props.appointment.notes}</div>
+          </div>
+        </div>
       )}
       <div>
         <span className="mr-3" onClick={handleEdit}>

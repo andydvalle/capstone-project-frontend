@@ -351,6 +351,13 @@ span {
   margin: 3px;
 }
 
+.info-label {
+  font-weight: bold;
+}
+
+.info-detail {
+  margin-left: 5px;
+}
 /* automatically rendered with react app */
 /* .App {
   text-align: center;
