@@ -6,6 +6,7 @@ import Profile from "./Profile";
 import ProfileForm from "../components/ProfileForm";
 import DashboardHeader from "../components/DashboardHeader";
 import { api } from "../services/api";
+import NoteList from "../components/NoteList";
 
 class Dashboard extends Component {
   state = {
@@ -58,7 +59,15 @@ class Dashboard extends Component {
         {window.location.pathname === "/dashboard" ? (
           <>
             <DashboardHeader currentUser={this.props.user.username} />
-            {this.renderProfiles()}
+            <div className="row">
+              <div>
+                <NoteList />
+              </div>
+              <div>
+                <h1>Select a profile to view:</h1>
+                {this.renderProfiles()}
+              </div>
+            </div>
             {/* form modal */}
             <div>
               {/* <Link to="/login">

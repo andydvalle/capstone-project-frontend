@@ -6,8 +6,8 @@ const NoteList = () => {
       id="b1070cd0-28e6-4fc1-8c45-bef74f8907c5"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
-      width="790"
-      height="701.99219"
+      width="490"
+      height="401.99219"
       viewBox="0 0 790 701.99219"
     >
       <path
