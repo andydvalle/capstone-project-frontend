@@ -80,7 +80,7 @@ const AppointmentInfo = (props) => {
           </div>
         </div>
       )}
-      <div>
+      <div className="mt-2">
         <span className="mr-3" onClick={handleEdit}>
           Edit
         </span>
