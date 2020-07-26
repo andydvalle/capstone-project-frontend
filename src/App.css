@@ -324,6 +324,50 @@ input[type="checkbox"]:checked + label.strikethrough {
   z-index: -1;
 }
 
+.login-overlay-wrap {
+  /* position: relative;
+  display: inline-block; <= shrinks container to image size */
+  /* transition: transform 150ms ease-in-out; */
+}
+
+.login-overlay-wrap .login {
+  /* <= optional, for responsiveness */
+  /* display: block;
+  max-width: 100%;
+  height: auto; */
+}
+
+.login-overlay-wrap .login-ellipses {
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  z-index: -1;
+}
+
+#ellipse2 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#ellipse3 {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+#ellipse4 {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+#ellipse5 {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
 /* .img-overlay-wrap:hover {
   transform: rotate(15deg);
 } */
