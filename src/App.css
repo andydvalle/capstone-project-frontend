@@ -35,6 +35,7 @@
 .login-signup a {
   color: #4ebaaa;
 }
+
 .login-signup a:hover {
   color: #00897b;
   /* font-style: italic; */
@@ -255,12 +256,25 @@ a:link {
   font-weight: bold;
 }
 
-.btn .btn-outline .mb1 {
+.btn .btn-primary .btn-outline .mb1 {
   outline-color: #00897b !important;
+}
+
+.btn-info,
+.btn-info:hover,
+.btn-info:active,
+.btn-info:visited {
+  color: #2e2e2e;
+  background-color: #c4c4c4 !important;
+  font-weight: bold;
 }
 
 input[type="checkbox"]:checked + label.strikethrough {
   text-decoration: line-through;
+}
+
+.btn .btn-info .btn-outline .mb1 {
+  outline-color: #c4c4c4 !important;
 }
 
 .card {
