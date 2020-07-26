@@ -297,6 +297,37 @@ input[type="checkbox"]:checked + label.strikethrough {
   /* border-style: solid; */
 }
 
+/* #ellipse1 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
+} */
+
+.img-overlay-wrap {
+  position: relative;
+  display: inline-block; /* <= shrinks container to image size */
+  /* transition: transform 150ms ease-in-out; */
+}
+
+.img-overlay-wrap .notelist {
+  /* <= optional, for responsiveness */
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.img-overlay-wrap .ellipse1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* .img-overlay-wrap:hover {
+  transform: rotate(15deg);
+} */
+
 /* .dashboard-profile-cards {
   display: flex;
   flex-wrap: wrap;

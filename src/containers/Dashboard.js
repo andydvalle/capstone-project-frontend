@@ -6,7 +6,8 @@ import Profile from "./Profile";
 import ProfileForm from "../components/ProfileForm";
 import DashboardHeader from "../components/DashboardHeader";
 import { api } from "../services/api";
-import NoteList from "../components/NoteList";
+import NoteList from "../svgs/NoteList";
+import Ellipse1 from "../svgs/Ellipse1";
 
 class Dashboard extends Component {
   state = {
@@ -60,8 +61,13 @@ class Dashboard extends Component {
           <>
             <DashboardHeader currentUser={this.props.user.username} />
             <div className="row">
-              <div>
-                <NoteList />
+              <div className="img-overlay-wrap">
+                <div className="ellipse1">
+                  <Ellipse1 />
+                </div>
+                <div className="notelist">
+                  <NoteList />
+                </div>
               </div>
               <div className="dashboard-profile-section">
                 <h1>We're gathering profile records</h1>
