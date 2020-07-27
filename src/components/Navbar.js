@@ -69,11 +69,11 @@ class Navbar extends Component {
                   Today
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to={`/dashboard/${this.props.foundProfile.id}/thisWeek`}>
                   This Week
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={`/dashboard/${this.props.foundProfile.id}/thisMonth`}>
                   {this.props.foundProfile.firstName}'s Calendar
