@@ -50,6 +50,13 @@ class Dashboard extends Component {
     });
   };
 
+  resetEdit = () => {
+    this.setState({
+      foundPatient: {},
+      isEdit: false,
+    });
+  };
+
   renderProfiles = () => {
     return this.state.patients.map((patient) => {
       return (
@@ -115,7 +122,9 @@ class Dashboard extends Component {
                           data-dismiss="modal"
                           aria-label="Close"
                         >
-                          <span aria-hidden="true">&times;</span>
+                          <span aria-hidden="true" onClick={this.resetEdit}>
+                            &times;
+                          </span>
                         </button>
                       </div>
                       <div className="modal-body">
@@ -123,6 +132,7 @@ class Dashboard extends Component {
                           foundProfile={this.state.foundPatient}
                           isEdit={this.state.isEdit}
                           currentUser={this.props.user}
+                          resetEdit={this.resetEdit}
                         />
                       </div>
                     </div>

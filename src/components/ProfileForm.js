@@ -9,7 +9,7 @@ const ProfileForm = (props) => {
   const [allergies, setAllergies] = useFormInput("");
 
   useEffect(() => {
-    if (props.foundProfile.firstName) {
+    if (props.isEdit) {
       // const d = new Date(props.foundProfile.dob);
       // const n = d.toISOString();
       // console.log(props.foundProfile.dob, d, n);
@@ -18,6 +18,11 @@ const ProfileForm = (props) => {
       setLastName(props.foundProfile.lastName);
       setDob(props.foundProfile.dob);
       setAllergies(props.foundProfile.allergies);
+    } else {
+      setFirstName("");
+      setLastName("");
+      setDob("");
+      setAllergies("");
     }
   }, [
     props.foundProfile.firstName,
@@ -26,20 +31,6 @@ const ProfileForm = (props) => {
     props.foundProfile.allergies,
   ]);
 
-  const displayDate = (apptDate) => {
-    const date = new Date(apptDate);
-    const displayDate =
-      (date.getMonth() > 8
-        ? date.getMonth() + 1
-        : "0" + (date.getMonth() + 1)) +
-      "/" +
-      (date.getDate() > 9 ? date.getDate() + 1 : "0" + (date.getDate() + 1)) +
-      "/" +
-      date.getFullYear();
-
-    return displayDate;
-  };
-
   const resetFields = () => {
     setFirstName("");
     setLastName("");
@@ -47,7 +38,7 @@ const ProfileForm = (props) => {
     setAllergies("");
   };
 
-  const submitProfile = (e) => {
+  const handlePostProfile = (e) => {
     e.preventDefault();
     api.patients
       .postPatient({
@@ -60,8 +51,23 @@ const ProfileForm = (props) => {
       .then(resetFields());
   };
 
+  const handleEditProfile = (e) => {
+    e.preventDefault();
+    api.patients
+      .editPatient({
+        id: props.foundProfile.id,
+        firstName: firstName.value,
+        lastName: lastName.value,
+        dob: dob.value,
+        allergies: allergies.value,
+        user_id: props.currentUser.id,
+      })
+      .then(props.resetEdit());
+  };
+
   return (
-    <form onSubmit={submitProfile}>
+    <form onSubmit={props.isEdit ? handleEditProfile : handlePostProfile}>
+      {" "}
       <div className="form-row">
         <div className="form-group col-md-6">
           <label htmlFor="profile-first-name">First Name</label>

@@ -61,6 +61,22 @@ const postPatient = (data) => {
   }).then((resp) => resp.json());
 };
 
+// EDIT fetch patient/profile
+const editPatient = (data) => {
+  console.log(data);
+  const URL = `http://localhost:3000/api/v1/patients/${data.id}`;
+  return fetch(URL, {
+    method: "PATCH",
+    headers: headers(),
+    body: JSON.stringify({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      dob: data.dob,
+      allergies: data.allergies,
+    }),
+  }).then((resp) => resp.json());
+};
+
 // DELETE fetch patient/profile
 const deletePatient = (patientId) => {
   const URL = `http://localhost:3000/api/v1/patients/${patientId}`;
@@ -261,6 +277,7 @@ export const api = {
   patients: {
     fetchPatients,
     postPatient,
+    editPatient,
     deletePatient,
   },
   appointments: {
