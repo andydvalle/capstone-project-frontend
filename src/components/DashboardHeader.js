@@ -17,13 +17,15 @@ const DashboardHeader = (props) => {
         />
         Simple Care
       </Link>
-      <ul className="navbar-nav mr-auto">
-        <li className="nav-item">
-          <Link className="nav-link" to="/dashboard">
-            Profiles
-          </Link>
-        </li>
-      </ul>
+      {loggedIn ? (
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <Link className="nav-link" to="/dashboard">
+              Profiles
+            </Link>
+          </li>
+        </ul>
+      ) : null}
       <div>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active"></li>
