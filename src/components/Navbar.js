@@ -76,7 +76,7 @@ class Navbar extends Component {
               </li>
               <li>
                 <Link to={`/dashboard/${this.props.foundProfile.id}/thisMonth`}>
-                  This Month
+                  {this.props.foundProfile.firstName}'s Calendar
                 </Link>
               </li>
               {/* <li>This Month</li> */}
