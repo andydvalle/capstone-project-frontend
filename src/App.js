@@ -53,7 +53,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <DashboardHeader />
+        <DashboardHeader
+          currentUser={this.state.auth.user}
+          handleLogout={this.onSignout}
+        />
         <Route
           exact
           path="/"
