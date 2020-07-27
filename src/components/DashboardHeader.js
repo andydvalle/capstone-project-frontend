@@ -28,7 +28,7 @@ const DashboardHeader = (props) => {
                   }}
                   className="ui primary button"
                 >
-                  Log Out
+                  Sign Out
                 </div>
               </Link>
             </li>

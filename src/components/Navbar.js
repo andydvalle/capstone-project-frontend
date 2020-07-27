@@ -114,12 +114,12 @@ class Navbar extends Component {
             </ul>
           </div>
           <ul>
-            <Link to="/">
+            {/* <Link to="/">
               <li onClick={this.handleSignout}>Signout</li>
-            </Link>
-            {/* <li data-toggle="modal" data-target=".modal">
+            </Link> */}
+            <li data-toggle="modal" data-target=".modal">
               Edit {this.props.foundProfile.firstName}'s Info
-            </li> */}
+            </li>
           </ul>
           {/* <ul>
             <li><a href="#"><i className="fas fa-home"></i>Home</a></li>
