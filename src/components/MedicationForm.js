@@ -4,13 +4,21 @@ import useBoxInput from "../BoxInput";
 import { api } from "../services/api";
 
 const MedicationForm = (props) => {
-  //sets search table state
+  //sets search table state med name
   const [meds, setMeds] = useState([]);
   const [display, setDisplay] = useState(false);
   const [options, setOptions] = useState([]);
   const [search, setSearch] = useState(
     (props.medication && props.medication.name_route) || ""
   );
+
+  //sets search table strength
+  const [strengths, setStrengths] = useState([]);
+  const [displayStrength, setDisplayStrength] = useState(false);
+  const [optionsStrength, setOptionsStrength] = useState([]);
+  const [searchStrength, setSearchStrength] = useState("");
+
+  //set wrapperRef to null
   const wrapperRef = useRef(null);
 
   //uses custom hooks for field states
@@ -128,7 +136,7 @@ const MedicationForm = (props) => {
       .then((data) => {
         let filteredMeds = data[1].flat();
         setMeds(filteredMeds);
-        // console.log(Object.values(data[2]).flat());
+        // console.log(search, Object.values(data[2]).flat());
       })
       .then(setOptions(meds));
   };
@@ -136,6 +144,16 @@ const MedicationForm = (props) => {
   const setMed = (med) => {
     setSearch(med);
     setDisplay(false);
+    fetch(
+      `https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=${med}&ef=STRENGTHS_AND_FORMS`
+    )
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data[2]);
+        let filteredStrengths = Object.values(data[2]).flat();
+        console.log(filteredStrengths[0]);
+        setStrengths(filteredStrengths[0]);
+      });
   };
 
   return (
