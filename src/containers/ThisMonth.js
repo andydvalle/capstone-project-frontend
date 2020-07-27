@@ -1,11 +1,12 @@
 import React from "react";
-import moment from "moment";
+import Calendar from "../components/Calendar";
 
 const ThisMonth = (props) => {
   return (
     <div className="main_content">
-      <div className="header">Month schedule</div>
-      Hi from this month
+      <div className="header">Month Schedule</div>
+      Hi from thisMonth
+      <Calendar />
     </div>
   );
 };
