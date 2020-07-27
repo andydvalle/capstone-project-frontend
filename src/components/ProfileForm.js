@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
@@ -7,6 +7,38 @@ const ProfileForm = (props) => {
   const [lastName, setLastName] = useFormInput("");
   const [dob, setDob] = useFormInput("");
   const [allergies, setAllergies] = useFormInput("");
+
+  useEffect(() => {
+    if (props.foundProfile.firstName) {
+      // const d = new Date(props.foundProfile.dob);
+      // const n = d.toISOString();
+      // console.log(props.foundProfile.dob, d, n);
+
+      setFirstName(props.foundProfile.firstName);
+      setLastName(props.foundProfile.lastName);
+      setDob(props.foundProfile.dob);
+      setAllergies(props.foundProfile.allergies);
+    }
+  }, [
+    props.foundProfile.firstName,
+    props.foundProfile.lastName,
+    props.foundProfile.dob,
+    props.foundProfile.allergies,
+  ]);
+
+  const displayDate = (apptDate) => {
+    const date = new Date(apptDate);
+    const displayDate =
+      (date.getMonth() > 8
+        ? date.getMonth() + 1
+        : "0" + (date.getMonth() + 1)) +
+      "/" +
+      (date.getDate() > 9 ? date.getDate() + 1 : "0" + (date.getDate() + 1)) +
+      "/" +
+      date.getFullYear();
+
+    return displayDate;
+  };
 
   const resetFields = () => {
     setFirstName("");
@@ -72,9 +104,15 @@ const ProfileForm = (props) => {
           {...allergies}
         />
       </div>
-      <button type="submit" className="btn btn-primary">
-        Save and add another
-      </button>
+      {props.isEdit ? (
+        <button type="submit" className="btn btn-primary">
+          Submit edit
+        </button>
+      ) : (
+        <button type="submit" className="btn btn-primary">
+          Save and add another
+        </button>
+      )}
       {/* <button type="submit" className="btn btn-light">
         Save and exit
       </button> */}

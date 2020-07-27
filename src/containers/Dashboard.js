@@ -42,13 +42,22 @@ class Dashboard extends Component {
     this.getPatients();
   }
 
+  editClick = (profile) => {
+    console.log(profile);
+    this.setState({
+      foundPatient: profile,
+      isEdit: true,
+    });
+  };
+
   renderProfiles = () => {
     return this.state.patients.map((patient) => {
       return (
         <div>
           <Profile
             key={patient.id}
-            patient={patient}
+            profile={patient}
+            handleEditClick={this.editClick}
             removePatient={this.removePatient}
           />
         </div>
@@ -97,7 +106,9 @@ class Dashboard extends Component {
                   <div className="modal-dialog" role="document">
                     <div className="modal-content">
                       <div className="form-modal">
-                        New Profile
+                        {this.state.isEdit
+                          ? `Edit ${this.state.foundPatient.firstName}`
+                          : "New Profile"}
                         <button
                           type="button"
                           className="close"
@@ -108,7 +119,11 @@ class Dashboard extends Component {
                         </button>
                       </div>
                       <div className="modal-body">
-                        <ProfileForm currentUser={this.props.user} />
+                        <ProfileForm
+                          foundProfile={this.state.foundPatient}
+                          isEdit={this.state.isEdit}
+                          currentUser={this.props.user}
+                        />
                       </div>
                     </div>
                   </div>
