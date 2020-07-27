@@ -8,6 +8,7 @@ import HealthContacts from "./HealthContacts";
 // import ProfileInfo from "../components/ProfileInfo";
 import Today from "./Today";
 import ThisWeek from "./ThisWeek";
+import ThisMonth from "./ThisMonth";
 import FormModal from "./FormModal";
 
 class ProfileView extends Component {
@@ -63,6 +64,16 @@ class ProfileView extends Component {
           path={`/dashboard/${foundProfile.id}/thisWeek`}
           render={(props) => (
             <ThisWeek
+              {...props}
+              patients={this.props.patients}
+              foundProfile={foundProfile}
+            />
+          )}
+        ></Route>
+        <Route
+          path={`/dashboard/${foundProfile.id}/thisMonth`}
+          render={(props) => (
+            <ThisMonth
               {...props}
               patients={this.props.patients}
               foundProfile={foundProfile}
