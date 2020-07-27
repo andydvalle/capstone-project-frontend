@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import exampleEvents from "../events";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -12,14 +11,6 @@ const ThisMonth = (props) => {
   useEffect(() => {
     formatEvent();
   }, []);
-
-  //     Example format of event
-  //   {
-  //     title: "Conference",
-  //     start: new Date(2020, 6, 27, 12, 0, 0),
-  //     end: new Date(2020, 6, 27, 12, 0, 0),
-  //     desc: "Big conference for important people",
-  //   },
 
   const formatEvent = () => {
     const array = props.foundProfile.appointments.map((appointment) => {
