@@ -207,7 +207,7 @@ const MedicationForm = (props) => {
             // {...strength}
           />
           {displayStrength && (
-            <div className="autoContainer">
+            <div className="strengthAutoContainer">
               {strengths.map((v, i) => {
                 return (
                   <div
