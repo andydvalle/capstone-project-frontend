@@ -177,7 +177,7 @@ const MedicationForm = (props) => {
           onChange={handleSearch}
         />
         {display && (
-          <div className="autoContainer">
+          <div className="strengthAutoContainer">
             {options.map((v, i) => {
               return (
                 <div
