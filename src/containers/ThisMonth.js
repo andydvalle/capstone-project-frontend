@@ -22,8 +22,7 @@ const ThisMonth = (props) => {
   //   },
 
   const formatEvent = () => {
-    props.foundProfile.appointments.map((appointment) => {
-      //   console.log(appointment.title)
+    const array = props.foundProfile.appointments.map((appointment) => {
       const splitDate = appointment.date.split("-");
       const year = parseInt(splitDate[0]);
       const month = parseInt(splitDate[1]) - 1;
@@ -33,10 +32,16 @@ const ThisMonth = (props) => {
       const minute = parseInt(splitTime[1]);
       const date = new Date(year, month, day, hour, minute, 0);
 
-      const event = {};
+      const event = {
+        title: appointment.title,
+        start: date,
+        end: date,
+        desc: appointment.notes,
+      };
 
-      console.log(event, date);
+      return event;
     });
+    setEvents(array);
   };
 
   return (
@@ -45,7 +50,7 @@ const ThisMonth = (props) => {
       <div>
         <Calendar
           localizer={localizer}
-          events={exampleEvents}
+          events={events}
           startAccessor="start"
           endAccessor="end"
           style={{ height: 500 }}
