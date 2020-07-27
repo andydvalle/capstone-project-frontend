@@ -15,7 +15,7 @@ const MedicationForm = (props) => {
   //sets search table strength
   const [strengths, setStrengths] = useState([]);
   const [displayStrength, setDisplayStrength] = useState(false);
-  const [optionsStrength, setOptionsStrength] = useState([]);
+  // const [optionsStrength, setOptionsStrength] = useState([]);
   const [searchStrength, setSearchStrength] = useState("");
 
   //set wrapperRef to null
@@ -151,9 +151,15 @@ const MedicationForm = (props) => {
       .then((data) => {
         console.log(data[2]);
         let filteredStrengths = Object.values(data[2]).flat();
-        console.log(filteredStrengths[0]);
+        // console.log(filteredStrengths[0]);
         setStrengths(filteredStrengths[0]);
+        // setOptionsStrength(filteredStrengths[0]);
       });
+  };
+
+  const setDose = (strength) => {
+    setSearchStrength(strength);
+    setDisplayStrength(false);
   };
 
   return (
@@ -195,8 +201,27 @@ const MedicationForm = (props) => {
             className="form-control"
             id="medication-strength"
             placeholder="200mg Tab"
-            {...strength}
+            value={searchStrength}
+            onClick={() => setDisplayStrength(!displayStrength)}
+
+            // {...strength}
           />
+          {displayStrength && (
+            <div className="autoContainer">
+              {strengths.map((v, i) => {
+                return (
+                  <div
+                    className="option"
+                    key={i}
+                    onClick={() => setDose(v)}
+                    tabIndex="0"
+                  >
+                    <span>{v}</span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
         <div className="form-group col-md-6">
           <label htmlFor="medication-instructions">Instructions</label>
