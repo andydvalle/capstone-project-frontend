@@ -7,7 +7,7 @@ const DashboardHeader = (props) => {
 
   return (
     <nav className="navbar">
-      <Link className="navbar-brand" to="/dashboard">
+      <Link className="navbar-brand" to="/">
         <img
           src={SClogo}
           width="30"
@@ -17,8 +17,16 @@ const DashboardHeader = (props) => {
         />
         Simple Care
       </Link>
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item">
+          <Link className="nav-link" to="/dashboard">
+            Profiles
+          </Link>
+        </li>
+      </ul>
       <div>
-        <ul class="navbar-nav ml-auto">
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item active"></li>
           {loggedIn ? (
             <li className="nav-item">
               <Link to="/" className="nav-link">
@@ -41,12 +49,12 @@ const DashboardHeader = (props) => {
           )}
           {/* <li class="nav-item">
                 <Link class="nav-link" to="/login">
-                  Login
+                Login
                 </Link>
-              </li>
-              <li>
+                </li>
+                <li>
                 <Link class="nav-link btn btn-primary" to="/signup">
-                  Start Here
+                Start Here
                 </Link>
               </li> */}
         </ul>

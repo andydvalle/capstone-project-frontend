@@ -12,6 +12,8 @@ import Ellipse1 from "../svgs/Ellipse1";
 class Dashboard extends Component {
   state = {
     patients: [],
+    foundPatient: {},
+    isEdit: false,
   };
 
   handleClick = () => {
