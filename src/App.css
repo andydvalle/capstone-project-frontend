@@ -419,7 +419,7 @@ input[type="checkbox"]:checked + label.strikethrough {
   position: relative;
 }
 
-.autoContainer {
+/* .autoContainer {
   position: absolute;
   border-width: 0px 1px 1px 1px;
   border-style: solid;
@@ -428,13 +428,16 @@ input[type="checkbox"]:checked + label.strikethrough {
   left: 14px;
   top: 235px;
   width: 475px;
-}
+} */
 
-.strengthAutoContainer {
+.autoContainer {
+  position: absolute;
   border-width: 0px 1px 1px 1px;
   border-style: solid;
   border-color: #00897b;
   background-color: #fafafa;
+  z-index: 1;
+  overflow-y: scroll;
 }
 
 .option {

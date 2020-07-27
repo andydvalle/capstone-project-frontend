@@ -16,7 +16,9 @@ const MedicationForm = (props) => {
   const [strengths, setStrengths] = useState([]);
   const [displayStrength, setDisplayStrength] = useState(false);
   // const [optionsStrength, setOptionsStrength] = useState([]);
-  const [searchStrength, setSearchStrength] = useState("");
+  const [searchStrength, setSearchStrength] = useState(
+    (props.medication && props.medication.strength) || ""
+  );
 
   //set wrapperRef to null
   const wrapperRef = useRef(null);
@@ -90,7 +92,7 @@ const MedicationForm = (props) => {
     api.medications
       .postMedication({
         name_route: search,
-        strength: strength.value,
+        strength: searchStrength,
         instructions: instructions.value,
         notes: notes.value,
         sunday: sunday.value,
@@ -111,7 +113,7 @@ const MedicationForm = (props) => {
       .editMedication({
         id: props.medication.id,
         name_route: search,
-        strength: strength.value,
+        strength: searchStrength,
         instructions: instructions.value,
         notes: notes.value,
         sunday: sunday.value,
@@ -177,7 +179,7 @@ const MedicationForm = (props) => {
           onChange={handleSearch}
         />
         {display && (
-          <div className="strengthAutoContainer">
+          <div className="autoContainer">
             {options.map((v, i) => {
               return (
                 <div
@@ -207,7 +209,7 @@ const MedicationForm = (props) => {
             // {...strength}
           />
           {displayStrength && (
-            <div className="strengthAutoContainer">
+            <div className="autoContainer">
               {strengths.map((v, i) => {
                 return (
                   <div
