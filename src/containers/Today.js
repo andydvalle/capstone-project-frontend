@@ -34,6 +34,19 @@ const Today = (props) => {
 
   //build array of objects
   //sort by keys
+  const sortMeds = (a, b) => {
+    const aKey = a.key;
+    const bKey = b.key;
+
+    let comparison = 0;
+    if (aKey > bKey) {
+      comparison = 1;
+    } else if (aKey < bKey) {
+      comparison = -1;
+    }
+    return comparison;
+  };
+
   //set array to state
   //iterate and make componenets
 
@@ -63,7 +76,7 @@ const Today = (props) => {
               medication: medication,
               timeOfDay: "5 PM",
             });
-          } else if (medication.instruction === "Three times a day") {
+          } else if (medication.instructions === "Three times a day") {
             medsToRender.push({
               key: 1,
               medication: medication,
@@ -80,10 +93,11 @@ const Today = (props) => {
               timeOfDay: "5 PM",
             });
           } else if (
-            medication.instruction === "Four times a day" ||
-            medication.instruction === "Every 4 hours" ||
-            medication.instruction === "Every 4 to 6 hours"
+            medication.instructions === "Four times a day" ||
+            medication.instructions === "Every 4 hours" ||
+            medication.instructions === "Every 4 to 6 hours"
           ) {
+            console.log("four times a day");
             medsToRender.push({
               key: 1,
               medication: medication,
@@ -124,6 +138,8 @@ const Today = (props) => {
           return null;
         }
         console.log(medsToRender);
+        // const sortedMeds = medsToRender.sort(sortMeds);
+        // console.log(sortedMeds);
       });
     });
   };
