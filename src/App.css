@@ -420,11 +420,11 @@ input[type="checkbox"]:checked + label.strikethrough {
 .navbar {
   background: rgba(0, 137, 123, 0.2);
 }
-
+/* 
 .card-title {
   color: #005b4f;
   font-weight: bold;
-}
+} */
 
 /* .img-overlay-wrap:hover {
   transform: rotate(15deg);
