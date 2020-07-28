@@ -9,7 +9,7 @@ const TodayChecklist = (props) => {
   return (
     <div className="form-check">
       <input
-        className="form-check-input"
+        className="form-check-input big-checkbox"
         type="checkbox"
         // value={props.medication.name_route}
       />

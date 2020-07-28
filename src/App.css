@@ -254,11 +254,11 @@ a:link {
 }
 
 input[type="checkbox"] + label {
-  /* color: #ccc;
-  font-style: italic; */
+  /* border: solid 4px #000; */
 }
 input[type="checkbox"]:checked + label {
   color: #c4c4c4;
+  font-style: italic;
 }
 
 .form-check {
@@ -269,14 +269,21 @@ input[type="checkbox"]:checked + label {
 }
 
 .form-check-input {
-  /* position: absolute;
-  top: 0;
-  left: 0;*/
-  height: 15px;
-  width: 15px;
-  border: solid 3px;
-  border-radius: 0%;
+  position: absolute;
+  /* top: 0;
+  left: 0; */
+  height: 17px;
+  width: 17px;
   background-color: #eee;
+}
+
+.form-check-input:checked {
+  background-color: #e9ecee;
+  border: 1px solid #adb8c0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),
+    inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #99a1a7;
 }
 
 .form-check-detail {
@@ -285,7 +292,7 @@ input[type="checkbox"]:checked + label {
 }
 
 .timeOfDay {
-  margin-left: 15px;
+  margin-left: 20px;
   font-weight: bold;
   color: #ff8a80;
 }

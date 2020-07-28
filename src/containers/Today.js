@@ -178,7 +178,7 @@ const Today = (props) => {
       </div>
       <div className="subheader">Medications</div>
       {renderChecklists()}
-      <div className="subheader">Appointments</div>
+      <div className="subheader mt-4">Appointments</div>
       {renderAppts()}
     </div>
   );
