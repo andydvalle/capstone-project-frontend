@@ -47,7 +47,7 @@ const ConditionInfo = (props) => {
         <div>
           <div className="row">
             <div className="info-label">Condition: </div>
-            <div className="info-detail">{props.condition.name}</div>
+            <div className="info-detail-name">{props.condition.name}</div>
           </div>
           <div className="row">
             <div className="info-label">Your notes:</div>

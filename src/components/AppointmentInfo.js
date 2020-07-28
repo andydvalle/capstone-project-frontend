@@ -64,7 +64,7 @@ const AppointmentInfo = (props) => {
         <div>
           <div className="row">
             <div className="info-label">Title: </div>
-            <div className="info-detail">{props.appointment.title}</div>
+            <div className="info-detail-name">{props.appointment.title}</div>
           </div>
           <div className="row">
             <div className="info-label">When:</div>

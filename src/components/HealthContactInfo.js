@@ -50,7 +50,7 @@ const HealthContactInfo = (props) => {
         <div>
           <div className="row">
             <div className="info-label">Clinic: </div>
-            <div className="info-detail">{props.clinic.name}</div>
+            <div className="info-detail-name">{props.clinic.name}</div>
           </div>
           <div className="row">
             <div className="info-label">Doctor/Practitioner:</div>

@@ -490,12 +490,12 @@ span {
 .info-form {
   margin-bottom: 10px;
 }
-.info-label {
+.info-detail-name {
   /* font-weight: bold; */
+  text-transform: capitalize;
 }
 
 .info-detail {
-  text-transform: capitalize;
   font-weight: bold;
   margin-left: 5px;
 }
