@@ -212,8 +212,8 @@ a:link {
 .subheader {
   color: #4ebaaa;
   font-weight: bold;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .main_content .info {
@@ -248,6 +248,7 @@ a:link {
 }
 
 .form-check {
+  text-transform: capitalize;
   margin-left: auto;
   margin-right: auto;
 }
@@ -483,8 +484,13 @@ span {
 }
 
 .info-detail {
+  text-transform: capitalize;
   font-weight: bold;
   margin-left: 5px;
+}
+
+.checklist {
+  margin-bottom: 10px;
 }
 
 /* temp border to visualize components */

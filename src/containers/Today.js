@@ -36,7 +36,9 @@ const Today = (props) => {
         if (key === day) {
           if (key) {
             return (
-              <TodayChecklist key={medication.id} medication={medication} />
+              <div className="checklist">
+                <TodayChecklist key={medication.id} medication={medication} />
+              </div>
             );
             // console.log(key);
           } else {
@@ -53,10 +55,12 @@ const Today = (props) => {
     return props.foundProfile.appointments.map((appointment) => {
       if (appointment.date === date) {
         return (
-          <AppointmentChecklist
-            key={appointment.id}
-            appointment={appointment}
-          />
+          <div className="checklist">
+            <AppointmentChecklist
+              key={appointment.id}
+              appointment={appointment}
+            />
+          </div>
         );
       }
     });

@@ -64,7 +64,7 @@ const MedicationForm = (props) => {
   }, []);
 
   const resetFields = () => {
-    setStrength("");
+    // setStrength("");
     setInstructions("");
     setNotes("");
     setSunday(false);
@@ -78,6 +78,7 @@ const MedicationForm = (props) => {
     setDisplay(false);
     setOptions([]);
     setSearch("");
+    setSearchStrength("");
   };
 
   const handleClickOutside = (e) => {

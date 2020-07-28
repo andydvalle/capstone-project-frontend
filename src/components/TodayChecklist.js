@@ -7,7 +7,7 @@ const TodayChecklist = (props) => {
   //   };
 
   return (
-    <div className="form-check">
+    <div className="form-check meds">
       <input
         className="form-check-input"
         type="checkbox"
@@ -15,7 +15,8 @@ const TodayChecklist = (props) => {
         id="defaultCheck1"
       />
       <label className="form-check-label strikethrough" htmlFor="defaultCheck1">
-        {props.medication.name_route}
+        {props.medication.name_route.toLowerCase()}
+        {/* {props.medication.strength} */}
       </label>
     </div>
   );

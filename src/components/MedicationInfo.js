@@ -48,7 +48,9 @@ const MedicationInfo = (props) => {
         <div>
           <div className="row">
             <div className="info-label">Name: </div>
-            <div className="info-detail">{props.medication.name_route}</div>
+            <div className="info-detail">
+              {props.medication.name_route.toLowerCase()}
+            </div>
           </div>
           <div className="row">
             <div className="info-label">Dose/Strength:</div>

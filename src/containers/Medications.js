@@ -8,7 +8,9 @@ class Medications extends Component {
         <div>
           <span data-toggle="collapse" data-target={`#${medication.id}`}>
             <div className="row">
-              <div className="item-header">{medication.name_route}</div>
+              <div className="item-header">
+                {medication.name_route.toLowerCase()}
+              </div>
             </div>
           </span>
           <div id={medication.id} className="collapse">
