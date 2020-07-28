@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { Component, useState, useEffect, useRef } from "react";
 import { Route, Link } from "react-router-dom";
 import AuthHOC from "../HOCs/AuthHOC";
 import ProfileView from "./ProfileView";
@@ -9,34 +9,40 @@ import { api } from "../services/api";
 import NoteList from "../svgs/NoteList";
 import Ellipse1 from "../svgs/Ellipse1";
 
-const Dashboard = (props) => {
-  const [patients, setPatients] = useState([]);
-  const [foundPatient, setFoundPatient] = useState({});
-  const [isEdit, setIsEdit] = useState(false);
+class Dashboard extends Component {
+  // const [patients, setPatients] = useState([]);
+  // const [foundPatient, setFoundPatient] = useState({});
+  // const [isEdit, setIsEdit] = useState(false);
   // const wrapperRef = useRef(null);
 
-  // state = {
-  //   patients: [],
-  //   foundPatient: {},
-  //   isEdit: false,
-  // };
+  state = {
+    patients: [],
+    foundPatient: {},
+    isEdit: false,
+  };
 
   // const handleClick = () => {
   //   props.onSignout();
   // };
 
-  const getPatients = () => {
+  getPatients = () => {
     api.patients.fetchPatients().then((data) => {
-      setPatients(data);
+      // setPatients(data);
+      this.setState({
+        patients: data,
+      });
     });
   };
 
-  const removePatient = (patientId) => {
+  removePatient = (patientId) => {
     console.log(patientId);
-    const updatedPatients = patients.filter(
+    const updatedPatients = this.state.patients.filter(
       (patient) => patient.id !== patientId
     );
-    setPatients(updatedPatients);
+    this.setState({
+      patients: updatedPatients,
+    });
+    // setPatients(updatedPatients);
   };
 
   // const handleClickOutside = (e) => {
@@ -50,130 +56,144 @@ const Dashboard = (props) => {
   //   console.log("e", e);
   // };
 
-  useEffect(() => {
-    getPatients();
-    // document.addEventListener("mousedown", handleClickOutside);
+  // useEffect(() => {
+  //   getPatients();
+  //   // document.addEventListener("mousedown", handleClickOutside);
 
-    // return () => {
-    //   document.removeEventListener("mousedown", handleClickOutside);
-    // };
-  }, []);
+  //   // return () => {
+  //   //   document.removeEventListener("mousedown", handleClickOutside);
+  //   // };
+  // }, []);
 
-  const editClick = (profile) => {
+  componentDidMount() {
+    this.getPatients();
+  }
+
+  editClick = (profile) => {
     console.log(profile);
-    setFoundPatient(profile);
-    setIsEdit(true);
+    this.setState({
+      foundPatient: profile,
+      isEdit: true,
+    });
+    // setFoundPatient(profile);
+    // setIsEdit(true);
   };
 
-  const resetEdit = () => {
-    setFoundPatient({});
-    setIsEdit(false);
+  resetEdit = () => {
+    this.setState({
+      foundPatient: {},
+      isEdit: false,
+    });
+    // setFoundPatient({});
+    // setIsEdit(false);
   };
 
-  const renderProfiles = () => {
-    return patients.map((patient) => {
+  renderProfiles = () => {
+    return this.state.patients.map((patient) => {
       return (
         <div>
           <Profile
             key={patient.id}
             profile={patient}
-            handleEditClick={editClick}
-            removePatient={removePatient}
+            handleEditClick={this.editClick}
+            removePatient={this.removePatient}
           />
         </div>
       );
     });
   };
 
-  return (
-    <div className="dashboard">
-      {window.location.pathname === "/dashboard" ? (
-        <>
-          <DashboardHeader
-            currentUser={props.currentUser}
-            handleLogout={props.handleLogout}
-          />
-          <div className="row m-5">
-            <div className="img-overlay-wrap">
-              <div className="ellipse1">
-                <Ellipse1 />
+  render() {
+    return (
+      <div className="dashboard">
+        {window.location.pathname === "/dashboard" ? (
+          <>
+            <DashboardHeader
+              currentUser={this.props.currentUser}
+              handleLogout={this.props.handleLogout}
+            />
+            <div className="row m-5">
+              <div className="img-overlay-wrap">
+                <div className="ellipse1">
+                  <Ellipse1 />
+                </div>
+                <div className="notelist">
+                  <NoteList />
+                </div>
               </div>
-              <div className="notelist">
-                <NoteList />
-              </div>
-            </div>
-            <div className="dashboard-profile-section">
-              <h1>We gathered your records!</h1>
-              <h5>Select a profile to start</h5>
-              <div className="row">{renderProfiles()}</div>
+              <div className="dashboard-profile-section">
+                <h1>We gathered your records!</h1>
+                <h5>Select a profile to start</h5>
+                <div className="row">{this.renderProfiles()}</div>
 
-              {/* form modal */}
-              <div className="dashboard-modal">
-                {/* <Link to="/login">
+                {/* form modal */}
+                <div className="dashboard-modal">
+                  {/* <Link to="/login">
               <button onClick={handleClick}>Signout</button>
             </Link> */}
 
-                <button
-                  type="button"
-                  id="dashboard-form"
-                  className="btn btn-primary"
-                  data-toggle="modal"
-                  data-target=".modal"
-                >
-                  Add a profile
-                </button>
-              </div>
-              {/* form modal content */}
-              <div className="modal" tabindex="-1" role="dialog">
-                <div className="modal-dialog" role="document">
-                  <div
-                    // ref={wrapperRef}
-                    className="modal-content"
+                  <button
+                    type="button"
+                    id="dashboard-form"
+                    className="btn btn-primary"
+                    data-toggle="modal"
+                    data-target=".modal"
                   >
-                    <div className="form-modal">
-                      {isEdit
-                        ? `Edit ${foundPatient.firstName}`
-                        : "New Profile"}
-                      <button
-                        type="button"
-                        className="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <span aria-hidden="true" onClick={resetEdit}>
-                          &times;
-                        </span>
-                      </button>
-                    </div>
-                    <div className="modal-body">
-                      <ProfileForm
-                        foundProfile={foundPatient}
-                        isEdit={isEdit}
-                        currentUser={props.currentUser}
-                        resetEdit={resetEdit}
-                      />
+                    Add a profile
+                  </button>
+                </div>
+                {/* form modal content */}
+                <div className="modal" tabindex="-1" role="dialog">
+                  <div className="modal-dialog" role="document">
+                    <div
+                      // ref={wrapperRef}
+                      className="modal-content"
+                    >
+                      <div className="form-modal">
+                        {this.state.isEdit
+                          ? `Edit ${this.state.foundPatient.firstName}`
+                          : "New Profile"}
+                        <button
+                          type="button"
+                          className="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <span aria-hidden="true" onClick={this.resetEdit}>
+                            &times;
+                          </span>
+                        </button>
+                      </div>
+                      <div className="modal-body">
+                        <ProfileForm
+                          foundProfile={this.state.foundPatient}
+                          isEdit={this.state.isEdit}
+                          currentUser={this.props.currentUser}
+                          resetEdit={this.resetEdit}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </>
-      ) : null}
-      {/* routes */}
-      <Route
-        path="/dashboard/:id"
-        render={(props) => (
-          <ProfileView
-            {...props}
-            currentUser={props.currentUser}
-            patients={patients}
-            handleLogout={props.handleLogout}
-          />
-        )}
-      ></Route>
-    </div>
-  );
-};
+          </>
+        ) : null}
+        {/* routes */}
+        <Route
+          path="/dashboard/:id"
+          render={(props) => (
+            <ProfileView
+              {...props}
+              currentUser={this.props.currentUser}
+              patients={this.state.patients}
+              handleLogout={this.props.handleLogout}
+            />
+          )}
+        ></Route>
+      </div>
+    );
+  }
+}
 
 export default AuthHOC(Dashboard);
