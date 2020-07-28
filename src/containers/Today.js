@@ -38,53 +38,92 @@ const Today = (props) => {
   //iterate and make componenets
 
   const renderMeds = () => {
+    const medsToRender = [];
     return props.foundProfile.medications.map((medication) => {
-      const medsToRender = [];
       return Object.keys(medication).map((key) => {
         if (key === day) {
-          if (medication.instructions === "Daily") {
-            return (
-              <TodayChecklist
-                key={medication.id}
-                medication={medication}
-                timeOfDay="8 AM"
-              />
-            );
-          } else if (medication.instructions === "Every other day") {
-            return (
-              <TodayChecklist
-                key={medication.id}
-                medication={medication}
-                timeOfDay="8 AM"
-              />
-            );
+          if (
+            medication.instructions === "Daily" ||
+            medication.instructions === "Every other day" ||
+            medication.instructions === "Every week"
+          ) {
+            medsToRender.push({
+              key: 1,
+              medication: medication,
+              timeOfDay: "8 AM",
+            });
           } else if (medication.instructions === "Twice a day") {
-            return (
-              <>
-                <TodayChecklist
-                  key={medication.id}
-                  medication={medication}
-                  timeOfDay="8 AM"
-                />
-                <TodayChecklist
-                  key={medication.id}
-                  medication={medication}
-                  timeOfDay="5 PM"
-                />
-              </>
-            );
+            medsToRender.push({
+              key: 1,
+              medication: medication,
+              timeOfDay: "8 AM",
+            });
+            medsToRender.push({
+              key: 4,
+              medication: medication,
+              timeOfDay: "5 PM",
+            });
+          } else if (medication.instruction === "Three times a day") {
+            medsToRender.push({
+              key: 1,
+              medication: medication,
+              timeOfDay: "8 AM",
+            });
+            medsToRender.push({
+              key: 2,
+              medication: medication,
+              timeOfDay: "Noon",
+            });
+            medsToRender.push({
+              key: 4,
+              medication: medication,
+              timeOfDay: "5 PM",
+            });
+          } else if (
+            medication.instruction === "Four times a day" ||
+            medication.instruction === "Every 4 hours" ||
+            medication.instruction === "Every 4 to 6 hours"
+          ) {
+            medsToRender.push({
+              key: 1,
+              medication: medication,
+              timeOfDay: "8 AM",
+            });
+            medsToRender.push({
+              key: 2,
+              medication: medication,
+              timeOfDay: "Noon",
+            });
+            medsToRender.push({
+              key: 3,
+              medication: medication,
+              timeOfDay: "4 PM",
+            });
+            medsToRender.push({
+              key: 5,
+              medication: medication,
+              timeOfDay: "8 PM",
+            });
           } else if (medication.instructions === "Every bedtime") {
-            return (
-              <TodayChecklist
-                key={medication.id}
-                medication={medication}
-                timeOfDay="Bedtime"
-              />
-            );
+            medsToRender.push({
+              key: 6,
+              medication: medication,
+              timeOfDay: "Bedtime",
+            });
+          } else if (
+            medication.instructions === "As needed or PRN" ||
+            medication.instructions === "Other, please see your note"
+          ) {
+            medsToRender.push({
+              key: 7,
+              medication: medication,
+              timeOfDay: "***",
+            });
           }
         } else {
           return null;
         }
+        console.log(medsToRender);
       });
     });
   };
