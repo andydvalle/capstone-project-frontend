@@ -45,6 +45,7 @@ const ThisMonth = (props) => {
           startAccessor="start"
           endAccessor="end"
           style={{ height: 450 }}
+          // views={["month", "week", "agenda"]}
         />
       </div>
     </div>

@@ -71,7 +71,7 @@ class ProfileView extends Component {
           )}
         ></Route>
         <Route
-          path={`/dashboard/${foundProfile.id}/thisMonth`}
+          path={`/dashboard/${foundProfile.id}/calendar`}
           render={(props) => (
             <ThisMonth
               {...props}
