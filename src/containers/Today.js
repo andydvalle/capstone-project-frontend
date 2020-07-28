@@ -12,12 +12,7 @@ const Today = (props) => {
   const renderChecklists = () => {
     return meds.map((med) => {
       return (
-        <div>
-          <TodayChecklist
-            medication={med.medication}
-            timeOfDay={med.timeOfDay}
-          />
-        </div>
+        <TodayChecklist medication={med.medication} timeOfDay={med.timeOfDay} />
       );
     });
   };
