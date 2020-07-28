@@ -15,7 +15,9 @@ const TodayChecklist = (props) => {
         id="defaultCheck1"
       />
       <label className="form-check-label strikethrough" htmlFor="defaultCheck1">
-        {props.medication.name_route.toLowerCase()}
+        {props.medication.name_route
+          .toLowerCase()
+          .replace(/ *\([^)]*\) */g, "")}
         {/* {props.medication.strength} */}
       </label>
     </div>

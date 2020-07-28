@@ -491,7 +491,8 @@ span {
   margin-bottom: 10px;
 }
 .info-detail-name {
-  /* font-weight: bold; */
+  font-weight: bold;
+  margin-left: 5px;
   text-transform: capitalize;
 }
 
