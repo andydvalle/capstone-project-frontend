@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import avatar from "../images/img_avatar3.png";
+import Avatar from "react-avatar";
 
 class Navbar extends Component {
   getProfile = () => {
@@ -43,12 +44,17 @@ class Navbar extends Component {
               <p>{"< Back"}</p>
             </Link>
           </div>
-          <img
+          <Avatar
+            className="avatar"
+            name={this.props.foundProfile.firstName}
+            color="#4EBAAA"
+          />
+          {/* <img
             src={avatar}
             className="avatar"
             alt="Avatar"
             style={{ align: "center", width: "45%" }}
-          />
+          /> */}
           <h2>
             {/* Patient's Schedule */}
             <select

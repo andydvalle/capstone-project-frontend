@@ -89,12 +89,13 @@
 
 .wrapper .sidebar .avatar {
   color: #4ebaaa;
-  display: block;
+  /* display: block; */
   border-radius: 50%;
   margin-bottom: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+  margin-left: 40px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* width: 50%; */
 }
 
 .wrapper .sidebar h2 {
