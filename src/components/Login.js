@@ -40,6 +40,10 @@ class Login extends Component {
     const { fields } = this.state;
     return (
       <div>
+        <DashboardHeader
+          currentUser={this.props.currentUser}
+          handleLogout={this.props.handleLogout}
+        />
         <div className="login-overlay-wrap">
           <div className="login-ellipses">
             <div className="row">

@@ -5,6 +5,7 @@ import Ellipse2 from "../svgs/Ellipse2";
 import Ellipse3 from "../svgs/Ellipse3";
 import Ellipse4 from "../svgs/Ellipse4";
 import Ellipse5 from "../svgs/Ellipse5";
+import DashboardHeader from "./DashboardHeader";
 
 const Signup = (props) => {
   const [username, setUsername] = useState("");
@@ -47,6 +48,10 @@ const Signup = (props) => {
 
   return (
     <div>
+      <DashboardHeader
+        currentUser={props.currentUser}
+        handleLogout={props.handleLogout}
+      />
       <div className="login-overlay-wrap">
         <div className="login-ellipses">
           <div className="row">

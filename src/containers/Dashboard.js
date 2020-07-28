@@ -4,7 +4,7 @@ import AuthHOC from "../HOCs/AuthHOC";
 import ProfileView from "./ProfileView";
 import Profile from "./Profile";
 import ProfileForm from "../components/ProfileForm";
-// import DashboardHeader from "../components/DashboardHeader";
+import DashboardHeader from "../components/DashboardHeader";
 import { api } from "../services/api";
 import NoteList from "../svgs/NoteList";
 import Ellipse1 from "../svgs/Ellipse1";
@@ -89,7 +89,10 @@ const Dashboard = (props) => {
     <div className="dashboard">
       {window.location.pathname === "/dashboard" ? (
         <>
-          {/* <DashboardHeader currentUser={props.user.username} /> */}
+          <DashboardHeader
+            currentUser={props.currentUser}
+            handleLogout={props.handleLogout}
+          />
           <div className="row m-5">
             <div className="img-overlay-wrap">
               <div className="ellipse1">
@@ -146,7 +149,7 @@ const Dashboard = (props) => {
                       <ProfileForm
                         foundProfile={foundPatient}
                         isEdit={isEdit}
-                        currentUser={props.user}
+                        currentUser={props.currentUser}
                         resetEdit={resetEdit}
                       />
                     </div>
@@ -163,7 +166,7 @@ const Dashboard = (props) => {
         render={(props) => (
           <ProfileView
             {...props}
-            currentUser={props.user}
+            currentUser={props.currentUser}
             patients={patients}
             onHandleSignout={props.onSignout}
           />

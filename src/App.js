@@ -53,19 +53,33 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <DashboardHeader
+        {/* <DashboardHeader
           currentUser={this.state.auth.user}
           handleLogout={this.onSignout}
-        />
+        /> */}
         <Route
           exact
           path="/"
-          render={(props) => <Login {...props} onLogin={this.onLogin} />}
+          render={(props) => (
+            <Login
+              {...props}
+              currentUser={this.state.auth.user}
+              handleLogout={this.onSignout}
+              onLogin={this.onLogin}
+            />
+          )}
         />
         <Route
           exact
           path="/signup"
-          render={(props) => <Signup {...props} onLogin={this.onLogin} />}
+          render={(props) => (
+            <Signup
+              {...props}
+              currentUser={this.state.auth.user}
+              handleLogout={this.onSignout}
+              onLogin={this.onLogin}
+            />
+          )}
         />
         {this.state.auth.user.id ? (
           <Route
@@ -73,7 +87,8 @@ class App extends Component {
             render={(props) => (
               <Dashboard
                 {...props}
-                user={this.state.auth.user}
+                currentUser={this.state.auth.user}
+                handleLogout={this.onSignout}
                 onSignout={this.onSignout}
               />
             )}
