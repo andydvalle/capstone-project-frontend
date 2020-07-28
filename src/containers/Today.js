@@ -1,9 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TodayChecklist from "../components/TodayChecklist";
 import AppointmentChecklist from "../components/AppointmentChecklist";
 
 const Today = (props) => {
   const [meds, setMeds] = useState([]);
+
+  useEffect(() => {
+    setMeds(getMeds());
+  }, []);
+
+  const renderChecklists = () => {
+    return meds.map((med) => {
+      return (
+        <div>
+          <TodayChecklist
+            medication={med.medication}
+            timeOfDay={med.timeOfDay}
+          />
+        </div>
+      );
+    });
+  };
 
   const weekday = () => {
     const d = new Date();
@@ -50,10 +67,10 @@ const Today = (props) => {
   //set array to state
   //iterate and make componenets
 
-  const renderMeds = () => {
+  const getMeds = () => {
     const medsToRender = [];
-    return props.foundProfile.medications.map((medication) => {
-      return Object.keys(medication).map((key) => {
+    props.foundProfile.medications.forEach((medication) => {
+      Object.keys(medication).forEach((key) => {
         if (key === day) {
           if (
             medication.instructions === "Daily" ||
@@ -97,7 +114,6 @@ const Today = (props) => {
             medication.instructions === "Every 4 hours" ||
             medication.instructions === "Every 4 to 6 hours"
           ) {
-            console.log("four times a day");
             medsToRender.push({
               key: 1,
               medication: medication,
@@ -137,11 +153,10 @@ const Today = (props) => {
         } else {
           return null;
         }
-        console.log(medsToRender);
-        // const sortedMeds = medsToRender.sort(sortMeds);
-        // console.log(sortedMeds);
       });
     });
+    const sortedMeds = medsToRender.sort(sortMeds);
+    return sortedMeds;
   };
 
   const renderAppts = () => {
@@ -167,7 +182,7 @@ const Today = (props) => {
         's {day.charAt(0).toUpperCase() + day.slice(1)} Schedule{" "}
       </div>
       <div className="subheader">Medications</div>
-      {renderMeds()}
+      {renderChecklists()}
       <div className="subheader">Appointments</div>
       {renderAppts()}
     </div>
