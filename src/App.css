@@ -207,7 +207,7 @@ a:link {
 .main_content .header {
   font-weight: bold;
   font-size: 14pt;
-  margin-top: 150px;
+  margin-top: 75px;
   padding: 20px;
   padding-left: 0;
   /* background: #fafafa; */
@@ -377,6 +377,10 @@ input[type="checkbox"]:checked + label.strikethrough {
 
 .navbar {
   background: rgba(0, 137, 123, 0.2);
+}
+
+.card-title {
+  color: #005b4f;
 }
 
 /* .img-overlay-wrap:hover {

@@ -44,7 +44,7 @@ const ThisMonth = (props) => {
           events={events}
           startAccessor="start"
           endAccessor="end"
-          style={{ height: 500 }}
+          style={{ height: 450 }}
         />
       </div>
     </div>
