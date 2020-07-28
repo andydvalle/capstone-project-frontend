@@ -257,6 +257,22 @@ a:link {
   text-transform: capitalize;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 5px;
+}
+
+.form-check-detail {
+  margin-left: 5px;
+  /* margin-right: auto; */
+}
+
+.timeOfDay {
+  margin-left: 15px;
+  font-weight: bold;
+  color: #ff8a80;
+}
+
+.strength {
+  text-transform: lowercase;
 }
 
 .form-modal {

@@ -34,15 +34,44 @@ const Today = (props) => {
     return props.foundProfile.medications.map((medication) => {
       return Object.keys(medication).map((key) => {
         if (key === day) {
-          if (key) {
+          if (medication.instructions === "Daily") {
             return (
-              <div className="checklist">
-                <TodayChecklist key={medication.id} medication={medication} />
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  // value={props.medication.name_route}
+                />
+                <label className="form-check-label strikethrough">
+                  <div className="row">
+                    <div className="form-check-detail timeOfDay">8 AM</div>
+                    <div className="form-check-detail med">
+                      {medication.name_route
+                        .toLowerCase()
+                        .replace(/ *\([^)]*\) */g, "")}
+                    </div>
+                    <div className="form-check-detail strength">
+                      {medication.strength}
+                    </div>
+                  </div>
+                </label>
+              </div>
+              // <div className="row">
+              //   <div className="checklist">
+              //     <TodayChecklist key={medication.id} medication={medication} />
+              //   </div>
+              //   <div className="timeOfDay">8 AM</div>
+              // </div>
+            );
+          } else if (medication.instructions === "Every bedtime") {
+            return (
+              <div className="row">
+                <div className="checklist">
+                  <TodayChecklist key={medication.id} medication={medication} />
+                </div>
+                <div className="timeOfDay">Bedtime</div>
               </div>
             );
-            // console.log(key);
-          } else {
-            return null;
           }
         } else {
           return null;
