@@ -89,7 +89,7 @@ class App extends Component {
                 {...props}
                 currentUser={this.state.auth.user}
                 handleLogout={this.onSignout}
-                onSignout={this.onSignout}
+                // onSignout={this.onSignout}
               />
             )}
           />

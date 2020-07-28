@@ -168,7 +168,7 @@ const Dashboard = (props) => {
             {...props}
             currentUser={props.currentUser}
             patients={patients}
-            onHandleSignout={props.onSignout}
+            handleLogout={props.handleLogout}
           />
         )}
       ></Route>

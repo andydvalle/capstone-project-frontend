@@ -15,7 +15,7 @@ class Navbar extends Component {
   };
 
   handleSignout = () => {
-    this.props.onHandleSignout();
+    this.props.handleLogout();
   };
 
   renderPatientOptions = () => {
@@ -114,9 +114,9 @@ class Navbar extends Component {
             </ul>
           </div>
           <ul>
-            {/* <Link to="/">
+            <Link to="/">
               <li onClick={this.handleSignout}>Signout</li>
-            </Link> */}
+            </Link>
             {/* <li data-toggle="modal" data-target=".modal">
               Edit {this.props.foundProfile.firstName}'s Info
             </li> */}
