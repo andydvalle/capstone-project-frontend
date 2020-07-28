@@ -3,6 +3,8 @@ import TodayChecklist from "../components/TodayChecklist";
 import AppointmentChecklist from "../components/AppointmentChecklist";
 
 const Today = (props) => {
+  const [meds, setMeds] = useState([]);
+
   const weekday = () => {
     const d = new Date();
     const weekday = new Array(7);
@@ -30,8 +32,14 @@ const Today = (props) => {
   const [day] = useState(weekday());
   const [date] = useState(getDate());
 
+  //build array of objects
+  //sort by keys
+  //set array to state
+  //iterate and make componenets
+
   const renderMeds = () => {
     return props.foundProfile.medications.map((medication) => {
+      const medsToRender = [];
       return Object.keys(medication).map((key) => {
         if (key === day) {
           if (medication.instructions === "Daily") {
@@ -41,6 +49,29 @@ const Today = (props) => {
                 medication={medication}
                 timeOfDay="8 AM"
               />
+            );
+          } else if (medication.instructions === "Every other day") {
+            return (
+              <TodayChecklist
+                key={medication.id}
+                medication={medication}
+                timeOfDay="8 AM"
+              />
+            );
+          } else if (medication.instructions === "Twice a day") {
+            return (
+              <>
+                <TodayChecklist
+                  key={medication.id}
+                  medication={medication}
+                  timeOfDay="8 AM"
+                />
+                <TodayChecklist
+                  key={medication.id}
+                  medication={medication}
+                  timeOfDay="5 PM"
+                />
+              </>
             );
           } else if (medication.instructions === "Every bedtime") {
             return (
