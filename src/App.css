@@ -98,6 +98,11 @@
   /* width: 50%; */
 }
 
+.profile-avatar {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
 .wrapper .sidebar h2 {
   color: #fafafa;
   /* text-transform: uppercase; */

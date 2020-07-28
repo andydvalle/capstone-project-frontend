@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import avatar from "../images/img_avatar3.png";
+// import avatar from "../images/img_avatar3.png";
 import Avatar from "react-avatar";
 
 class Navbar extends Component {
@@ -46,8 +46,10 @@ class Navbar extends Component {
           </div>
           <Avatar
             className="avatar"
-            name={this.props.foundProfile.firstName}
+            name={`${this.props.foundProfile.firstName} ${this.props.foundProfile.lastName}`}
             color="#4EBAAA"
+            textSizeRatio="10"
+            textMarginRatio="1"
           />
           {/* <img
             src={avatar}
