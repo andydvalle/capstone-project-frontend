@@ -7,16 +7,24 @@ const TodayChecklist = (props) => {
   //   };
 
   return (
-    <div className="form-check meds">
+    <div className="form-check">
       <input
         className="form-check-input"
         type="checkbox"
         // value={props.medication.name_route}
       />
       <label className="form-check-label strikethrough">
-        {props.medication.name_route
-          .toLowerCase()
-          .replace(/ *\([^)]*\) */g, "")}
+        <div className="row">
+          <div className="form-check-detail timeOfDay">{props.timeOfDay}</div>
+          <div className="form-check-detail med">
+            {props.medication.name_route
+              .toLowerCase()
+              .replace(/ *\([^)]*\) */g, "")}
+          </div>
+          <div className="form-check-detail strength">
+            {props.medication.strength}
+          </div>
+        </div>
       </label>
     </div>
   );
