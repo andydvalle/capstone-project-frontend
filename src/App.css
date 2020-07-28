@@ -381,6 +381,7 @@ input[type="checkbox"]:checked + label.strikethrough {
 
 .card-title {
   color: #005b4f;
+  font-weight: bold;
 }
 
 /* .img-overlay-wrap:hover {
