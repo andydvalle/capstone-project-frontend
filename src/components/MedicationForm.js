@@ -228,6 +228,42 @@ const MedicationForm = (props) => {
         </div>
         <div className="form-group col-md-6">
           <label htmlFor="medication-instructions">Instructions</label>
+          <select className="form-control " {...instructions}>
+            <option value="chooseInstructions">Please select one</option>
+            <option key="1" value="daily">
+              Daily
+            </option>
+            <option key="2" value="daily">
+              Every other day
+            </option>
+            <option key="3" value="bid">
+              Twice a day
+            </option>
+            <option key="4" value="tid">
+              Three times a day
+            </option>
+            <option key="5" value="qid">
+              Four times a day
+            </option>
+            <option key="6" value="qhs">
+              Every bedtime
+            </option>
+            <option key="7" value="q4h">
+              Every 4 hours
+            </option>
+            <option key="8" value="q4-6h">
+              Every 4 to 6 hours
+            </option>
+            <option key="9" value="qwk">
+              Every week
+            </option>
+            <option key="10" value="other">
+              Other, please write in notes
+            </option>
+          </select>
+        </div>
+        {/* <div className="form-group col-md-6">
+          <label htmlFor="medication-instructions">Instructions</label>
           <input
             type="text"
             className="form-control"
@@ -235,7 +271,7 @@ const MedicationForm = (props) => {
             placeholder="Daily"
             {...instructions}
           />
-        </div>
+        </div> */}
       </div>
       <div className="mb-2">Select the days this med is taken:</div>
       <div className="form-row mb-2">
