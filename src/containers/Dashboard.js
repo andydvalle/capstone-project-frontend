@@ -46,7 +46,18 @@ class Dashboard extends Component {
   };
 
   addAppointment = (data) => {
-    console.log("hi", data);
+    const foundPatient = this.state.patients.find(
+      (patient) => (patient.id = data.patient_id)
+    );
+    const newAppointments = [...foundPatient.appointments, data];
+    const updatedPatients = this.state.patients.map((patient) =>
+      patient.id !== data.patient_id
+        ? patient
+        : { ...patient, appointments: newAppointments }
+    );
+    this.setState({
+      patients: updatedPatients,
+    });
   };
 
   // const handleClickOutside = (e) => {
