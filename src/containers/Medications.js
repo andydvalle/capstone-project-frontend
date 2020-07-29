@@ -20,6 +20,7 @@ class Medications extends Component {
               key={medication.id}
               medication={medication}
               removeMedication={this.props.removeMedication}
+              updateMedication={this.props.updateMedication}
             />
           </div>
         </div>

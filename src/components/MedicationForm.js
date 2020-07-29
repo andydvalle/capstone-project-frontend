@@ -112,22 +112,24 @@ const MedicationForm = (props) => {
 
   const handleEditMedication = (e) => {
     e.preventDefault();
+    const data = {
+      id: props.medication.id,
+      name_route: search,
+      strength: searchStrength,
+      instructions: instructions.value,
+      notes: notes.value,
+      sunday: sunday.value,
+      monday: monday.value,
+      tuesday: tuesday.value,
+      wednesday: wednesday.value,
+      thursday: thursday.value,
+      friday: friday.value,
+      saturday: saturday.value,
+      patient_id: props.medication.patient_id,
+    };
     api.medications
-      .editMedication({
-        id: props.medication.id,
-        name_route: search,
-        strength: searchStrength,
-        instructions: instructions.value,
-        notes: notes.value,
-        sunday: sunday.value,
-        monday: monday.value,
-        tuesday: tuesday.value,
-        wednesday: wednesday.value,
-        thursday: thursday.value,
-        friday: friday.value,
-        saturday: saturday.value,
-        patient_id: props.medication.patient_id,
-      })
+      .editMedication(data)
+      .then(props.updateMedication(data))
       .then(props.resetIsEdit ? props.resetIsEdit() : null);
   };
 

@@ -44,6 +44,7 @@ const MedicationInfo = (props) => {
             isEdit={isEdit}
             resetIsEdit={resetIsEdit}
             medication={props.medication}
+            updateMedication={props.updateMedication}
           />
         </div>
       ) : (
