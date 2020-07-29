@@ -2,11 +2,11 @@ import axios from "axios";
 
 export const fetchPatients = () => {
   return (dispatch) => {
-    dispatch(fetchPatientsRequest());
+    // dispatch(fetchPatientsRequest());
     axios
       .get("http://localhost:3000/api/v1/patients")
       .then((resp) => {
-        const patients = response.data;
+        const patients = resp.data;
         dispatch(fetchPatientsSuccess(patients));
       })
       .catch((error) => {

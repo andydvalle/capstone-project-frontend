@@ -4,20 +4,20 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
-import { createStore } from "redux";
-import allReducer from "./reducers";
-import { Provider } from "react-redux";
+// import { createStore, applyMiddleware } from "redux";
+// import thunk from "redux-thunk";
+// import allReducer from "./reducers";
+// import { Provider } from "react-redux";
+// import axios from "axios";
 
-const store = createStore(allReducer);
+// const store = createStore(allReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <Router>
-        <App />
-      </Router>
-    </React.StrictMode>
-  </Provider>,
+  <React.StrictMode>
+    <Router>
+      <App />
+    </Router>
+  </React.StrictMode>,
   document.getElementById("root")
 );
 
