@@ -59,9 +59,6 @@ const Today = (props) => {
     return comparison;
   };
 
-  //set array to state
-  //iterate and make componenets
-
   const getMeds = () => {
     const medsToRender = [];
     props.foundProfile.medications.forEach((medication) => {

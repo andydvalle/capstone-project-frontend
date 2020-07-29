@@ -10,10 +10,6 @@ const ProfileForm = (props) => {
 
   useEffect(() => {
     if (props.isEdit) {
-      // const d = new Date(props.foundProfile.dob);
-      // const n = d.toISOString();
-      // console.log(props.foundProfile.dob, d, n);
-
       setFirstName(props.foundProfile.firstName);
       setLastName(props.foundProfile.lastName);
       setDob(props.foundProfile.dob);
@@ -40,14 +36,16 @@ const ProfileForm = (props) => {
 
   const handlePostProfile = (e) => {
     e.preventDefault();
+    const data = {
+      firstName: firstName.value,
+      lastName: lastName.value,
+      dob: dob.value,
+      allergies: allergies.value,
+      user_id: props.currentUser.id,
+    };
     api.patients
-      .postPatient({
-        firstName: firstName.value,
-        lastName: lastName.value,
-        dob: dob.value,
-        allergies: allergies.value,
-        user_id: props.currentUser.id,
-      })
+      .postPatient(data)
+      .then(props.addPatient(data))
       .then(resetFields());
   };
 
@@ -119,9 +117,6 @@ const ProfileForm = (props) => {
           Save and add another
         </button>
       )}
-      {/* <button type="submit" className="btn btn-light">
-        Save and exit
-      </button> */}
     </form>
   );
 };

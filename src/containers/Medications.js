@@ -31,15 +31,9 @@ class Medications extends Component {
   render() {
     return (
       <div>
-        {/* Hi from Medications */}
         <div className="main_content">
           <div className="header">Medications</div>
-          <div className="info">
-            {this.renderMedications()}
-            {/* <div>Medications</div>
-            <div>Medications</div>
-            <div>Medications</div> */}
-          </div>
+          <div className="info">{this.renderMedications()}</div>
         </div>
       </div>
     );

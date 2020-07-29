@@ -15,7 +15,6 @@ const MedicationForm = (props) => {
   //sets search table strength
   const [strengths, setStrengths] = useState([]);
   const [displayStrength, setDisplayStrength] = useState(false);
-  // const [optionsStrength, setOptionsStrength] = useState([]);
   const [searchStrength, setSearchStrength] = useState(
     (props.medication && props.medication.strength) || ""
   );
@@ -64,7 +63,6 @@ const MedicationForm = (props) => {
   }, []);
 
   const resetFields = () => {
-    // setStrength("");
     setInstructions("");
     setNotes("");
     setSunday(false);
@@ -143,7 +141,6 @@ const MedicationForm = (props) => {
       .then((data) => {
         let filteredMeds = data[1].flat();
         setMeds(filteredMeds);
-        // console.log(search, Object.values(data[2]).flat());
       })
       .then(setOptions(meds));
   };
@@ -158,9 +155,7 @@ const MedicationForm = (props) => {
       .then((data) => {
         console.log(data[2]);
         let filteredStrengths = Object.values(data[2]).flat();
-        // console.log(filteredStrengths[0]);
         setStrengths(filteredStrengths[0]);
-        // setOptionsStrength(filteredStrengths[0]);
       });
   };
 
@@ -210,8 +205,6 @@ const MedicationForm = (props) => {
             placeholder="200mg Tab"
             value={searchStrength}
             onClick={() => setDisplayStrength(!displayStrength)}
-
-            // {...strength}
           />
           {displayStrength && (
             <div className="autoContainer">
@@ -269,16 +262,6 @@ const MedicationForm = (props) => {
             </option>
           </select>
         </div>
-        {/* <div className="form-group col-md-6">
-          <label htmlFor="medication-instructions">Instructions</label>
-          <input
-            type="text"
-            className="form-control"
-            id="medication-instructions"
-            placeholder="Daily"
-            {...instructions}
-          />
-        </div> */}
       </div>
       <div className="mb-2">Select the days this med is taken:</div>
       <div className="form-row mb-2">
@@ -386,9 +369,6 @@ const MedicationForm = (props) => {
           Save and add another
         </button>
       )}
-      {/* <button type="submit" className="btn btn-light">
-        Save and exit
-      </button>{" "} */}
     </form>
   );
 };

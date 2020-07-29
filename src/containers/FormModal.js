@@ -84,7 +84,6 @@ const FormModal = (props) => {
                 <span aria-hidden="true">&times;</span>
               </button>
               New {forms}
-              {/* {props.profileId} */}
             </div>
             <div className="p-3">
               {/* radio buttons */}
@@ -153,8 +152,6 @@ const FormModal = (props) => {
         </div>
       </div>
     </div>
-
-    // </div>
   );
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { api } from "../services/api";
-import Avatar from "react-avatar";
 
 const Profile = (props) => {
   const { firstName, lastName, id } = props.profile;
@@ -16,7 +15,6 @@ const Profile = (props) => {
 
   return (
     <div data-toggle="tooltip" data-placement="bottom" title="Hooray!">
-      {/* <Avatar className="profile-avatar" name={`${firstName} ${lastName}`} /> */}
       <div className="card m-2" style={{ width: "10rem" }}>
         <div className="card-body">
           <Link to={`/dashboard/${id}/view`}>

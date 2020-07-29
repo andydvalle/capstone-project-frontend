@@ -83,9 +83,6 @@ class Login extends Component {
                       value={fields.username}
                       onChange={this.handleChange}
                     />
-                    {/* <small id="emailHelp" className="form-text text-muted">
-              We'll never share your email with anyone else.
-            </small> */}
                   </div>
                   <div className="form-group">
                     <label className="login-label">Password</label>
@@ -98,16 +95,6 @@ class Login extends Component {
                       onChange={this.handleChange}
                     />
                   </div>
-                  {/* <div className="form-check">
-            <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-            />
-            <label className="form-check-label" for="exampleCheck1">
-            Check me out
-            </label>
-          </div> */}
                   <div className="form-row">
                     <button class="btn btn-primary btn mt-3" type="submit">
                       Login

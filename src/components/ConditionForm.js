@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import useFormInput from "../FormInput";
 import { api } from "../services/api";
-// import Autocomplete from "./Autocomplete";
 
 const ConditionForm = (props) => {
   // //sets search table state
@@ -82,8 +81,6 @@ const ConditionForm = (props) => {
         setItems(filteredItems);
       })
       .then(setOptions(items));
-    //requires css
-    //display array in a dropdown format
   };
 
   const setCondition = (condition) => {
@@ -94,9 +91,6 @@ const ConditionForm = (props) => {
   return (
     <form onSubmit={props.isEdit ? handleEditCondition : handlePostCondition}>
       {" "}
-      {/* <div className="form-group">
-        <Autocomplete suggestions={items} />
-      </div> */}
       <div ref={wrapperRef} className="form-group">
         <label htmlFor="condition-name">Search Condition Name</label>
         <input

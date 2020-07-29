@@ -34,6 +34,13 @@ class Dashboard extends Component {
     });
   };
 
+  addPatient = (data) => {
+    const newPatients = [...this.state.patients, data];
+    this.setState({
+      patients: newPatients,
+    });
+  };
+
   removePatient = (patientId) => {
     console.log(patientId);
     const updatedPatients = this.state.patients.filter(
@@ -373,6 +380,7 @@ class Dashboard extends Component {
                           isEdit={this.state.isEdit}
                           currentUser={this.props.currentUser}
                           resetEdit={this.resetEdit}
+                          addPatient={this.addPatient}
                         />
                       </div>
                     </div>

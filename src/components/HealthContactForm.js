@@ -46,7 +46,6 @@ const HealthContactForm = (props) => {
     const data = {
       name: name.value,
       practitioner: practitioner.value,
-      // location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
       address: address.value,
       address2: address2.value,
       city: city.value,
@@ -68,7 +67,6 @@ const HealthContactForm = (props) => {
       id: props.clinic.id,
       name: name.value,
       practitioner: practitioner.value,
-      // location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
       address: address.value,
       address2: address2.value,
       city: city.value,
@@ -156,10 +154,6 @@ const HealthContactForm = (props) => {
         </div>
         <div className="form-group col-md-4">
           <label htmlFor="clinic-state">State</label>
-          {/* <select id="clinic-state" className="form-control">
-              <option defaultValue>Choose...</option>
-              <option>...</option>
-            </select> */}
           <input
             type="text"
             className="form-control"
@@ -198,9 +192,6 @@ const HealthContactForm = (props) => {
           Save and add another
         </button>
       )}
-      {/* <button type="submit" className="btn btn-light">
-        Save and exit
-      </button>{" "} */}
     </form>
   );
 };

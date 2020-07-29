@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import useFormInput from "../FormInput";
 import MedicationForm from "./MedicationForm";
 import { api } from "../services/api";
 

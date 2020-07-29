@@ -29,7 +29,7 @@ class HealthContacts extends Component {
       <div>
         {/* Hi from HealthContacts */}
         <div className="main_content">
-          <div className="header">Clinics</div>
+          <div className="header">Health Contacts</div>
           <div className="info">{this.renderContacts()}</div>
         </div>
       </div>

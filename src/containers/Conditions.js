@@ -27,15 +27,9 @@ class Conditions extends Component {
   render() {
     return (
       <div>
-        {/* Hi from Conditions */}
         <div className="main_content">
           <div className="header">Conditions</div>
-          <div className="info">
-            {this.renderConditions()}
-            {/* <div>Conditions</div>
-            <div>Conditions</div>
-            <div>Conditions</div> */}
-          </div>
+          <div className="info">{this.renderConditions()}</div>
         </div>
       </div>
     );

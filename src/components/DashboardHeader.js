@@ -49,16 +49,6 @@ const DashboardHeader = (props) => {
               </Link>
             </li>
           )}
-          {/* <li class="nav-item">
-                <Link class="nav-link" to="/login">
-                Login
-                </Link>
-                </li>
-                <li>
-                <Link class="nav-link btn btn-primary" to="/signup">
-                Start Here
-                </Link>
-              </li> */}
         </ul>
       </div>
     </nav>

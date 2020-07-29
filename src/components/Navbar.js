@@ -30,7 +30,6 @@ class Navbar extends Component {
   };
 
   handleChange = (e) => {
-    // console.log(e.target.value);
     this.props.history.push(`/dashboard/${e.target.value}/view`);
   };
 
@@ -64,8 +63,6 @@ class Navbar extends Component {
               value={this.props.foundProfile.id}
               onChange={this.handleChange}
             >
-              {/* <option value="choosePatient">Choose Patient</option> */}
-              {/* <option value="choosePatient">Choose Profile</option> */}
               {this.renderPatientOptions()}
             </select>
           </h2>
@@ -77,17 +74,11 @@ class Navbar extends Component {
                   Today
                 </Link>
               </li>
-              {/* <li>
-                <Link to={`/dashboard/${this.props.foundProfile.id}/thisWeek`}>
-                  This Week
-                </Link>
-              </li> */}
               <li>
                 <Link to={`/dashboard/${this.props.foundProfile.id}/calendar`}>
                   {this.props.foundProfile.firstName}'s Calendar
                 </Link>
               </li>
-              {/* <li>This Month</li> */}
             </ul>
           </div>
           <div className="mb-5">
@@ -125,16 +116,7 @@ class Navbar extends Component {
             <Link to="/">
               <li onClick={this.handleSignout}>Signout</li>
             </Link>
-            {/* <li data-toggle="modal" data-target=".modal">
-              Edit {this.props.foundProfile.firstName}'s Info
-            </li> */}
           </ul>
-          {/* <ul>
-            <li><a href="#"><i className="fas fa-home"></i>Home</a></li>
-            <li><a href="#"><i className="fas fa-user"></i>Profile</a></li>
-            <li><a href="#"><i className="fas fa-address-card"></i>About</a></li>
-            <li><a href="#"><i className="fas fa-address-book"></i>Contact</a></li>
-        </ul>  */}
           <div className="social_media">
             <a href="#">
               <i className="fab fa-linkedin-in"></i>
