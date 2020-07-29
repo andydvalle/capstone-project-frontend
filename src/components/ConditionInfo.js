@@ -43,6 +43,7 @@ const ConditionInfo = (props) => {
             isEdit={isEdit}
             resetIsEdit={resetIsEdit}
             condition={props.condition}
+            updateCondition={props.updateCondition}
           />
         </div>
       ) : (

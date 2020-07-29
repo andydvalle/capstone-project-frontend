@@ -57,13 +57,15 @@ const ConditionForm = (props) => {
 
   const handleEditCondition = (e) => {
     e.preventDefault();
+    const data = {
+      id: props.condition.id,
+      name: search,
+      notes: notes.value,
+      patient_id: props.condition.patient_id,
+    };
     api.conditions
-      .editCondition({
-        id: props.condition.id,
-        name: search,
-        notes: notes.value,
-        patient_id: props.condition.patient_id,
-      })
+      .editCondition(data)
+      .then(props.updateCondition(data))
       .then(props.resetIsEdit ? props.resetIsEdit() : null);
   };
 

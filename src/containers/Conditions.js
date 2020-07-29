@@ -16,6 +16,7 @@ class Conditions extends Component {
               key={condition.id}
               condition={condition}
               removeCondition={this.props.removeCondition}
+              updateCondition={this.props.updateCondition}
             />
           </div>
         </div>

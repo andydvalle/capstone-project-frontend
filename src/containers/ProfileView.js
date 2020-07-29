@@ -116,6 +116,7 @@ class ProfileView extends Component {
               conditions={foundProfile.conditions}
               profileId={foundProfile.id}
               removeCondition={this.props.removeCondition}
+              updateCondition={this.props.updateCondition}
             />
           )}
         ></Route>
