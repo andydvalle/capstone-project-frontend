@@ -44,16 +44,18 @@ const AppointmentForm = (props) => {
 
   const handleEditAppointment = (e) => {
     e.preventDefault();
+    const data = {
+      id: props.appointment.id,
+      title: title.value,
+      date: date.value,
+      time: time.value,
+      notes: notes.value,
+      clinic_id: clinic_id.value,
+      patient_id: props.appointment.patient_id,
+    };
     api.appointments
-      .editAppointment({
-        id: props.appointment.id,
-        title: title.value,
-        date: date.value,
-        time: time.value,
-        notes: notes.value,
-        clinic_id: clinic_id.value,
-        patient_id: props.appointment.patient_id,
-      })
+      .editAppointment(data)
+      .then(props.updateAppointment(data))
       .then(props.resetIsEdit ? props.resetIsEdit() : null);
   };
 

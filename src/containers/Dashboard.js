@@ -60,6 +60,23 @@ class Dashboard extends Component {
     });
   };
 
+  updateAppointment = (data) => {
+    const foundPatient = this.state.patients.find(
+      (patient) => (patient.id = data.patient_id)
+    );
+    const newAppointments = foundPatient.appointments.map((appointment) =>
+      appointment.id !== data.id ? appointment : data
+    );
+    const updatedPatients = this.state.patients.map((patient) =>
+      patient.id !== data.patient_id
+        ? patient
+        : { ...patient, appointments: newAppointments }
+    );
+    this.setState({
+      patients: updatedPatients,
+    });
+  };
+
   removeAppointment = (data) => {
     const foundPatient = this.state.patients.find(
       (patient) => (patient.id = data.patient_id)
@@ -331,6 +348,7 @@ class Dashboard extends Component {
               removeMedication={this.removeMedication}
               removeCondition={this.removeCondition}
               removeClinic={this.removeClinic}
+              updateAppointment={this.updateAppointment}
             />
           )}
         ></Route>

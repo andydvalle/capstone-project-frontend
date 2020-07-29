@@ -60,6 +60,7 @@ const AppointmentInfo = (props) => {
             resetIsEdit={resetIsEdit}
             appointment={props.appointment}
             clinics={props.clinics}
+            updateAppointment={props.updateAppointment}
           />
         </div>
       ) : (
