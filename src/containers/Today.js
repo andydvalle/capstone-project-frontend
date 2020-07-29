@@ -7,7 +7,7 @@ const Today = (props) => {
 
   useEffect(() => {
     setMeds(getMeds());
-  }, []);
+  }, [props]);
 
   const renderChecklists = () => {
     return meds.map((med) => {
