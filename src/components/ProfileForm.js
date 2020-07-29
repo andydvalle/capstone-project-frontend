@@ -51,15 +51,17 @@ const ProfileForm = (props) => {
 
   const handleEditProfile = (e) => {
     e.preventDefault();
+    const data = {
+      id: props.foundProfile.id,
+      firstName: firstName.value,
+      lastName: lastName.value,
+      dob: dob.value,
+      allergies: allergies.value,
+      user_id: props.currentUser.id,
+    };
     api.patients
-      .editPatient({
-        id: props.foundProfile.id,
-        firstName: firstName.value,
-        lastName: lastName.value,
-        dob: dob.value,
-        allergies: allergies.value,
-        user_id: props.currentUser.id,
-      })
+      .editPatient(data)
+      .then(props.updatePatient(data))
       .then(props.resetEdit());
   };
 
