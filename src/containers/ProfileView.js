@@ -130,6 +130,8 @@ class ProfileView extends Component {
           profileId={foundProfile.id}
           addAppointment={this.props.addAppointment}
           addMedication={this.props.addMedication}
+          addCondition={this.props.addCondition}
+          addClinic={this.props.addClinic}
         />
       </div>
     );

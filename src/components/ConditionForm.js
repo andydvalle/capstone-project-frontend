@@ -44,12 +44,14 @@ const ConditionForm = (props) => {
 
   const handlePostCondition = (e) => {
     e.preventDefault();
+    const data = {
+      name: search,
+      notes: notes.value,
+      patient_id: props.patientId,
+    };
     api.conditions
-      .postCondition({
-        name: search,
-        notes: notes.value,
-        patient_id: props.patientId,
-      })
+      .postCondition(data)
+      .then(props.addCondition(data))
       .then(resetFields());
   };
 

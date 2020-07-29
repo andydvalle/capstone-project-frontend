@@ -43,20 +43,22 @@ const HealthContactForm = (props) => {
 
   const handlePostClinic = (e) => {
     e.preventDefault();
+    const data = {
+      name: name.value,
+      practitioner: practitioner.value,
+      // location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
+      address: address.value,
+      address2: address2.value,
+      city: city.value,
+      state: state.value,
+      zip: zip.value,
+      number: number.value,
+      notes: notes.value,
+      patient_id: props.patientId,
+    };
     api.clinics
-      .postClinic({
-        name: name.value,
-        practitioner: practitioner.value,
-        // location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
-        address: address.value,
-        address2: address2.value,
-        city: city.value,
-        state: state.value,
-        zip: zip.value,
-        number: number.value,
-        notes: notes.value,
-        patient_id: props.patientId,
-      })
+      .postClinic(data)
+      .then(props.addClinic(data))
       .then(resetFields());
   };
 

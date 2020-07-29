@@ -28,9 +28,19 @@ const FormModal = (props) => {
         />
       );
     } else if (forms === "Condition") {
-      return <ConditionForm patientId={props.profileId} />;
+      return (
+        <ConditionForm
+          patientId={props.profileId}
+          addCondition={props.addCondition}
+        />
+      );
     } else if (forms === "Contact") {
-      return <HealthContactForm patientId={props.profileId} />;
+      return (
+        <HealthContactForm
+          patientId={props.profileId}
+          addClinic={props.addClinic}
+        />
+      );
     }
   }
 

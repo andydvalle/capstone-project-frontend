@@ -76,6 +76,38 @@ class Dashboard extends Component {
     });
   };
 
+  addCondition = (data) => {
+    // console.log("hi from dashboard", data);
+    const foundPatient = this.state.patients.find(
+      (patient) => (patient.id = data.patient_id)
+    );
+    const newConditions = [...foundPatient.conditions, data];
+    const updatedPatients = this.state.patients.map((patient) =>
+      patient.id !== data.patient_id
+        ? patient
+        : { ...patient, conditions: newConditions }
+    );
+    this.setState({
+      patients: updatedPatients,
+    });
+  };
+
+  addClinic = (data) => {
+    // console.log("hi from dashboard", data);
+    const foundPatient = this.state.patients.find(
+      (patient) => (patient.id = data.patient_id)
+    );
+    const newClinics = [...foundPatient.clinics, data];
+    const updatedPatients = this.state.patients.map((patient) =>
+      patient.id !== data.patient_id
+        ? patient
+        : { ...patient, clinics: newClinics }
+    );
+    this.setState({
+      patients: updatedPatients,
+    });
+  };
+
   // const handleClickOutside = (e) => {
   //   const { current: wrap } = wrapperRef;
   //   if (wrap && !wrap.contains(e.target)) {
@@ -221,6 +253,8 @@ class Dashboard extends Component {
               handleLogout={this.props.handleLogout}
               addAppointment={this.addAppointment}
               addMedication={this.addMedication}
+              addCondition={this.addCondition}
+              addClinic={this.addClinic}
             />
           )}
         ></Route>
