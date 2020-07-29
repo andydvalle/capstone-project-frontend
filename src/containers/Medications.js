@@ -16,7 +16,11 @@ class Medications extends Component {
             </div>
           </span>
           <div id={medication.id} className="collapse">
-            <MedicationInfo key={medication.id} medication={medication} />
+            <MedicationInfo
+              key={medication.id}
+              medication={medication}
+              removeMedication={this.props.removeMedication}
+            />
           </div>
         </div>
       );

@@ -75,7 +75,7 @@ class Dashboard extends Component {
     this.setState({
       patients: updatedPatients,
     });
-    console.log("hi from dash", newAppointments);
+    // console.log("hi from dash", newAppointments);
   };
 
   addMedication = (data) => {
@@ -92,6 +92,24 @@ class Dashboard extends Component {
     this.setState({
       patients: updatedPatients,
     });
+  };
+
+  removeMedication = (data) => {
+    const foundPatient = this.state.patients.find(
+      (patient) => (patient.id = data.patient_id)
+    );
+    const newMedications = foundPatient.medications.filter(
+      (medication) => medication.id !== data.id
+    );
+    const updatedPatients = this.state.patients.map((patient) =>
+      patient.id !== data.patient_id
+        ? patient
+        : { ...patient, medications: newMedications }
+    );
+    this.setState({
+      patients: updatedPatients,
+    });
+    // console.log("hi from dash", newAppointments);
   };
 
   addCondition = (data) => {
@@ -270,10 +288,11 @@ class Dashboard extends Component {
               patients={this.state.patients}
               handleLogout={this.props.handleLogout}
               addAppointment={this.addAppointment}
-              removeAppointment={this.removeAppointment}
               addMedication={this.addMedication}
               addCondition={this.addCondition}
               addClinic={this.addClinic}
+              removeAppointment={this.removeAppointment}
+              removeMedication={this.removeMedication}
             />
           )}
         ></Route>

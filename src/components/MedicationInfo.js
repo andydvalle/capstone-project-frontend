@@ -31,7 +31,9 @@ const MedicationInfo = (props) => {
   };
 
   const handleDelete = () => {
-    api.medications.deleteMedication(props.medication.id);
+    api.medications
+      .deleteMedication(props.medication.id)
+      .then(props.removeMedication(props.medication));
   };
 
   return (
