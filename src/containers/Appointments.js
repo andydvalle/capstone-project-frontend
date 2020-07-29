@@ -61,6 +61,7 @@ class Appointments extends Component {
               clinics={this.props.clinics}
               date={date}
               time={time}
+              removeAppointment={this.props.removeAppointment}
             />
           </div>
         </div>
