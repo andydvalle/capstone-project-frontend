@@ -128,6 +128,24 @@ class Dashboard extends Component {
     });
   };
 
+  removeCondition = (data) => {
+    const foundPatient = this.state.patients.find(
+      (patient) => (patient.id = data.patient_id)
+    );
+    const newConditions = foundPatient.conditions.filter(
+      (condition) => condition.id !== data.id
+    );
+    const updatedPatients = this.state.patients.map((patient) =>
+      patient.id !== data.patient_id
+        ? patient
+        : { ...patient, conditions: newConditions }
+    );
+    this.setState({
+      patients: updatedPatients,
+    });
+    // console.log("hi from dash", newAppointments);
+  };
+
   addClinic = (data) => {
     // console.log("hi from dashboard", data);
     const foundPatient = this.state.patients.find(
@@ -142,6 +160,24 @@ class Dashboard extends Component {
     this.setState({
       patients: updatedPatients,
     });
+  };
+
+  removeClinic = (data) => {
+    const foundPatient = this.state.patients.find(
+      (patient) => (patient.id = data.patient_id)
+    );
+    const newClinics = foundPatient.clinics.filter(
+      (clinic) => clinic.id !== data.id
+    );
+    const updatedPatients = this.state.patients.map((patient) =>
+      patient.id !== data.patient_id
+        ? patient
+        : { ...patient, clinics: newClinics }
+    );
+    this.setState({
+      patients: updatedPatients,
+    });
+    // console.log("hi from dash", newAppointments);
   };
 
   // const handleClickOutside = (e) => {
@@ -293,6 +329,8 @@ class Dashboard extends Component {
               addClinic={this.addClinic}
               removeAppointment={this.removeAppointment}
               removeMedication={this.removeMedication}
+              removeCondition={this.removeCondition}
+              removeClinic={this.removeClinic}
             />
           )}
         ></Route>

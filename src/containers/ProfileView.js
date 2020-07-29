@@ -113,6 +113,7 @@ class ProfileView extends Component {
               patients={this.props.patients}
               conditions={foundProfile.conditions}
               profileId={foundProfile.id}
+              removeCondition={this.props.removeCondition}
             />
           )}
         ></Route>
@@ -124,6 +125,7 @@ class ProfileView extends Component {
               patients={this.props.patients}
               clinics={foundProfile.clinics}
               profileId={foundProfile.id}
+              removeClinic={this.props.removeClinic}
             />
           )}
         ></Route>

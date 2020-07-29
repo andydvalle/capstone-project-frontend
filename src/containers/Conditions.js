@@ -12,7 +12,11 @@ class Conditions extends Component {
             </div>
           </span>
           <div id={condition.id} className="collapse">
-            <ConditionInfo key={condition.id} condition={condition} />
+            <ConditionInfo
+              key={condition.id}
+              condition={condition}
+              removeCondition={this.props.removeCondition}
+            />
           </div>
         </div>
       );

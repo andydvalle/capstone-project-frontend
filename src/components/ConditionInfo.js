@@ -31,7 +31,9 @@ const ConditionInfo = (props) => {
   };
 
   const handleDelete = () => {
-    api.conditions.deleteCondition(props.condition.id);
+    api.conditions
+      .deleteCondition(props.condition.id)
+      .then(props.removeCondition(props.condition));
   };
   return (
     <div ref={wrapperRef} className="dropdown-info">

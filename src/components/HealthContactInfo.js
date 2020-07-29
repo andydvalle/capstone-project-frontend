@@ -33,7 +33,9 @@ const HealthContactInfo = (props) => {
   };
 
   const handleDelete = () => {
-    api.clinics.deleteClinic(props.clinic.id);
+    api.clinics
+      .deleteClinic(props.clinic.id)
+      .then(props.removeClinic(props.clinic));
   };
 
   return (

@@ -12,7 +12,11 @@ class HealthContacts extends Component {
             </div>
           </span>
           <div id={clinic.id} className="collapse">
-            <HealthContactInfo key={clinic.id} clinic={clinic} />
+            <HealthContactInfo
+              key={clinic.id}
+              clinic={clinic}
+              removeClinic={this.props.removeClinic}
+            />
           </div>
         </div>
       );
