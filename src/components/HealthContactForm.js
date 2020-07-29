@@ -64,21 +64,23 @@ const HealthContactForm = (props) => {
 
   const handleEditClinic = (e) => {
     e.preventDefault();
+    const data = {
+      id: props.clinic.id,
+      name: name.value,
+      practitioner: practitioner.value,
+      // location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
+      address: address.value,
+      address2: address2.value,
+      city: city.value,
+      state: state.value,
+      zip: zip.value,
+      number: number.value,
+      notes: notes.value,
+      patient_id: props.clinic.patient_id,
+    };
     api.clinics
-      .editClinic({
-        id: props.clinic.id,
-        name: name.value,
-        practitioner: practitioner.value,
-        // location: `${address.value} ${address2.value} ${city.value} ${state.value} ${zip.value}`,
-        address: address.value,
-        address2: address2.value,
-        city: city.value,
-        state: state.value,
-        zip: zip.value,
-        number: number.value,
-        notes: notes.value,
-        patient_id: props.clinic.patient_id,
-      })
+      .editClinic(data)
+      .then(props.updateClinic(data))
       .then(props.resetIsEdit ? props.resetIsEdit() : null);
   };
 

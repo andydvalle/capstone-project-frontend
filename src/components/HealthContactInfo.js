@@ -46,6 +46,7 @@ const HealthContactInfo = (props) => {
             isEdit={isEdit}
             resetIsEdit={resetIsEdit}
             clinic={props.clinic}
+            updateClinic={props.updateClinic}
           />
         </div>
       ) : (

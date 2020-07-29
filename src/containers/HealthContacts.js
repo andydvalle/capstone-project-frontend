@@ -16,6 +16,7 @@ class HealthContacts extends Component {
               key={clinic.id}
               clinic={clinic}
               removeClinic={this.props.removeClinic}
+              updateClinic={this.props.updateClinic}
             />
           </div>
         </div>

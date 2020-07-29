@@ -129,6 +129,7 @@ class ProfileView extends Component {
               clinics={foundProfile.clinics}
               profileId={foundProfile.id}
               removeClinic={this.props.removeClinic}
+              updateClinic={this.props.updateClinic}
             />
           )}
         ></Route>
