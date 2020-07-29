@@ -17,6 +17,7 @@ const FormModal = (props) => {
         <AppointmentForm
           clinics={props.foundProfile.clinics}
           patientId={props.profileId}
+          addAppointment={props.addAppointment}
         />
       );
     } else if (forms === "Medication") {

@@ -45,6 +45,10 @@ class Dashboard extends Component {
     // setPatients(updatedPatients);
   };
 
+  addAppointment = (data) => {
+    console.log("hi", data);
+  };
+
   // const handleClickOutside = (e) => {
   //   const { current: wrap } = wrapperRef;
   //   if (wrap && !wrap.contains(e.target)) {
@@ -188,6 +192,7 @@ class Dashboard extends Component {
               currentUser={this.props.currentUser}
               patients={this.state.patients}
               handleLogout={this.props.handleLogout}
+              addAppointment={this.addAppointment}
             />
           )}
         ></Route>

@@ -30,14 +30,15 @@ const AppointmentForm = (props) => {
   const handlePostAppointment = (e) => {
     e.preventDefault();
     e.persist();
-    api.appointments.postAppointment({
+    const data = {
       title: title.value,
       date: date.value,
       time: time.value,
       notes: notes.value,
       clinic_id: clinic_id.value,
       patient_id: props.patientId,
-    });
+    };
+    api.appointments.postAppointment(data).then(props.addAppointment(data));
     resetFields();
   };
 

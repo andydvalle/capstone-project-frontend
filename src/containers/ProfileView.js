@@ -125,7 +125,11 @@ class ProfileView extends Component {
             />
           )}
         ></Route>
-        <FormModal foundProfile={foundProfile} profileId={foundProfile.id} />
+        <FormModal
+          foundProfile={foundProfile}
+          profileId={foundProfile.id}
+          addAppointment={this.props.addAppointment}
+        />
       </div>
     );
   }
