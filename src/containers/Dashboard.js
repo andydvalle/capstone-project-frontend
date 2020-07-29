@@ -60,6 +60,22 @@ class Dashboard extends Component {
     });
   };
 
+  addMedication = (data) => {
+    // console.log("hi from dashboard", data);
+    const foundPatient = this.state.patients.find(
+      (patient) => (patient.id = data.patient_id)
+    );
+    const newMedications = [...foundPatient.medications, data];
+    const updatedPatients = this.state.patients.map((patient) =>
+      patient.id !== data.patient_id
+        ? patient
+        : { ...patient, medications: newMedications }
+    );
+    this.setState({
+      patients: updatedPatients,
+    });
+  };
+
   // const handleClickOutside = (e) => {
   //   const { current: wrap } = wrapperRef;
   //   if (wrap && !wrap.contains(e.target)) {
@@ -204,6 +220,7 @@ class Dashboard extends Component {
               patients={this.state.patients}
               handleLogout={this.props.handleLogout}
               addAppointment={this.addAppointment}
+              addMedication={this.addMedication}
             />
           )}
         ></Route>

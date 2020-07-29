@@ -21,7 +21,12 @@ const FormModal = (props) => {
         />
       );
     } else if (forms === "Medication") {
-      return <MedicationForm patientId={props.profileId} />;
+      return (
+        <MedicationForm
+          patientId={props.profileId}
+          addMedication={props.addMedication}
+        />
+      );
     } else if (forms === "Condition") {
       return <ConditionForm patientId={props.profileId} />;
     } else if (forms === "Contact") {

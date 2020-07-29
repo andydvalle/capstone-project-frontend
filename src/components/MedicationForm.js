@@ -90,21 +90,23 @@ const MedicationForm = (props) => {
 
   const handlePostMedication = (e) => {
     e.preventDefault();
+    const data = {
+      name_route: search,
+      strength: searchStrength,
+      instructions: instructions.value,
+      notes: notes.value,
+      sunday: sunday.value,
+      monday: monday.value,
+      tuesday: tuesday.value,
+      wednesday: wednesday.value,
+      thursday: thursday.value,
+      friday: friday.value,
+      saturday: saturday.value,
+      patient_id: props.patientId,
+    };
     api.medications
-      .postMedication({
-        name_route: search,
-        strength: searchStrength,
-        instructions: instructions.value,
-        notes: notes.value,
-        sunday: sunday.value,
-        monday: monday.value,
-        tuesday: tuesday.value,
-        wednesday: wednesday.value,
-        thursday: thursday.value,
-        friday: friday.value,
-        saturday: saturday.value,
-        patient_id: props.patientId,
-      })
+      .postMedication(data)
+      .then(props.addMedication(data))
       .then(resetFields());
   };
 
