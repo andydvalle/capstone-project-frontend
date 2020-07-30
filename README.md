@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Simple Care - Frontend
 
-## Available Scripts
+Simple Care is a task management tool for anyone who finds themself in a caregiver role, one who takes care of another person or loved one.
+This [link](https://github.com/andydvalle/capstone-project-backend) will direct you to the backend repository.
 
-In the project directory, you can run:
+## Motivation
 
-### `yarn start`
+In my previous experience in health care, often times I've noticed it is the patient's loved ones that are managing their care. They have to remember all the medications, health conditions, and health events that happens to the patient. Healthcare can be very complicated. Simlple Care was created to help caregivers manage the care of their loved one in a simple easy to use application.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. Clone this repository
+2. Run the backend server - refer to [backend](https://github.com/andydvalle/capstone-project-backend) repository
+3. Run `npm install && npm start` in terminal
+4. Expect a broswer tab to open automatically
+5. Create an account and start using Simple Care
 
-### `yarn test`
+## Features
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users can:
 
-### `yarn build`
+- Create an account, login and signout.
+- Create, read, update, and delete Profiles
+- Create, read, updated, and delete Appointments, Medications, Conditions, and Health Contacts
+- View a today schedule with checklist items and calendar view of past and future appointments.
+- Add items using a dynamic form with autocomplete search fields and controlled options.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![](SimpleCare.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technology Used
 
-### `yarn eject`
+- React
+- Rails as API
+- JavaScript
+- Boostrap
+- HTML/CSS
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributions
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Authors
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Andy del Valle - Frontend/Backend Development - [GitHub](https://github.com/andydvalle), [LinkedIn](https://www.linkedin.com/in/andydelvalle/)
+- Robbin Arcega - UX/UI Design - [LinkedIn](https://www.linkedin.com/in/robbinarcega/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Special Thanks To
 
-## Learn More
+- [NLM (National Library of Medicine) Clinical Search Table](https://clinicaltables.nlm.nih.gov/apidoc/conditions/v3/doc.html)
+- [React Big Calendar](https://www.npmjs.com/package/react-big-calendar)
+- [Moment](https://www.npmjs.com/package/react-moment)
+- [React Avatar](https://www.npmjs.com/package/react-avatar)
+- [Undraw](https://undraw.co/) open source illustrations
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Licensing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
-### Code Splitting
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+For a copy of the GNU General Public License along write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
