@@ -419,6 +419,7 @@ input[type="checkbox"]:checked + label.strikethrough {
 
 .navbar {
   background: rgba(0, 137, 123, 0.2);
+  z-index: 1;
 }
 /* 
 .card-title {
