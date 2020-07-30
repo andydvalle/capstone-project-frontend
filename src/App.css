@@ -445,6 +445,9 @@ input[type="checkbox"]:checked + label.strikethrough {
 .card-link {
   color: #4ebaaa;
 }
+.card-link:hover {
+  color: #00897b;
+}
 
 /* .img-overlay-wrap:hover {
   transform: rotate(15deg);
