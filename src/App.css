@@ -421,6 +421,20 @@ input[type="checkbox"]:checked + label.strikethrough {
   background: rgba(0, 137, 123, 0.2);
   z-index: 1;
 }
+.navbar-brand {
+  color: #2e2e2e;
+  font-weight: bold;
+}
+.navbar-brand:hover {
+  color: #005b4f;
+}
+
+.nav-link {
+  color: #2e2e2e;
+}
+.nav-link:hover {
+  color: #005b4f;
+}
 /* 
 .card-title {
   color: #005b4f;
