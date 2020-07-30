@@ -117,7 +117,7 @@ class Navbar extends Component {
               <li onClick={this.handleSignout}>Signout</li>
             </Link>
           </ul>
-          <div className="social_media">
+          {/* <div className="social_media">
             <a href="#">
               <i className="fab fa-linkedin-in"></i>
             </a>
@@ -127,7 +127,7 @@ class Navbar extends Component {
             <a href="#">
               <i className="fab fa-github"></i>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     );

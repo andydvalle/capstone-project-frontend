@@ -115,7 +115,8 @@
 #patient-dropdown {
   color: #fafafa;
   background: none;
-  outline-color: transparent;
+  /* outline-color: #00897b; */
+  outline-style: none;
   text-align: center;
   font-size: 14pt;
   font-weight: bold;
@@ -423,7 +424,7 @@ input[type="checkbox"]:checked + label.strikethrough {
 }
 .navbar-brand {
   color: #2e2e2e;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 .navbar-brand:hover {
   color: #005b4f;
@@ -435,11 +436,15 @@ input[type="checkbox"]:checked + label.strikethrough {
 .nav-link:hover {
   color: #005b4f;
 }
-/* 
+
 .card-title {
-  color: #005b4f;
-  font-weight: bold;
-} */
+  color: #00897b;
+  /* font-weight: bold; */
+}
+
+.card-link {
+  color: #4ebaaa;
+}
 
 /* .img-overlay-wrap:hover {
   transform: rotate(15deg);
