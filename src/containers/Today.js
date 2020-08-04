@@ -33,12 +33,15 @@ const Today = (props) => {
   };
 
   const getDate = () => {
-    const d = new Date();
-    const mm = `0${+d.getMonth() + 1}`;
-    const yyyy = `${d.getFullYear()}`;
-    const dd = `${d.getDate()}`;
-    const dStr = `${yyyy}-${mm}-${dd}`;
-    return dStr;
+    let d = new Date(),
+      month = "" + (d.getMonth() + 1),
+      day = "" + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+
+    return [year, month, day].join("-");
   };
 
   const [day] = useState(weekday());
