@@ -79,6 +79,7 @@ const editPatient = (data) => {
 
 // DELETE fetch patient/profile
 const deletePatient = (patientId) => {
+  console.log(patientId);
   const URL = `http://localhost:3000/api/v1/patients/${patientId}`;
   return fetch(URL, {
     method: "DELETE",

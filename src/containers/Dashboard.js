@@ -42,7 +42,7 @@ class Dashboard extends Component {
   };
 
   updatePatient = (data) => {
-    console.log(data, this.state.patients[0]);
+    console.log(data);
     const newPatients = this.state.patients.map((patient) =>
       patient.id !== data.id ? patient : { ...patient, ...data }
     );
