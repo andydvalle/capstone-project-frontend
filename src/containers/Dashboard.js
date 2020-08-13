@@ -10,20 +10,11 @@ import NoteList from "../svgs/NoteList";
 import Ellipse1 from "../svgs/Ellipse1";
 
 class Dashboard extends Component {
-  // const [patients, setPatients] = useState([]);
-  // const [foundPatient, setFoundPatient] = useState({});
-  // const [isEdit, setIsEdit] = useState(false);
-  // const wrapperRef = useRef(null);
-
   state = {
     patients: [],
     foundPatient: {},
     isEdit: false,
   };
-
-  // const handleClick = () => {
-  //   props.onSignout();
-  // };
 
   getPatients = () => {
     api.patients.fetchPatients().then((data) => {
