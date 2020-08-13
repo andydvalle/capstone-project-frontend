@@ -30,7 +30,7 @@ const signup = (data) => {
 
 //get fetch the current user after login
 const getCurrentUser = () => {
-  const URL = "http://localhost:3000/api/v1/current_user";
+  const URL = "https://simple-care-app-api.herokuapp.com/api/v1/current_user";
   return fetch(URL, {
     headers: headers(),
   }).then((resp) => {
@@ -38,22 +38,15 @@ const getCurrentUser = () => {
   });
 };
 
-// //GET fetch all users
-// const getAllUsers = () => {
-//     const URL = 'http://localhost:3000/api/v1/users'
-//     return fetch(URL)
-//     .then(resp => resp.json())
-// }
-
 // GET fetch all patients
 const fetchPatients = () => {
-  const URL = "http://localhost:3000/api/v1/patients";
+  const URL = "https://simple-care-app-api.herokuapp.com/api/v1/patients";
   return fetch(URL, { headers: headers() }).then((resp) => resp.json());
 };
 
 // POST fetch patient/profile
 const postPatient = (data) => {
-  const URL = "http://localhost:3000/api/v1/patients";
+  const URL = "https://simple-care-app-api.herokuapp.com/api/v1/patients";
   return fetch(URL, {
     method: "POST",
     headers: headers(),
@@ -64,7 +57,7 @@ const postPatient = (data) => {
 // EDIT fetch patient/profile
 const editPatient = (data) => {
   console.log(data);
-  const URL = `http://localhost:3000/api/v1/patients/${data.id}`;
+  const URL = `https://simple-care-app-api.herokuapp.com/api/v1/patients/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
     headers: headers(),
@@ -80,7 +73,7 @@ const editPatient = (data) => {
 // DELETE fetch patient/profile
 const deletePatient = (patientId) => {
   console.log(patientId);
-  const URL = `http://localhost:3000/api/v1/patients/${patientId}`;
+  const URL = `https://simple-care-app-api.herokuapp.com/api/v1/patients/${patientId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
@@ -88,14 +81,14 @@ const deletePatient = (patientId) => {
 
 // GET fetch all appointments
 const fetchAppointments = () => {
-  const URL = "http://localhost:3000/api/v1/appointments";
+  const URL = "https://simple-care-app-api.herokuapp.com/api/v1/appointments";
   return fetch(URL).then((resp) => resp.json());
 };
 
 // POST fetch appointment
 const postAppointment = (data) => {
   console.log(data);
-  const URL = "http://localhost:3000/api/v1/appointments";
+  const URL = "https://simple-care-app-api.herokuapp.com/api/v1/appointments";
   return fetch(URL, {
     method: "POST",
     headers: headers(),
@@ -106,7 +99,7 @@ const postAppointment = (data) => {
 //PATCH fetch appointment
 const editAppointment = (data) => {
   console.log(data);
-  const URL = `http://localhost:3000/api/v1/appointments/${data.id}`;
+  const URL = `https://simple-care-app-api.herokuapp.com/api/v1/appointments/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
     headers: headers(),
@@ -124,7 +117,7 @@ const editAppointment = (data) => {
 //DELETE fetch appointment
 const deleteAppointment = (patientId) => {
   // console.log(patientId);
-  const URL = `http://localhost:3000/api/v1/appointments/${patientId}`;
+  const URL = `https://simple-care-app-api.herokuapp.com/api/v1/appointments/${patientId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
@@ -132,14 +125,14 @@ const deleteAppointment = (patientId) => {
 
 // GET fetch all medications
 const fetchMedications = () => {
-  const URL = "http://localhost:3000/api/v1/medications";
+  const URL = "https://simple-care-app-api.herokuapp.com/api/v1/medications";
   return fetch(URL).then((resp) => resp.json());
 };
 
 // POST fetch medication
 const postMedication = (data) => {
   console.log(data);
-  const URL = "http://localhost:3000/api/v1/medications";
+  const URL = "https://simple-care-app-api.herokuapp.com/api/v1/medications";
   return fetch(URL, {
     method: "POST",
     headers: headers(),
@@ -150,7 +143,7 @@ const postMedication = (data) => {
 //PATCH fetch medication
 const editMedication = (data) => {
   console.log(data);
-  const URL = `http://localhost:3000/api/v1/medications/${data.id}`;
+  const URL = `https://simple-care-app-api.herokuapp.com/api/v1/medications/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
     headers: headers(),
@@ -174,7 +167,7 @@ const editMedication = (data) => {
 //DELETE fetch medication
 const deleteMedication = (patientId) => {
   // console.log(patientId);
-  const URL = `http://localhost:3000/api/v1/medications/${patientId}`;
+  const URL = `https://simple-care-app-api.herokuapp.com/api/v1/medications/${patientId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
@@ -182,14 +175,14 @@ const deleteMedication = (patientId) => {
 
 // GET fetch all conditions
 const fetchConditions = () => {
-  const URL = "http://localhost:3000/api/v1/conditions";
+  const URL = "https://simple-care-app-api.herokuapp.com/api/v1/conditions";
   return fetch(URL).then((resp) => resp.json());
 };
 
 // POST fetch condition
 const postCondition = (data) => {
   console.log(data);
-  const URL = "http://localhost:3000/api/v1/conditions";
+  const URL = "https://simple-care-app-api.herokuapp.com/api/v1/conditions";
   return fetch(URL, {
     method: "POST",
     headers: headers(),
@@ -200,7 +193,7 @@ const postCondition = (data) => {
 //PATCH fetch condition
 const editCondition = (data) => {
   console.log(data);
-  const URL = `http://localhost:3000/api/v1/conditions/${data.id}`;
+  const URL = `https://simple-care-app-api.herokuapp.com/api/v1/conditions/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
     headers: headers(),
@@ -215,21 +208,21 @@ const editCondition = (data) => {
 //DELETE fetch condition
 const deleteCondition = (patientId) => {
   // console.log(patientId);
-  const URL = `http://localhost:3000/api/v1/conditions/${patientId}`;
+  const URL = `https://simple-care-app-api.herokuapp.com/api/v1/conditions/${patientId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
 };
 // GET fetch all clinics
 const fetchClinics = () => {
-  const URL = "http://localhost:3000/api/v1/clinics";
+  const URL = "https://simple-care-app-api.herokuapp.com/api/v1/clinics";
   return fetch(URL).then((resp) => resp.json());
 };
 
 // POST fetch clnic
 const postClinic = (data) => {
   console.log(data);
-  const URL = "http://localhost:3000/api/v1/clinics";
+  const URL = "https://simple-care-app-api.herokuapp.com/api/v1/clinics";
   return fetch(URL, {
     method: "POST",
     headers: headers(),
@@ -240,7 +233,7 @@ const postClinic = (data) => {
 //PATCH fetch clinic
 const editClinic = (data) => {
   console.log(data);
-  const URL = `http://localhost:3000/api/v1/clinics/${data.id}`;
+  const URL = `https://simple-care-app-api.herokuapp.com/api/v1/clinics/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
     headers: headers(),
@@ -262,7 +255,7 @@ const editClinic = (data) => {
 //DELETE fetch clinic
 const deleteClinic = (patientId) => {
   // console.log(patientId);
-  const URL = `http://localhost:3000/api/v1/clinics/${patientId}`;
+  const URL = `https://simple-care-app-api.herokuapp.com/api/v1/clinics/${patientId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
