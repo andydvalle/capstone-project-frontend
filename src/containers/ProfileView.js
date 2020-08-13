@@ -5,7 +5,6 @@ import Conditions from "./Conditions";
 import Medications from "./Medications";
 import Appointments from "./Appointments";
 import HealthContacts from "./HealthContacts";
-// import ProfileInfo from "../components/ProfileInfo";
 import Today from "./Today";
 import ThisWeek from "./ThisWeek";
 import ThisMonth from "./ThisMonth";
