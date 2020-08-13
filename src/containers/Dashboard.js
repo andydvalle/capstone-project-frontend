@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect, useRef } from "react";
-import { Route, Link } from "react-router-dom";
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import AuthHOC from "../HOCs/AuthHOC";
 import ProfileView from "./ProfileView";
 import Profile from "./Profile";
@@ -16,9 +16,12 @@ class Dashboard extends Component {
     isEdit: false,
   };
 
+  componentDidMount() {
+    this.getPatients();
+  }
+
   getPatients = () => {
     api.patients.fetchPatients().then((data) => {
-      // setPatients(data);
       this.setState({
         patients: data,
       });
@@ -50,7 +53,6 @@ class Dashboard extends Component {
     this.setState({
       patients: updatedPatients,
     });
-    // setPatients(updatedPatients);
   };
 
   addAppointment = (data) => {
@@ -100,11 +102,9 @@ class Dashboard extends Component {
     this.setState({
       patients: updatedPatients,
     });
-    // console.log("hi from dash", newAppointments);
   };
 
   addMedication = (data) => {
-    // console.log("hi from dashboard", data);
     const foundPatient = this.state.patients.find(
       (patient) => (patient.id = data.patient_id)
     );
@@ -151,11 +151,9 @@ class Dashboard extends Component {
     this.setState({
       patients: updatedPatients,
     });
-    // console.log("hi from dash", newAppointments);
   };
 
   addCondition = (data) => {
-    // console.log("hi from dashboard", data);
     const foundPatient = this.state.patients.find(
       (patient) => (patient.id = data.patient_id)
     );
@@ -202,11 +200,9 @@ class Dashboard extends Component {
     this.setState({
       patients: updatedPatients,
     });
-    // console.log("hi from dash", newAppointments);
   };
 
   addClinic = (data) => {
-    // console.log("hi from dashboard", data);
     const foundPatient = this.state.patients.find(
       (patient) => (patient.id = data.patient_id)
     );
@@ -253,32 +249,7 @@ class Dashboard extends Component {
     this.setState({
       patients: updatedPatients,
     });
-    // console.log("hi from dash", newAppointments);
   };
-
-  // const handleClickOutside = (e) => {
-  //   const { current: wrap } = wrapperRef;
-  //   if (wrap && !wrap.contains(e.target)) {
-  //     console.log("wrap", wrap);
-  //     setFoundPatient({});
-  //     setIsEdit(false);
-  //   }
-  //   console.log(`e target, ${e.target}`);
-  //   console.log("e", e);
-  // };
-
-  // useEffect(() => {
-  //   getPatients();
-  //   // document.addEventListener("mousedown", handleClickOutside);
-
-  //   // return () => {
-  //   //   document.removeEventListener("mousedown", handleClickOutside);
-  //   // };
-  // }, []);
-
-  componentDidMount() {
-    this.getPatients();
-  }
 
   editClick = (profile) => {
     console.log(profile);
@@ -286,8 +257,6 @@ class Dashboard extends Component {
       foundPatient: profile,
       isEdit: true,
     });
-    // setFoundPatient(profile);
-    // setIsEdit(true);
   };
 
   resetEdit = () => {
@@ -295,8 +264,6 @@ class Dashboard extends Component {
       foundPatient: {},
       isEdit: false,
     });
-    // setFoundPatient({});
-    // setIsEdit(false);
   };
 
   renderProfiles = () => {
