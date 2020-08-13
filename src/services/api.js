@@ -12,7 +12,7 @@ const headers = () => {
 
 //sends login information to backend, auth#create
 const login = (data) => {
-  return fetch("http://localhost:3000/api/v1/auth", {
+  return fetch("https://simple-care-app-api.herokuapp.com/api/v1/auth", {
     method: "POST",
     headers: headers(),
     body: JSON.stringify(data),
@@ -21,7 +21,7 @@ const login = (data) => {
 
 //sends signup information to backend, users#create
 const signup = (data) => {
-  return fetch("http://localhost:3000/api/v1/users", {
+  return fetch("https://simple-care-app-api.herokuapp.com/api/v1/users", {
     method: "POST",
     headers: headers(),
     body: JSON.stringify(data),
