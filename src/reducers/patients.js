@@ -1,6 +1,6 @@
 const patientsReducer = (state = { patients: [], loading: false }, action) => {
   switch (action.type) {
-    case "FETCH_PATIENTS_SUCCESS":
+    case "LOADING_PATIENTS":
       //debugger here => check if payload is coming in correctly
       return { ...state, patients: [...state.patients], loading: true };
     //EDIT patients case "PATIENTS_EDIT" return [...state, editPatient]
