@@ -8,13 +8,8 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import allReducer from "./reducers";
-// import axios from "axios";
 
-const store = createStore(
-  allReducer,
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(thunk)
-);
+const store = createStore(allReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
