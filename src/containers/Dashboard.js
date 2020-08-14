@@ -35,6 +35,7 @@ class Dashboard extends Component {
     //   patients: newPatients,
     // });
     this.getPatients();
+    console.log(this.state.patients);
   };
 
   updatePatient = (data) => {
