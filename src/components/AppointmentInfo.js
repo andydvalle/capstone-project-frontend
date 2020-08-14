@@ -40,9 +40,7 @@ const AppointmentInfo = (props) => {
   };
 
   const handleDelete = () => {
-    api.appointments
-      .deleteAppointment(props.appointment.id)
-      .then(props.removeAppointment(props.appointment));
+    props.removeAppointment(props.appointment);
   };
 
   return (
