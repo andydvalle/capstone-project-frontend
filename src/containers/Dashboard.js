@@ -174,12 +174,10 @@ class Dashboard extends Component {
   };
 
   addCondition = (data) => {
-    console.log(this.state.patients);
     api.conditions.postCondition(data).then((respJSON) => {
       const foundPatient = this.state.patients.find(
         (patient) => (patient.id = data.patient_id)
       );
-      console.log(foundPatient);
       const newConditions = [...foundPatient.conditions, data];
       const updatedPatients = this.state.patients.map((patient) =>
         patient.id !== data.patient_id
