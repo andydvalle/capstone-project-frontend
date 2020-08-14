@@ -29,13 +29,11 @@ class Dashboard extends Component {
   };
 
   addPatient = (data) => {
-    console.log(data);
-    // const newPatients = [...this.state.patients, data];
-    // this.setState({
-    //   patients: newPatients,
-    // });
-    this.getPatients();
-    console.log(this.state.patients);
+    api.patients.postPatient(data).then((respJSON) =>
+      this.setState({
+        patients: [...this.state.patients, respJSON],
+      })
+    );
   };
 
   updatePatient = (data) => {

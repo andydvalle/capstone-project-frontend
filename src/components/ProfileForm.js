@@ -43,10 +43,12 @@ const ProfileForm = (props) => {
       allergies: allergies.value,
       user_id: props.currentUser.id,
     };
-    api.patients
-      .postPatient(data)
-      .then(props.addPatient(data))
-      .then(resetFields());
+    // api.patients
+    //   .postPatient(data)
+    //   .then(props.addPatient(data))
+    //   .then(resetFields());
+    props.addPatient(data);
+    resetFields();
   };
 
   const handleEditProfile = (e) => {
