@@ -227,51 +227,57 @@ class Dashboard extends Component {
   };
 
   addClinic = (data) => {
-    const foundPatient = this.state.patients.find(
-      (patient) => (patient.id = data.patient_id)
-    );
-    const newClinics = [...foundPatient.clinics, data];
-    const updatedPatients = this.state.patients.map((patient) =>
-      patient.id !== data.patient_id
-        ? patient
-        : { ...patient, clinics: newClinics }
-    );
-    this.setState({
-      patients: updatedPatients,
+    api.clinics.postClinic(data).then((respJSON) => {
+      const foundPatient = this.state.patients.find(
+        (patient) => (patient.id = data.patient_id)
+      );
+      const newClinics = [...foundPatient.clinics, data];
+      const updatedPatients = this.state.patients.map((patient) =>
+        patient.id !== data.patient_id
+          ? patient
+          : { ...patient, clinics: newClinics }
+      );
+      this.setState({
+        patients: updatedPatients,
+      });
     });
   };
 
   updateClinic = (data) => {
-    const foundPatient = this.state.patients.find(
-      (patient) => (patient.id = data.patient_id)
-    );
-    const newClinics = foundPatient.clinics.map((clinic) =>
-      clinic.id !== data.id ? clinic : data
-    );
-    const updatedPatients = this.state.patients.map((patient) =>
-      patient.id !== data.patient_id
-        ? patient
-        : { ...patient, clinics: newClinics }
-    );
-    this.setState({
-      patients: updatedPatients,
+    api.clinics.editClinic(data).then((respJSON) => {
+      const foundPatient = this.state.patients.find(
+        (patient) => (patient.id = data.patient_id)
+      );
+      const newClinics = foundPatient.clinics.map((clinic) =>
+        clinic.id !== data.id ? clinic : data
+      );
+      const updatedPatients = this.state.patients.map((patient) =>
+        patient.id !== data.patient_id
+          ? patient
+          : { ...patient, clinics: newClinics }
+      );
+      this.setState({
+        patients: updatedPatients,
+      });
     });
   };
 
   removeClinic = (data) => {
-    const foundPatient = this.state.patients.find(
-      (patient) => (patient.id = data.patient_id)
-    );
-    const newClinics = foundPatient.clinics.filter(
-      (clinic) => clinic.id !== data.id
-    );
-    const updatedPatients = this.state.patients.map((patient) =>
-      patient.id !== data.patient_id
-        ? patient
-        : { ...patient, clinics: newClinics }
-    );
-    this.setState({
-      patients: updatedPatients,
+    api.clinics.deleteClinic(data.id).then((respJSON) => {
+      const foundPatient = this.state.patients.find(
+        (patient) => (patient.id = data.patient_id)
+      );
+      const newClinics = foundPatient.clinics.filter(
+        (clinic) => clinic.id !== data.id
+      );
+      const updatedPatients = this.state.patients.map((patient) =>
+        patient.id !== data.patient_id
+          ? patient
+          : { ...patient, clinics: newClinics }
+      );
+      this.setState({
+        patients: updatedPatients,
+      });
     });
   };
 

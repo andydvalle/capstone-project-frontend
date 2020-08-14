@@ -1,5 +1,4 @@
 import React from "react";
-import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
 const HealthContactForm = (props) => {
@@ -55,10 +54,8 @@ const HealthContactForm = (props) => {
       notes: notes.value,
       patient_id: props.patientId,
     };
-    api.clinics
-      .postClinic(data)
-      .then(props.addClinic(data))
-      .then(resetFields());
+    props.addClinic(data);
+    resetFields();
   };
 
   const handleEditClinic = (e) => {
@@ -76,10 +73,13 @@ const HealthContactForm = (props) => {
       notes: notes.value,
       patient_id: props.clinic.patient_id,
     };
-    api.clinics
-      .editClinic(data)
-      .then(props.updateClinic(data))
-      .then(props.resetIsEdit ? props.resetIsEdit() : null);
+
+    props.updateClinic(data);
+    if (props.resetIsEdit) {
+      props.resetIsEdit();
+    } else {
+      return null;
+    }
   };
 
   return (

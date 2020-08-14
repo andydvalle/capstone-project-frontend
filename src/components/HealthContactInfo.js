@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import HealthContactForm from "./HealthContactForm";
-import { api } from "../services/api";
 
 const HealthContactInfo = (props) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -32,9 +31,7 @@ const HealthContactInfo = (props) => {
   };
 
   const handleDelete = () => {
-    api.clinics
-      .deleteClinic(props.clinic.id)
-      .then(props.removeClinic(props.clinic));
+    props.removeClinic(props.clinic);
   };
 
   return (
