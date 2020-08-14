@@ -12,12 +12,13 @@ import Ellipse1 from "../svgs/Ellipse1";
 class Dashboard extends Component {
   state = {
     patients: [],
-    foundPatient: {},
+    foundProfile: {},
     isEdit: false,
   };
 
   componentDidMount() {
     this.getPatients();
+    console.log("hi from componentDidMount");
   }
 
   getPatients = () => {
@@ -26,6 +27,7 @@ class Dashboard extends Component {
         patients: data,
       });
     });
+    console.log("hi from getPatients");
   };
 
   addPatient = (data) => {
@@ -172,10 +174,12 @@ class Dashboard extends Component {
   };
 
   addCondition = (data) => {
+    console.log(this.state.patients);
     api.conditions.postCondition(data).then((respJSON) => {
       const foundPatient = this.state.patients.find(
         (patient) => (patient.id = data.patient_id)
       );
+      console.log(foundPatient);
       const newConditions = [...foundPatient.conditions, data];
       const updatedPatients = this.state.patients.map((patient) =>
         patient.id !== data.patient_id
@@ -284,14 +288,14 @@ class Dashboard extends Component {
   editClick = (profile) => {
     console.log(profile);
     this.setState({
-      foundPatient: profile,
+      foundProfile: profile,
       isEdit: true,
     });
   };
 
   resetEdit = () => {
     this.setState({
-      foundPatient: {},
+      foundProfile: {},
       isEdit: false,
     });
   };
@@ -314,6 +318,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
+        {console.log(this.state.patients)}
         {window.location.pathname === "/dashboard" ? (
           <>
             <DashboardHeader
@@ -359,7 +364,7 @@ class Dashboard extends Component {
                     >
                       <div className="form-modal">
                         {this.state.isEdit
-                          ? `Edit ${this.state.foundPatient.firstName}`
+                          ? `Edit ${this.state.foundProfile.firstName}`
                           : "New Profile"}
                         <button
                           type="button"
@@ -374,7 +379,7 @@ class Dashboard extends Component {
                       </div>
                       <div className="modal-body">
                         <ProfileForm
-                          foundProfile={this.state.foundPatient}
+                          foundProfile={this.state.foundProfile}
                           isEdit={this.state.isEdit}
                           currentUser={this.props.currentUser}
                           resetEdit={this.resetEdit}

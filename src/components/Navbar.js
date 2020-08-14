@@ -1,20 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import avatar from "../images/img_avatar3.png";
 import Avatar from "react-avatar";
 
 class Navbar extends Component {
-  getProfile = () => {
-    const id = this.props.match.params.id;
-    let foundProfile = {};
-    for (let patient of this.props.patients) {
-      if (patient.id == id) {
-        foundProfile = patient;
-      }
-    }
-    return foundProfile;
-  };
-
   handleSignout = () => {
     this.props.handleLogout();
   };
@@ -34,7 +22,6 @@ class Navbar extends Component {
   };
 
   render() {
-    const { name, id } = this.props.patients;
     return (
       <div className="wrapper">
         <div className="sidebar">
@@ -50,12 +37,6 @@ class Navbar extends Component {
             textSizeRatio="10"
             textMarginRatio="1"
           />
-          {/* <img
-            src={avatar}
-            className="avatar"
-            alt="Avatar"
-            style={{ align: "center", width: "45%" }}
-          /> */}
           <h2>
             {/* Patient's Schedule */}
             <select
