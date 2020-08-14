@@ -37,12 +37,13 @@ class Dashboard extends Component {
   };
 
   updatePatient = (data) => {
-    console.log(data);
-    const newPatients = this.state.patients.map((patient) =>
-      patient.id !== data.id ? patient : { ...patient, ...data }
-    );
-    this.setState({
-      patients: newPatients,
+    api.patients.editPatient(data).then((respJSON) => {
+      const newPatients = this.state.patients.map((patient) =>
+        patient.id !== data.id ? patient : { ...patient, ...data }
+      );
+      this.setState({
+        patients: newPatients,
+      });
     });
   };
 

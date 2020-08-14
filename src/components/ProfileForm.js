@@ -43,10 +43,6 @@ const ProfileForm = (props) => {
       allergies: allergies.value,
       user_id: props.currentUser.id,
     };
-    // api.patients
-    //   .postPatient(data)
-    //   .then(props.addPatient(data))
-    //   .then(resetFields());
     props.addPatient(data);
     resetFields();
   };
@@ -61,10 +57,12 @@ const ProfileForm = (props) => {
       allergies: allergies.value,
       user_id: props.currentUser.id,
     };
-    api.patients
-      .editPatient(data)
-      .then(props.updatePatient(data))
-      .then(props.resetEdit());
+    // api.patients
+    //   .editPatient(data)
+    //   .then(props.updatePatient(data))
+    //   .then(props.resetEdit());
+    props.updatePatient(data);
+    resetFields();
   };
 
   return (
