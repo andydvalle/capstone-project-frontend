@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import ConditionForm from "./ConditionForm";
-import { api } from "../services/api";
 
 const ConditionInfo = (props) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -30,10 +29,9 @@ const ConditionInfo = (props) => {
   };
 
   const handleDelete = () => {
-    api.conditions
-      .deleteCondition(props.condition.id)
-      .then(props.removeCondition(props.condition));
+    props.removeCondition(props.condition);
   };
+
   return (
     <div ref={wrapperRef} className="dropdown-info">
       {isEdit ? (

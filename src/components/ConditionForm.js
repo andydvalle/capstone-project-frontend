@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import useFormInput from "../FormInput";
-import { api } from "../services/api";
 
 const ConditionForm = (props) => {
   // //sets search table state
@@ -48,10 +47,8 @@ const ConditionForm = (props) => {
       notes: notes.value,
       patient_id: props.patientId,
     };
-    api.conditions
-      .postCondition(data)
-      .then(props.addCondition(data))
-      .then(resetFields());
+    props.addCondition(data);
+    resetFields();
   };
 
   const handleEditCondition = (e) => {
@@ -62,10 +59,12 @@ const ConditionForm = (props) => {
       notes: notes.value,
       patient_id: props.condition.patient_id,
     };
-    api.conditions
-      .editCondition(data)
-      .then(props.updateCondition(data))
-      .then(props.resetIsEdit ? props.resetIsEdit() : null);
+    props.updateCondition(data);
+    if (props.resetIsEdit) {
+      props.resetIsEdit();
+    } else {
+      return null;
+    }
   };
 
   //fetch request for search table

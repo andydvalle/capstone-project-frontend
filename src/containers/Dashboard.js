@@ -172,51 +172,57 @@ class Dashboard extends Component {
   };
 
   addCondition = (data) => {
-    const foundPatient = this.state.patients.find(
-      (patient) => (patient.id = data.patient_id)
-    );
-    const newConditions = [...foundPatient.conditions, data];
-    const updatedPatients = this.state.patients.map((patient) =>
-      patient.id !== data.patient_id
-        ? patient
-        : { ...patient, conditions: newConditions }
-    );
-    this.setState({
-      patients: updatedPatients,
+    api.conditions.postCondition(data).then((respJSON) => {
+      const foundPatient = this.state.patients.find(
+        (patient) => (patient.id = data.patient_id)
+      );
+      const newConditions = [...foundPatient.conditions, data];
+      const updatedPatients = this.state.patients.map((patient) =>
+        patient.id !== data.patient_id
+          ? patient
+          : { ...patient, conditions: newConditions }
+      );
+      this.setState({
+        patients: updatedPatients,
+      });
     });
   };
 
   updateCondition = (data) => {
-    const foundPatient = this.state.patients.find(
-      (patient) => (patient.id = data.patient_id)
-    );
-    const newConditions = foundPatient.conditions.map((condition) =>
-      condition.id !== data.id ? condition : data
-    );
-    const updatedPatients = this.state.patients.map((patient) =>
-      patient.id !== data.patient_id
-        ? patient
-        : { ...patient, conditions: newConditions }
-    );
-    this.setState({
-      patients: updatedPatients,
+    api.conditions.editCondition(data).then((respJSON) => {
+      const foundPatient = this.state.patients.find(
+        (patient) => (patient.id = data.patient_id)
+      );
+      const newConditions = foundPatient.conditions.map((condition) =>
+        condition.id !== data.id ? condition : data
+      );
+      const updatedPatients = this.state.patients.map((patient) =>
+        patient.id !== data.patient_id
+          ? patient
+          : { ...patient, conditions: newConditions }
+      );
+      this.setState({
+        patients: updatedPatients,
+      });
     });
   };
 
   removeCondition = (data) => {
-    const foundPatient = this.state.patients.find(
-      (patient) => (patient.id = data.patient_id)
-    );
-    const newConditions = foundPatient.conditions.filter(
-      (condition) => condition.id !== data.id
-    );
-    const updatedPatients = this.state.patients.map((patient) =>
-      patient.id !== data.patient_id
-        ? patient
-        : { ...patient, conditions: newConditions }
-    );
-    this.setState({
-      patients: updatedPatients,
+    api.conditions.deleteCondition(data.id).then((respJSON) => {
+      const foundPatient = this.state.patients.find(
+        (patient) => (patient.id = data.patient_id)
+      );
+      const newConditions = foundPatient.conditions.filter(
+        (condition) => condition.id !== data.id
+      );
+      const updatedPatients = this.state.patients.map((patient) =>
+        patient.id !== data.patient_id
+          ? patient
+          : { ...patient, conditions: newConditions }
+      );
+      this.setState({
+        patients: updatedPatients,
+      });
     });
   };
 
