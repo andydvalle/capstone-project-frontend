@@ -38,7 +38,6 @@ class Navbar extends Component {
             textMarginRatio="1"
           />
           <h2>
-            {/* Patient's Schedule */}
             <select
               id="patient-dropdown"
               value={this.props.foundProfile.id}
@@ -98,17 +97,6 @@ class Navbar extends Component {
               <li onClick={this.handleSignout}>Signout</li>
             </Link>
           </ul>
-          {/* <div className="social_media">
-            <a href="#">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="#">
-              <i className="fab fa-github"></i>
-            </a>
-          </div> */}
         </div>
       </div>
     );
