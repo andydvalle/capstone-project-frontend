@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
 const AppointmentForm = (props) => {
@@ -55,11 +54,10 @@ const AppointmentForm = (props) => {
     };
     props.updateAppointment(data);
     if (props.resetIsEdit) {
-      return props.resetIsEdit();
+      props.resetIsEdit();
     } else {
       return null;
     }
-    // props.resetIsEdit ? props.resetIsEdit() : null;
   };
 
   const getClinicOptions = () => {

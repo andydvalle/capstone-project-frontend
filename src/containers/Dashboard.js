@@ -117,51 +117,57 @@ class Dashboard extends Component {
   };
 
   addMedication = (data) => {
-    const foundPatient = this.state.patients.find(
-      (patient) => (patient.id = data.patient_id)
-    );
-    const newMedications = [...foundPatient.medications, data];
-    const updatedPatients = this.state.patients.map((patient) =>
-      patient.id !== data.patient_id
-        ? patient
-        : { ...patient, medications: newMedications }
-    );
-    this.setState({
-      patients: updatedPatients,
+    api.medications.postMedication(data).then((respJSON) => {
+      const foundPatient = this.state.patients.find(
+        (patient) => (patient.id = data.patient_id)
+      );
+      const newMedications = [...foundPatient.medications, data];
+      const updatedPatients = this.state.patients.map((patient) =>
+        patient.id !== data.patient_id
+          ? patient
+          : { ...patient, medications: newMedications }
+      );
+      this.setState({
+        patients: updatedPatients,
+      });
     });
   };
 
   updateMedication = (data) => {
-    const foundPatient = this.state.patients.find(
-      (patient) => (patient.id = data.patient_id)
-    );
-    const newMedications = foundPatient.medications.map((medication) =>
-      medication.id !== data.id ? medication : data
-    );
-    const updatedPatients = this.state.patients.map((patient) =>
-      patient.id !== data.patient_id
-        ? patient
-        : { ...patient, medications: newMedications }
-    );
-    this.setState({
-      patients: updatedPatients,
+    api.medications.editMedication(data).then((respJSON) => {
+      const foundPatient = this.state.patients.find(
+        (patient) => (patient.id = data.patient_id)
+      );
+      const newMedications = foundPatient.medications.map((medication) =>
+        medication.id !== data.id ? medication : data
+      );
+      const updatedPatients = this.state.patients.map((patient) =>
+        patient.id !== data.patient_id
+          ? patient
+          : { ...patient, medications: newMedications }
+      );
+      this.setState({
+        patients: updatedPatients,
+      });
     });
   };
 
   removeMedication = (data) => {
-    const foundPatient = this.state.patients.find(
-      (patient) => (patient.id = data.patient_id)
-    );
-    const newMedications = foundPatient.medications.filter(
-      (medication) => medication.id !== data.id
-    );
-    const updatedPatients = this.state.patients.map((patient) =>
-      patient.id !== data.patient_id
-        ? patient
-        : { ...patient, medications: newMedications }
-    );
-    this.setState({
-      patients: updatedPatients,
+    api.medications.deleteMedication(data.id).then((respJSON) => {
+      const foundPatient = this.state.patients.find(
+        (patient) => (patient.id = data.patient_id)
+      );
+      const newMedications = foundPatient.medications.filter(
+        (medication) => medication.id !== data.id
+      );
+      const updatedPatients = this.state.patients.map((patient) =>
+        patient.id !== data.patient_id
+          ? patient
+          : { ...patient, medications: newMedications }
+      );
+      this.setState({
+        patients: updatedPatients,
+      });
     });
   };
 

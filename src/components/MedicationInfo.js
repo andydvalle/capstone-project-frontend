@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import MedicationForm from "./MedicationForm";
-import { api } from "../services/api";
 
 const MedicationInfo = (props) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -30,9 +29,7 @@ const MedicationInfo = (props) => {
   };
 
   const handleDelete = () => {
-    api.medications
-      .deleteMedication(props.medication.id)
-      .then(props.removeMedication(props.medication));
+    props.removeMedication(props.medication);
   };
 
   return (

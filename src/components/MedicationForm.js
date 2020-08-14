@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import useFormInput from "../FormInput";
 import useBoxInput from "../BoxInput";
-import { api } from "../services/api";
 
 const MedicationForm = (props) => {
   //sets search table state med name
@@ -102,10 +101,8 @@ const MedicationForm = (props) => {
       saturday: saturday.value,
       patient_id: props.patientId,
     };
-    api.medications
-      .postMedication(data)
-      .then(props.addMedication(data))
-      .then(resetFields());
+    props.addMedication(data);
+    resetFields();
   };
 
   const handleEditMedication = (e) => {
@@ -125,10 +122,13 @@ const MedicationForm = (props) => {
       saturday: saturday.value,
       patient_id: props.medication.patient_id,
     };
-    api.medications
-      .editMedication(data)
-      .then(props.updateMedication(data))
-      .then(props.resetIsEdit ? props.resetIsEdit() : null);
+
+    props.updateMedication(data);
+    if (props.resetIsEdit) {
+      props.resetIsEdit();
+    } else {
+      return null;
+    }
   };
 
   const handleSearch = (e) => {
