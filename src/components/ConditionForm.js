@@ -12,7 +12,6 @@ const ConditionForm = (props) => {
   const wrapperRef = useRef(null);
 
   //uses custom hooks for field states
-  const [name, setName] = useFormInput("");
   const [notes, setNotes] = useFormInput(
     (props.condition && props.condition.notes) || ""
   );

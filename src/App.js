@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-
 import { Route } from "react-router-dom";
 import { api } from "./services/api";
 import Dashboard from "./containers/Dashboard";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import DashboardHeader from "./components/DashboardHeader";
 
 class App extends Component {
   state = {

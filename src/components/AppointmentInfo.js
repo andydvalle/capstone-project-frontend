@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import AppointmentForm from "./AppointmentForm";
-import { api } from "../services/api";
 
 const AppointmentInfo = (props) => {
   const [isEdit, setIsEdit] = useState(false);

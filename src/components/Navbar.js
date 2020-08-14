@@ -34,8 +34,8 @@ class Navbar extends Component {
             className="avatar"
             name={`${this.props.foundProfile.firstName} ${this.props.foundProfile.lastName}`}
             color="#4EBAAA"
-            textSizeRatio="10"
-            textMarginRatio="1"
+            textSizeRatio={10}
+            textMarginRatio={1}
           />
           <h2>
             <select

@@ -12,7 +12,11 @@ const Today = (props) => {
   const renderChecklists = () => {
     return meds.map((med) => {
       return (
-        <TodayChecklist medication={med.medication} timeOfDay={med.timeOfDay} />
+        <TodayChecklist
+          key={med.id}
+          medication={med.medication}
+          timeOfDay={med.timeOfDay}
+        />
       );
     });
   };

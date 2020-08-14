@@ -22,9 +22,7 @@ const MedicationForm = (props) => {
   const wrapperRef = useRef(null);
 
   //uses custom hooks for field states
-  const [strength, setStrength] = useFormInput(
-    (props.medication && props.medication.strength) || ""
-  );
+
   const [instructions, setInstructions] = useFormInput(
     (props.medication && props.medication.instructions) || ""
   );

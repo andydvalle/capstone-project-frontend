@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Conditions from "./Conditions";
 import Medications from "./Medications";
 import Appointments from "./Appointments";
 import HealthContacts from "./HealthContacts";
 import Today from "./Today";
-import ThisWeek from "./ThisWeek";
 import ThisMonth from "./ThisMonth";
 import FormModal from "./FormModal";
 
@@ -54,16 +53,6 @@ class ProfileView extends Component {
           path={`/dashboard/${foundProfile.id}/view`}
           render={(props) => (
             <Today
-              {...props}
-              patients={this.props.patients}
-              foundProfile={foundProfile}
-            />
-          )}
-        ></Route>
-        <Route
-          path={`/dashboard/${foundProfile.id}/thisWeek`}
-          render={(props) => (
-            <ThisWeek
               {...props}
               patients={this.props.patients}
               foundProfile={foundProfile}
