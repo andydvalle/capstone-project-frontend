@@ -336,13 +336,8 @@ class Dashboard extends Component {
                 <h1>We gathered your records!</h1>
                 <h5>Select a profile to start</h5>
                 <div className="row">{this.renderProfiles()}</div>
-
                 {/* form modal */}
                 <div className="dashboard-modal">
-                  {/* <Link to="/login">
-              <button onClick={handleClick}>Signout</button>
-            </Link> */}
-
                   <button
                     type="button"
                     id="dashboard-form"
@@ -356,10 +351,7 @@ class Dashboard extends Component {
                 {/* form modal content */}
                 <div className="modal" tabindex="-1" role="dialog">
                   <div className="modal-dialog" role="document">
-                    <div
-                      // ref={wrapperRef}
-                      className="modal-content"
-                    >
+                    <div className="modal-content">
                       <div className="form-modal">
                         {this.state.isEdit
                           ? `Edit ${this.state.foundProfile.firstName}`
@@ -392,7 +384,6 @@ class Dashboard extends Component {
             </div>
           </>
         ) : null}
-        {/* routes */}
         <Route
           path="/dashboard/:id"
           render={(props) => (
