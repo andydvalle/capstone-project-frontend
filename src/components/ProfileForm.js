@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { api } from "../services/api";
 import useFormInput from "../FormInput";
 
 const ProfileForm = (props) => {

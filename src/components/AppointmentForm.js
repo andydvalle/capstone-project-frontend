@@ -38,7 +38,7 @@ const AppointmentForm = (props) => {
       clinic_id: clinic_id.value,
       patient_id: props.patientId,
     };
-    api.appointments.postAppointment(data).then(props.addAppointment(data));
+    props.addAppointment(data);
     resetFields();
   };
 
