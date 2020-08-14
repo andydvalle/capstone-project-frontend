@@ -20,7 +20,8 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "strikethrough-js": "^2.2.2"
+    "strikethrough-js": "^2.2.2",
+    "uuid": "^8.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
