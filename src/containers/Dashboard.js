@@ -50,11 +50,13 @@ class Dashboard extends Component {
 
   removePatient = (patientId) => {
     console.log(patientId);
-    const updatedPatients = this.state.patients.filter(
-      (patient) => patient.id !== patientId
-    );
-    this.setState({
-      patients: updatedPatients,
+    api.patients.deletePatient(patientId).then((respJSON) => {
+      const updatedPatients = this.state.patients.filter(
+        (patient) => patient.id !== patientId
+      );
+      this.setState({
+        patients: updatedPatients,
+      });
     });
   };
 

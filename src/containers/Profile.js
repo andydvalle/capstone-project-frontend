@@ -10,7 +10,7 @@ const Profile = (props) => {
   };
 
   const handleDelete = () => {
-    api.patients.deletePatient(id).then(props.removePatient(id));
+    props.removePatient(id);
   };
 
   return (
