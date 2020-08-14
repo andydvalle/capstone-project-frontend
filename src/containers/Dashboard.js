@@ -78,19 +78,21 @@ class Dashboard extends Component {
   };
 
   updateAppointment = (data) => {
-    const foundPatient = this.state.patients.find(
-      (patient) => (patient.id = data.patient_id)
-    );
-    const newAppointments = foundPatient.appointments.map((appointment) =>
-      appointment.id !== data.id ? appointment : data
-    );
-    const updatedPatients = this.state.patients.map((patient) =>
-      patient.id !== data.patient_id
-        ? patient
-        : { ...patient, appointments: newAppointments }
-    );
-    this.setState({
-      patients: updatedPatients,
+    api.appointments.editAppointment(data).then((respJSON) => {
+      const foundPatient = this.state.patients.find(
+        (patient) => (patient.id = data.patient_id)
+      );
+      const newAppointments = foundPatient.appointments.map((appointment) =>
+        appointment.id !== data.id ? appointment : data
+      );
+      const updatedPatients = this.state.patients.map((patient) =>
+        patient.id !== data.patient_id
+          ? patient
+          : { ...patient, appointments: newAppointments }
+      );
+      this.setState({
+        patients: updatedPatients,
+      });
     });
   };
 

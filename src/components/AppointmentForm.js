@@ -53,10 +53,13 @@ const AppointmentForm = (props) => {
       clinic_id: clinic_id.value,
       patient_id: props.appointment.patient_id,
     };
-    api.appointments
-      .editAppointment(data)
-      .then(props.updateAppointment(data))
-      .then(props.resetIsEdit ? props.resetIsEdit() : null);
+    props.updateAppointment(data);
+    if (props.resetIsEdit) {
+      return props.resetIsEdit();
+    } else {
+      return null;
+    }
+    // props.resetIsEdit ? props.resetIsEdit() : null;
   };
 
   const getClinicOptions = () => {
