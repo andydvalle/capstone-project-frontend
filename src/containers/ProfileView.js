@@ -27,6 +27,7 @@ class ProfileView extends Component {
 
     return (
       <div className="profile_view">
+        {console.log(this.props.patients)}
         {/* <ProfileInfo foundProfile={foundProfile} /> */}
         <Route
           render={(props) => (

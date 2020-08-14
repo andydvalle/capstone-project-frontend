@@ -29,10 +29,12 @@ class Dashboard extends Component {
   };
 
   addPatient = (data) => {
-    const newPatients = [...this.state.patients, data];
-    this.setState({
-      patients: newPatients,
-    });
+    console.log(data);
+    // const newPatients = [...this.state.patients, data];
+    // this.setState({
+    //   patients: newPatients,
+    // });
+    this.getPatients();
   };
 
   updatePatient = (data) => {
