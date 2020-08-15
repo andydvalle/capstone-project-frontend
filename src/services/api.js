@@ -184,7 +184,7 @@ const fetchConditions = () => {
 
 // POST fetch condition
 const postCondition = (data) => {
-  console.log(data);
+  console.log(data, "hi from postCondition, api.js");
   const URL = "http://localhost:3000/api/v1/conditions";
   return fetch(URL, {
     method: "POST",
