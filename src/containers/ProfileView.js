@@ -8,7 +8,6 @@ import HealthContacts from "./HealthContacts";
 import Today from "./Today";
 import ThisMonth from "./ThisMonth";
 import FormModal from "./FormModal";
-import uuid from "uuid";
 
 class ProfileView extends Component {
   getProfile = () => {
