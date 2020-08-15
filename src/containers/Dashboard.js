@@ -66,7 +66,7 @@ class Dashboard extends Component {
   addAppointment = (data) => {
     api.appointments.postAppointment(data).then((respJSON) => {
       const foundPatient = this.state.patients.find(
-        (patient) => (patient.id = data.patient_id)
+        (patient) => patient.id === data.patient_id
       );
       const newAppointments = [...foundPatient.appointments, data];
       const updatedPatients = this.state.patients.map((patient) =>
@@ -83,7 +83,7 @@ class Dashboard extends Component {
   updateAppointment = (data) => {
     api.appointments.editAppointment(data).then((respJSON) => {
       const foundPatient = this.state.patients.find(
-        (patient) => (patient.id = data.patient_id)
+        (patient) => patient.id === data.patient_id
       );
       const newAppointments = foundPatient.appointments.map((appointment) =>
         appointment.id !== data.id ? appointment : data
@@ -103,7 +103,7 @@ class Dashboard extends Component {
     console.log(data);
     api.appointments.deleteAppointment(data.id).then((respJSON) => {
       const foundPatient = this.state.patients.find(
-        (patient) => (patient.id = data.patient_id)
+        (patient) => patient.id === data.patient_id
       );
       const newAppointments = foundPatient.appointments.filter(
         (appointment) => appointment.id !== data.id
@@ -122,7 +122,7 @@ class Dashboard extends Component {
   addMedication = (data) => {
     api.medications.postMedication(data).then((respJSON) => {
       const foundPatient = this.state.patients.find(
-        (patient) => (patient.id = data.patient_id)
+        (patient) => patient.id === data.patient_id
       );
       const newMedications = [...foundPatient.medications, data];
       const updatedPatients = this.state.patients.map((patient) =>
@@ -139,7 +139,7 @@ class Dashboard extends Component {
   updateMedication = (data) => {
     api.medications.editMedication(data).then((respJSON) => {
       const foundPatient = this.state.patients.find(
-        (patient) => (patient.id = data.patient_id)
+        (patient) => patient.id === data.patient_id
       );
       const newMedications = foundPatient.medications.map((medication) =>
         medication.id !== data.id ? medication : data
@@ -158,7 +158,7 @@ class Dashboard extends Component {
   removeMedication = (data) => {
     api.medications.deleteMedication(data.id).then((respJSON) => {
       const foundPatient = this.state.patients.find(
-        (patient) => (patient.id = data.patient_id)
+        (patient) => patient.id === data.patient_id
       );
       const newMedications = foundPatient.medications.filter(
         (medication) => medication.id !== data.id
@@ -196,7 +196,7 @@ class Dashboard extends Component {
   updateCondition = (data) => {
     api.conditions.editCondition(data).then((respJSON) => {
       const foundPatient = this.state.patients.find(
-        (patient) => (patient.id = data.patient_id)
+        (patient) => patient.id === data.patient_id
       );
       const newConditions = foundPatient.conditions.map((condition) =>
         condition.id !== data.id ? condition : data
@@ -215,7 +215,7 @@ class Dashboard extends Component {
   removeCondition = (data) => {
     api.conditions.deleteCondition(data.id).then((respJSON) => {
       const foundPatient = this.state.patients.find(
-        (patient) => (patient.id = data.patient_id)
+        (patient) => patient.id === data.patient_id
       );
       const newConditions = foundPatient.conditions.filter(
         (condition) => condition.id !== data.id
@@ -234,7 +234,7 @@ class Dashboard extends Component {
   addClinic = (data) => {
     api.clinics.postClinic(data).then((respJSON) => {
       const foundPatient = this.state.patients.find(
-        (patient) => (patient.id = data.patient_id)
+        (patient) => patient.id === data.patient_id
       );
       const newClinics = [...foundPatient.clinics, data];
       const updatedPatients = this.state.patients.map((patient) =>
@@ -251,7 +251,7 @@ class Dashboard extends Component {
   updateClinic = (data) => {
     api.clinics.editClinic(data).then((respJSON) => {
       const foundPatient = this.state.patients.find(
-        (patient) => (patient.id = data.patient_id)
+        (patient) => patient.id === data.patient_id
       );
       const newClinics = foundPatient.clinics.map((clinic) =>
         clinic.id !== data.id ? clinic : data
@@ -270,7 +270,7 @@ class Dashboard extends Component {
   removeClinic = (data) => {
     api.clinics.deleteClinic(data.id).then((respJSON) => {
       const foundPatient = this.state.patients.find(
-        (patient) => (patient.id = data.patient_id)
+        (patient) => patient.id === data.patient_id
       );
       const newClinics = foundPatient.clinics.filter(
         (clinic) => clinic.id !== data.id
