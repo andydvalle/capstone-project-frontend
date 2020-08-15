@@ -59,6 +59,13 @@ class Dashboard extends Component {
     });
   };
 
+  findPatient = (id) => {
+    const foundPatient = this.state.patients.find(
+      (patient) => patient.id === data.patient_id
+    );
+    return foundPatient;
+  };
+
   addAppointment = (data) => {
     api.appointments.postAppointment(data).then((respJSON) => {
       const foundPatient = this.state.patients.find(
