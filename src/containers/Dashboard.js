@@ -38,7 +38,6 @@ class Dashboard extends Component {
   };
 
   updatePatient = (data) => {
-    console.log(data);
     api.patients.editPatient(data).then((respJSON) => {
       const newPatients = this.state.patients.map((patient) =>
         patient.id !== data.id ? patient : { ...patient, ...data }
@@ -50,7 +49,6 @@ class Dashboard extends Component {
   };
 
   removePatient = (patientId) => {
-    console.log(patientId);
     api.patients.deletePatient(patientId).then((respJSON) => {
       const updatedPatients = this.state.patients.filter(
         (patient) => patient.id !== patientId
