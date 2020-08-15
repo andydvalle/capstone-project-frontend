@@ -63,7 +63,6 @@ class Dashboard extends Component {
     const foundPatient = this.state.patients.find(
       (patient) => patient.id === id
     );
-    console.log(`foundpatient with id ${id}`, foundPatient);
     return foundPatient;
   };
 
