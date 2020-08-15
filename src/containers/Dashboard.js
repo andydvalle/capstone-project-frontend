@@ -19,7 +19,6 @@ class Dashboard extends Component {
 
   componentDidMount() {
     this.getPatients();
-    console.log("hi from componentDidMount, Dashboard.js");
   }
 
   getPatients = () => {
@@ -28,7 +27,6 @@ class Dashboard extends Component {
         patients: data,
       });
     });
-    console.log("hi from getPatients, Dashboard.js");
   };
 
   addPatient = (data) => {
@@ -175,8 +173,6 @@ class Dashboard extends Component {
   };
 
   addCondition = (data) => {
-    console.log(data, "hi from addCondition Dashboard.js ");
-    console.log(this.state.patients, "hi from addCondition, Dashboard.js ");
     api.conditions.postCondition(data).then((respJSON) => {
       const foundPatient = this.state.patients.find(
         (patient) => patient.id === data.patient_id
@@ -319,7 +315,6 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-        {console.log(this.state.patients, "hi from render(), Dashboard.js")}
         {window.location.pathname === "/dashboard" ? (
           <>
             <DashboardHeader
