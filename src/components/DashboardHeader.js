@@ -13,25 +13,27 @@ const DashboardHeader = (props) => {
           width="30"
           height="30"
           className="d-inline-block align-top mr-2"
-          alt=""
+          alt="simple-care-logo"
         />
         Simple Care
       </Link>
       {loggedIn ? (
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
+          <div className="row">
             <Link className="nav-link" to="/dashboard">
               Profiles
             </Link>
-          </li>
+          </div>
         </ul>
       ) : null}
       <div>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active"></li>
           {loggedIn ? (
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
+            <div className="row">
+              <Link className="nav-link">Settings</Link>
+
+              <Link to="/" className="nav-link mr-4">
                 <div
                   onClick={() => {
                     props.handleLogout();
@@ -41,10 +43,10 @@ const DashboardHeader = (props) => {
                   Sign Out
                 </div>
               </Link>
-            </li>
+            </div>
           ) : (
             <li className="nav-item">
-              <Link to="/" className="nav-item">
+              <Link to="/" className="nav-link">
                 <div className="nav-link">Sign In</div>
               </Link>
             </li>

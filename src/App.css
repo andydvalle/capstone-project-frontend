@@ -432,6 +432,8 @@ input[type="checkbox"]:checked + label.strikethrough {
 
 .nav-link {
   color: #2e2e2e;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .nav-link:hover {
   color: #005b4f;
