@@ -25,7 +25,6 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // fetch request to login from api.js
     api.auth.login(this.state.fields).then((resp) => {
       if (!resp.error) {
         this.props.onLogin(resp);
@@ -64,14 +63,12 @@ class Login extends Component {
             </div>
           </div>
           <div className="notelist">
-            {/* <DashboardHeader /> */}
             <div className="login">
               <div className="login-header">
                 Your health is important. Let's keep you on track.
               </div>
               <div className="login-form">
                 {this.state.error ? <p>Please try again</p> : null}
-                {/* ellipses */}
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
                     <label className="login-label">Username</label>

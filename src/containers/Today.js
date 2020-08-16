@@ -51,8 +51,6 @@ const Today = (props) => {
   const [day] = useState(weekday());
   const [date] = useState(getDate());
 
-  //build array of objects
-  //sort by keys
   const sortMeds = (a, b) => {
     const aKey = a.key;
     const bKey = b.key;

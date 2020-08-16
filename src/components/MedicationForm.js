@@ -18,10 +18,7 @@ const MedicationForm = (props) => {
     (props.medication && props.medication.strength) || ""
   );
 
-  //set wrapperRef to null
   const wrapperRef = useRef(null);
-
-  //uses custom hooks for field states
 
   const [instructions, setInstructions] = useFormInput(
     (props.medication && props.medication.instructions) || ""
@@ -135,7 +132,6 @@ const MedicationForm = (props) => {
       `https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=${e.target.value}&ef=STRENGTHS_AND_FORMS`
     )
       .then((resp) => resp.json())
-      //setState array
       .then((data) => {
         let filteredMeds = data[1].flat();
         setMeds(filteredMeds);

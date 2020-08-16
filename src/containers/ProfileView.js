@@ -26,7 +26,6 @@ class ProfileView extends Component {
 
     return (
       <div className="profile_view">
-        {/* <ProfileInfo foundProfile={foundProfile} /> */}
         <Route
           render={(props) => (
             <Navbar
@@ -38,16 +37,6 @@ class ProfileView extends Component {
             />
           )}
         />
-        {/* <Route
-          path={`/dashboard/${foundProfile.id}/view`}
-          render={(props) => (
-            <ProfileInfo
-              {...props}
-              // patients={this.props.patients}
-              foundProfile={foundProfile}
-            />
-          )}
-        ></Route> */}
         <Route
           path={`/dashboard/${foundProfile.id}/view`}
           render={(props) => (

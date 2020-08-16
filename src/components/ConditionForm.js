@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import useFormInput from "../FormInput";
 
 const ConditionForm = (props) => {
-  // //sets search table state
+  //sets search table state
   const [items, setItems] = useState([]);
   const [display, setDisplay] = useState(false);
   const [options, setOptions] = useState([]);
@@ -11,7 +11,6 @@ const ConditionForm = (props) => {
   );
   const wrapperRef = useRef(null);
 
-  //uses custom hooks for field states
   const [notes, setNotes] = useFormInput(
     (props.condition && props.condition.notes) || ""
   );
@@ -67,14 +66,12 @@ const ConditionForm = (props) => {
     }
   };
 
-  //fetch request for search table
   const handleSearch = (e) => {
     setSearch(e.target.value);
     fetch(
       `https://clinicaltables.nlm.nih.gov/api/conditions/v3/search?terms=${e.target.value}`
     )
       .then((resp) => resp.json())
-      //setState array
       .then((data) => {
         let filteredItems = data[3].flat();
         setItems(filteredItems);

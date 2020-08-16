@@ -130,20 +130,8 @@ const AppointmentForm = (props) => {
           <button type="submit" className="btn btn-primary">
             Save and add another
           </button>
-          {/* <button
-            type="submit"
-            className="btn btn-info"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            Save and exit
-          </button> */}
         </div>
       )}
-
-      {/* <button type="submit" className="btn btn-light">
-        Save and exit
-      </button> */}
     </form>
   );
 };

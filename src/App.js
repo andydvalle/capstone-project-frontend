@@ -51,10 +51,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <DashboardHeader
-          currentUser={this.state.auth.user}
-          handleLogout={this.onSignout}
-        /> */}
         <Route
           exact
           path="/"
@@ -87,7 +83,6 @@ class App extends Component {
                 {...props}
                 currentUser={this.state.auth.user}
                 handleLogout={this.onSignout}
-                // onSignout={this.onSignout}
               />
             )}
           />

@@ -71,7 +71,6 @@ const FormModal = (props) => {
         aria-labelledby="myLargeModalLabel"
         aria-hidden="true"
       >
-        {/* Form modal */}
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div className="form-modal">
@@ -86,7 +85,6 @@ const FormModal = (props) => {
               New {forms}
             </div>
             <div className="p-3">
-              {/* radio buttons */}
               <div className="p-3">
                 <div>I am adding a(n)...</div>
                 <div className="row">
@@ -145,7 +143,6 @@ const FormModal = (props) => {
                   </div>
                 </div>
               </div>
-              {/* forms */}
               {renderForm(forms)}
             </div>
           </div>

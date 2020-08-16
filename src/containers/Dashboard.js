@@ -314,7 +314,6 @@ class Dashboard extends Component {
                 <h1>We gathered your records!</h1>
                 <h5>Select a profile to start</h5>
                 <div className="row">{this.renderProfiles()}</div>
-                {/* form modal */}
                 <div className="dashboard-modal">
                   <button
                     type="button"
@@ -326,7 +325,6 @@ class Dashboard extends Component {
                     Add a profile
                   </button>
                 </div>
-                {/* form modal content */}
                 <div className="modal" tabindex="-1" role="dialog">
                   <div className="modal-dialog" role="document">
                     <div className="modal-content">

@@ -2,13 +2,11 @@ import React from "react";
 
 const AppointmentChecklist = (props) => {
   const timeDisplay = (time) => {
-    time = time.split(":"); // convert to array
+    time = time.split(":");
 
-    // fetch
     const hours = Number(time[0]);
     const minutes = Number(time[1]);
 
-    // calculate
     let timeValue = "";
 
     if (hours > 0 && hours <= 12) {
@@ -19,8 +17,8 @@ const AppointmentChecklist = (props) => {
       timeValue = "12";
     }
 
-    timeValue += minutes < 10 ? ":0" + minutes : ":" + minutes; // get minutes
-    timeValue += hours >= 12 ? " PM" : " AM"; // get AM/PM
+    timeValue += minutes < 10 ? ":0" + minutes : ":" + minutes;
+    timeValue += hours >= 12 ? " PM" : " AM";
 
     return timeValue;
   };

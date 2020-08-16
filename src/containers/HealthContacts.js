@@ -27,7 +27,6 @@ class HealthContacts extends Component {
   render() {
     return (
       <div>
-        {/* Hi from HealthContacts */}
         <div className="main_content">
           <div className="header">Health Contacts</div>
           <div className="info">{this.renderContacts()}</div>
