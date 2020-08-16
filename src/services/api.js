@@ -12,11 +12,14 @@ const headers = () => {
 
 //sends login information to backend, auth#create
 const login = (data) => {
-  return fetch("https://simple-care-app-api.herokuapp.com/api/v1/auth", {
-    method: "POST",
-    headers: headers(),
-    body: JSON.stringify(data),
-  }).then((resp) => resp.json());
+  return fetch(
+    "https://cors-anywhere.simple-care-app-api.herokuapp.com/api/v1/auth",
+    {
+      method: "POST",
+      headers: headers(),
+      body: JSON.stringify(data),
+    }
+  ).then((resp) => resp.json());
 };
 
 //sends signup information to backend, users#create
