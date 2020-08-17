@@ -147,7 +147,6 @@ const MedicationForm = (props) => {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data[2]);
         let filteredStrengths = Object.values(data[2]).flat();
         setStrengths(filteredStrengths[0]);
       });

@@ -33,7 +33,6 @@ const Signup = (props) => {
           password: password,
         })
         .then((resp) => {
-          console.log(resp);
           if (!resp.error) {
             props.onLogin(resp);
             props.history.push("/dashboard");

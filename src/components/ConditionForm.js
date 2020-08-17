@@ -45,7 +45,6 @@ const ConditionForm = (props) => {
       notes: notes.value,
       patient_id: props.patientId,
     };
-    console.log(data, "hello from handlePostcondition - ConditionForm");
     props.addCondition(data);
     resetFields();
   };

@@ -15,7 +15,6 @@ class App extends Component {
 
   // on submit from Login.js
   onLogin = (token) => {
-    console.log(`loggin in ... ${token.username}`);
     const updatedState = {
       ...this.state.auth,
       user: { id: token.id, username: token.username },
@@ -26,7 +25,6 @@ class App extends Component {
 
   // on submit from pending Logout button
   onSignout = () => {
-    console.log(`${this.state.auth.user.username} signing out`);
     localStorage.removeItem("token");
     this.setState({
       auth: {
