@@ -31,8 +31,6 @@ const DashboardHeader = (props) => {
           <li className="nav-item active"></li>
           {loggedIn ? (
             <div className="row">
-              <Link className="nav-link">Settings</Link>
-
               <Link to="/" className="nav-link mr-4">
                 <div
                   onClick={() => {
