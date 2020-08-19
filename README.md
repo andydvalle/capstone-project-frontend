@@ -7,7 +7,15 @@ This [link](https://github.com/andydvalle/capstone-project-backend) will direct 
 
 In my previous experience in health care, often times I've noticed it is the patient's loved ones that are managing their care. They have to remember all the medications, health conditions, and health events that happens to the patient. Healthcare can be very complicated. Simlple Care was created to help caregivers manage the care of their loved one in a simple easy to use application.
 
-## Installation
+## Deployed link or Installation
+
+Visit <https://simplecare.netlify.app/>
+
+- Demo user:
+  - Username: user
+  - Password: 123
+
+Local installation:
 
 1. Clone this repository
 2. Run the backend server - refer to [backend](https://github.com/andydvalle/capstone-project-backend) repository
@@ -24,6 +32,10 @@ Users can:
 - Create, read, updated, and delete Appointments, Medications, Conditions, and Health Contacts
 - View a today schedule with checklist items and calendar view of past and future appointments.
 - Add items using a dynamic form with autocomplete search fields and controlled options.
+
+## Demo
+
+Watch the video demo [here](https://www.youtube.com/watch?v=DI4j9yhgR2U&t=1s)!
 
 ## Screenshots
 
@@ -47,10 +59,11 @@ Users can:
 #### Special Thanks To
 
 - [NLM (National Library of Medicine) Clinical Search Table](https://clinicaltables.nlm.nih.gov/apidoc/conditions/v3/doc.html)
-- [React Big Calendar](https://www.npmjs.com/package/react-big-calendar)
-- [Moment](https://www.npmjs.com/package/react-moment)
-- [React Avatar](https://www.npmjs.com/package/react-avatar)
+- [NPM React Big Calendar](https://www.npmjs.com/package/react-big-calendar)
+- [NPM Moment](https://www.npmjs.com/package/react-moment)
+- [NPM React Avatar](https://www.npmjs.com/package/react-avatar)
 - [Undraw](https://undraw.co/) open source illustrations
+- [Netlify](https://www.netlify.com/)
 
 ## Licensing
 
