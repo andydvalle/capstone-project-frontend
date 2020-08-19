@@ -14,31 +14,25 @@ const headers = () => {
 
 //sends login information to backend, auth#create
 const login = (data) => {
-  return fetch(
-    `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/auth`,
-    {
-      method: "POST",
-      headers: headers(),
-      body: JSON.stringify(data),
-    }
-  ).then((resp) => resp.json());
+  return fetch(`${API_ROOT}/auth`, {
+    method: "POST",
+    headers: headers(),
+    body: JSON.stringify(data),
+  }).then((resp) => resp.json());
 };
 
 //sends signup information to backend, users#create
 const signup = (data) => {
-  return fetch(
-    `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/users`,
-    {
-      method: "POST",
-      headers: headers(),
-      body: JSON.stringify(data),
-    }
-  ).then((resp) => resp.json());
+  return fetch(`${API_ROOT}/users`, {
+    method: "POST",
+    headers: headers(),
+    body: JSON.stringify(data),
+  }).then((resp) => resp.json());
 };
 
 //get fetch the current user after login
 const getCurrentUser = () => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/current_user`;
+  const URL = `${API_ROOT}/current_user`;
   return fetch(URL, {
     headers: headers(),
   }).then((resp) => {
@@ -47,12 +41,12 @@ const getCurrentUser = () => {
 };
 
 const fetchPatients = () => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/patients`;
+  const URL = `${API_ROOT}/patients`;
   return fetch(URL, { headers: headers() }).then((resp) => resp.json());
 };
 
 const postPatient = (data) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/patients`;
+  const URL = `${API_ROOT}/patients`;
   return fetch(URL, {
     method: "POST",
     headers: headers(),
@@ -61,7 +55,7 @@ const postPatient = (data) => {
 };
 
 const editPatient = (data) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/patients/${data.id}`;
+  const URL = `${API_ROOT}/patients/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
     headers: headers(),
@@ -75,19 +69,19 @@ const editPatient = (data) => {
 };
 
 const deletePatient = (patientId) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/patients/${patientId}`;
+  const URL = `${API_ROOT}/patients/${patientId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
 };
 
 const fetchAppointments = () => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/appointments`;
+  const URL = `${API_ROOT}/appointments`;
   return fetch(URL).then((resp) => resp.json());
 };
 
 const postAppointment = (data) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/appointments`;
+  const URL = `${API_ROOT}/appointments`;
   return fetch(URL, {
     method: "POST",
     headers: headers(),
@@ -96,7 +90,7 @@ const postAppointment = (data) => {
 };
 
 const editAppointment = (data) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/appointments/${data.id}`;
+  const URL = `${API_ROOT}/appointments/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
     headers: headers(),
@@ -112,19 +106,19 @@ const editAppointment = (data) => {
 };
 
 const deleteAppointment = (patientId) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/appointments/${patientId}`;
+  const URL = `${API_ROOT}/appointments/${patientId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
 };
 
 const fetchMedications = () => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/medications`;
+  const URL = `${API_ROOT}/medications`;
   return fetch(URL).then((resp) => resp.json());
 };
 
 const postMedication = (data) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/medications`;
+  const URL = `${API_ROOT}/medications`;
   return fetch(URL, {
     method: "POST",
     headers: headers(),
@@ -133,7 +127,7 @@ const postMedication = (data) => {
 };
 
 const editMedication = (data) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/medications/${data.id}`;
+  const URL = `${API_ROOT}/medications/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
     headers: headers(),
@@ -155,19 +149,19 @@ const editMedication = (data) => {
 };
 
 const deleteMedication = (patientId) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/medications/${patientId}`;
+  const URL = `${API_ROOT}/medications/${patientId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
 };
 
 const fetchConditions = () => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/conditions`;
+  const URL = `${API_ROOT}/conditions`;
   return fetch(URL).then((resp) => resp.json());
 };
 
 const postCondition = (data) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/conditions`;
+  const URL = `${API_ROOT}/conditions`;
   return fetch(URL, {
     method: "POST",
     headers: headers(),
@@ -176,7 +170,7 @@ const postCondition = (data) => {
 };
 
 const editCondition = (data) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/conditions/${data.id}`;
+  const URL = `${API_ROOT}/conditions/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
     headers: headers(),
@@ -189,19 +183,19 @@ const editCondition = (data) => {
 };
 
 const deleteCondition = (patientId) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/conditions/${patientId}`;
+  const URL = `${API_ROOT}/conditions/${patientId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
 };
 
 const fetchClinics = () => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/clinics`;
+  const URL = `${API_ROOT}/clinics`;
   return fetch(URL).then((resp) => resp.json());
 };
 
 const postClinic = (data) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/clinics`;
+  const URL = `${API_ROOT}/clinics`;
   return fetch(URL, {
     method: "POST",
     headers: headers(),
@@ -210,7 +204,7 @@ const postClinic = (data) => {
 };
 
 const editClinic = (data) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/clinics/${data.id}`;
+  const URL = `${API_ROOT}/clinics/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
     headers: headers(),
@@ -230,7 +224,7 @@ const editClinic = (data) => {
 };
 
 const deleteClinic = (patientId) => {
-  const URL = `https://cors-anywhere.herokuapp.com/https://simple-care-app-api.herokuapp.com/api/v1/clinics/${patientId}`;
+  const URL = `${API_ROOT}/clinics/${patientId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
