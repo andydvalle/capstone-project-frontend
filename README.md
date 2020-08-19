@@ -1,11 +1,11 @@
 # Simple Care - Frontend
 
-Simple Care is a task management tool for anyone who finds themself in a caregiver role, one who takes care of another person or loved one.
+Simple Care is a task management tool for anyone who finds themselves in a caregiver role, one who takes care of another person or loved one.
 This [link](https://github.com/andydvalle/capstone-project-backend) will direct you to the backend repository.
 
 ## Motivation
 
-In my previous experience in health care, often times I've noticed it is the patient's loved ones that are managing their care. They have to remember all the medications, health conditions, and health events that happens to the patient. Healthcare can be very complicated. Simlple Care was created to help caregivers manage the care of their loved one in a simple easy to use application.
+In my previous experience in health care, often times I've noticed it is the patient's loved ones that are managing their care. They have to remember all their medications, health conditions, and health events that happens to the patient. Healthcare can be very complicated. Simlple Care was created to help caregivers manage the care of their loved ones.
 
 ## Deployed link or Installation
 
