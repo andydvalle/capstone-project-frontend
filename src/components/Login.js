@@ -100,6 +100,13 @@ class Login extends Component {
                       <Link to={`/signup`}>Not a member? Signup!</Link>
                     </div>
                   </div>
+                  <div className="mt-5">
+                    <p>Want to demo this site? Login with:</p>
+                    <em>
+                      Username: <strong>user</strong> Password:{" "}
+                      <strong>123</strong>
+                    </em>
+                  </div>
                 </form>
               </div>
             </div>
