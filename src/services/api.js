@@ -1,5 +1,4 @@
 const API_ROOT = `https://simple-care-app-api.herokuapp.com/api/v1`;
-// const API_ROOT = `http://localhost:3000/api/v1`;
 
 //grabs the token held in browser's localStorage
 const token = () => localStorage.getItem("token");
