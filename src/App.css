@@ -347,13 +347,6 @@ input[type="checkbox"]:checked + label.strikethrough {
   outline-color: #c4c4c4 !important;
 }
 
-/* #ellipse1 {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 5;
-} */
-
 .img-overlay-wrap {
   position: relative;
   display: inline-block; /* <= shrinks container to image size */
@@ -418,13 +411,32 @@ input[type="checkbox"]:checked + label.strikethrough {
   right: 0px;
 }
 
+@media screen and (max-width: 500px) {
+  #ellipse2 {
+    display: none;
+  }
+
+  #ellipse3 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  #ellipse4 {
+    display: none;
+  }
+
+  #ellipse5 {
+    display: none;
+  }
+}
+
 .navbar {
   background: rgba(0, 137, 123, 0.2);
   z-index: 1;
 }
 .navbar-brand {
   color: #2e2e2e;
-  /* font-weight: bold; */
 }
 .navbar-brand:hover {
   color: #005b4f;
@@ -441,7 +453,6 @@ input[type="checkbox"]:checked + label.strikethrough {
 
 .card-title {
   color: #00897b;
-  /* font-weight: bold; */
 }
 
 .card-link {
@@ -450,19 +461,6 @@ input[type="checkbox"]:checked + label.strikethrough {
 .card-link:hover {
   color: #00897b;
 }
-
-/* .img-overlay-wrap:hover {
-  transform: rotate(15deg);
-} */
-
-/* .dashboard-profile-cards {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.dashboard-profile-cards > * {
-  flex: 1 1 160px;
-} */
 
 /* autocomplete */
 .auto-container {
@@ -476,38 +474,9 @@ input[type="checkbox"]:checked + label.strikethrough {
   z-index: 1;
 }
 
-/* .logo {
-  background-image: url("./loc-logo.png");
-  height: 70px;
-  width: 200px;
-  background-size: contain;
-  background-repeat: no-repeat;
-} */
-
-/* input {
-  padding: 10px;
-  height: 20px;
-  width: 500px;
-  border: 1px solid purple;
-  margin: 10px;
-  font-size: 18px;
-  text-transform: capitalize;
-} */
-
 .pos-rel {
   position: relative;
 }
-
-/* .autoContainer {
-  position: absolute;
-  border-width: 0px 1px 1px 1px;
-  border-style: solid;
-  border-color: #00897b;
-  background-color: #fafafa;
-  left: 14px;
-  top: 235px;
-  width: 475px;
-} */
 
 .autoContainer {
   position: absolute;
@@ -523,7 +492,6 @@ input[type="checkbox"]:checked + label.strikethrough {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* width: 500px; */
   padding: 5px;
 }
 
@@ -577,43 +545,3 @@ span {
   border-style: solid;
   margin: 3px;
 }
-
-/* automatically rendered with react app */
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
