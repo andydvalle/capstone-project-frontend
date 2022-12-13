@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "autocomplete-lhc": "^18.1.1",
     "axios": "^0.19.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "moment": "^2.27.0",
     "package.json": "^2.0.1",
     "prop-types": "^15.7.2",
